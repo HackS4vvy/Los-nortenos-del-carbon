@@ -1,4 +1,4 @@
-/* --- Reset y Estilos Base --- */
+/* --- Reset y Configuración General --- */
 * {
     margin: 0;
     padding: 0;
@@ -11,12 +11,13 @@ html {
 
 body {
     font-family: 'Montserrat', sans-serif;
+    background-color: #ffffff;
 }
 
-/* --- Header / Navbar (Estructura Original) --- */
+/* --- Header / Navbar --- */
 .navbar {
     display: flex;
-    justify-content: space-between; /* Mantiene la distribución Izquierda-Centro-Derecha */
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     padding: 25px 5%; 
@@ -27,18 +28,24 @@ body {
     z-index: 1000;
 }
 
-/* --- Logo --- */
+/* --- Logo (150px de alto) --- */
+.logo-container {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
 .logo-img {
     height: 150px; 
     width: auto;
     object-fit: contain;
 }
 
-/* --- Enlaces (16px y 35px de separación) --- */
+/* --- Enlaces de Navegación --- */
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 35px; 
+    gap: 35px; /* Espaciado entre enlaces */
 }
 
 .nav-links a {
@@ -47,30 +54,43 @@ body {
     font-weight: 800;
     font-size: 16px; 
     letter-spacing: 1px;
+    transition: color 0.3s ease;
 }
 
-.nav-links a.active {
+.nav-links a.active, .nav-links a:hover {
     color: #e65100;
 }
 
-/* --- Lado Derecho: Iconos y Botón --- */
+/* --- Acciones (Redes y Botón) --- */
 .nav-actions {
     display: flex;
     align-items: center;
-    gap: 15px; /* Controla el aire entre redes y el botón PIDE AQUÍ */
+    gap: 12px; /* Reducción de aire entre iconos y botón */
 }
 
 .social-circle {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     background: #4a3434;
-    color: #ffffff !important; /* Asegura que el icono sea blanco */
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    font-size: 18px; /* Tamaño del icono dentro del círculo */
+    transition: transform 0.2s;
+}
+
+.social-circle:hover {
+    transform: scale(1.1);
+}
+
+/* SOLUCIÓN PARA QUE LOS ICONOS APAREZCAN */
+.social-circle i {
+    color: #ffffff !important;
+    font-family: "Font Awesome 6 Brands" !important; /* Fuerza la fuente de iconos */
+    font-style: normal;
+    font-size: 20px;
+    display: inline-block;
 }
 
 .btn-shop {
@@ -82,10 +102,15 @@ body {
     font-size: 14px;
     border-radius: 10px;
     letter-spacing: 0.5px;
-    margin-left: 5px; /* Espacio mínimo para que no se pegue a los círculos */
+    margin-left: 5px; /* Ajuste fino de posición */
 }
 
-/* --- Responsive --- */
-@media (max-width: 1350px) {
-    .nav-links { display: none; }
+/* --- Ajuste para Tablets/Móviles --- */
+@media (max-width: 1400px) {
+    .nav-links {
+        display: none; /* Oculta para el futuro menú hamburguesa */
+    }
+    .logo-img {
+        height: 100px;
+    }
 }
