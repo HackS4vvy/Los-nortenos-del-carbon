@@ -1,4 +1,4 @@
-/* --- Estilos del Header que ya tienes --- */
+/* --- Estilos del Header --- */
 * {
     margin: 0;
     padding: 0;
@@ -58,17 +58,9 @@ body { font-family: 'Montserrat', sans-serif; }
     text-decoration: none;
 }
 
-/* --- SOLUCIÓN TÉCNICA DEFINITIVA --- */
-/* Esta regla fuerza al navegador a mostrar los iconos blancos y con la fuente correcta */
-.social-circle i {
-    color: #ffffff !important; 
-    font-size: 20px;
-    font-weight: 400; /* Importante para iconos de marcas */
-    display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    line-height: 1;
+/* Ajuste para centrar los SVGs */
+.social-circle svg {
+    display: block;
 }
 
 .btn-shop {
