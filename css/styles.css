@@ -1,88 +1,115 @@
+/* --- Reset y Estilos Base --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
+    background-color: #ffffff;
 }
 
+/* --- Header / Navbar --- */
 .navbar {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 20px 5%;
-    background-color: #fff;
-    border-bottom: 1px solid #f2f2f2;
     width: 100%;
+    padding: 25px 5%; 
+    background-color: #ffffff;
+    border-bottom: 1px solid #f2f2f2;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
+/* --- Logo (150px) --- */
 .logo-container {
+    display: flex;
+    align-items: center;
     flex-shrink: 0;
 }
 
 .logo-img {
-    height: 120px; /* Ajustado para que no sea excesivo */
+    height: 150px; 
     width: auto;
+    object-fit: contain;
 }
 
-/* ESTO ELIMINA EL AIRE: Empuja todo el grupo a la derecha pero lo mantiene unido */
-.nav-main-group {
-    display: flex;
-    align-items: center;
-    margin-left: auto; /* Empuja todo el bloque a la derecha del logo */
-    gap: 40px; /* Espacio entre el último enlace y los iconos */
-}
-
+/* --- Enlaces (16px y 35px de separación) --- */
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 30px; /* Espacio entre enlaces */
+    gap: 35px; 
 }
 
 .nav-links a {
     text-decoration: none;
-    color: #613e3e;
+    color: #613e3e; 
     font-weight: 800;
-    font-size: 15px;
-    letter-spacing: 0.5px;
+    font-size: 16px; 
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
 }
 
-.nav-links a.active {
+.nav-links a.active, .nav-links a:hover {
     color: #e65100;
 }
 
+.more-icon {
+    color: #ddd;
+    font-size: 16px;
+    margin-left: -5px;
+}
+
+/* --- Lado Derecho: Ajuste de "Aire" --- */
 .nav-actions {
     display: flex;
     align-items: center;
-    gap: 12px; /* Espacio corto entre redes y botón */
+    gap: 10px; /* Reducido para que Instagram y Facebook estén más cerca */
 }
 
 .social-circle {
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
     background: #4a3434;
-    color: white !important;
+    color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 15px;
+    transition: background 0.3s;
+}
+
+.social-circle:hover {
+    background: #e65100;
 }
 
 .btn-shop {
     background-color: #b3d435;
     color: #333;
-    padding: 14px 28px;
+    padding: 16px 32px;
     text-decoration: none;
     font-weight: 800;
     font-size: 14px;
     border-radius: 10px;
-    margin-left: 10px;
+    letter-spacing: 0.5px;
+    margin-left: 10px; /* Pequeña separación del botón con las redes */
 }
 
-/* Responsivo */
-@media (max-width: 1300px) {
-    .nav-main-group { display: none; }
+/* --- Responsive --- */
+@media (max-width: 1350px) {
+    .nav-links {
+        display: none;
+    }
+    .logo-img {
+        height: 100px;
+    }
 }
