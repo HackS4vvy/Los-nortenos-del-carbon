@@ -1,12 +1,15 @@
-/* --- Estilos del Header --- */
+/* --- Reset --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html { scroll-behavior: smooth; }
+
 body { font-family: 'Montserrat', sans-serif; }
 
+/* --- Navbar Estructura --- */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -25,22 +28,24 @@ body { font-family: 'Montserrat', sans-serif; }
     width: auto;
 }
 
+/* --- Navegación (Tus medidas exactas) --- */
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 35px;
+    gap: 35px; /* Espaciado solicitado */
 }
 
 .nav-links a {
     text-decoration: none;
     color: #613e3e;
-    font-weight: 800;
-    font-size: 16px;
+    font-weight: 800; /* Negrita */
+    font-size: 16px;  /* Tamaño solicitado */
     letter-spacing: 1px;
 }
 
 .nav-links a.active { color: #e65100; }
 
+/* --- Redes y Botón --- */
 .nav-actions {
     display: flex;
     align-items: center;
@@ -58,10 +63,7 @@ body { font-family: 'Montserrat', sans-serif; }
     text-decoration: none;
 }
 
-/* Ajuste para centrar los SVGs */
-.social-circle svg {
-    display: block;
-}
+.social-circle svg { display: block; }
 
 .btn-shop {
     background-color: #b3d435;
