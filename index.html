@@ -4,37 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Los Norteños del Carbón</title>
-
-    <!-- Librería de Iconos (FontAwesome) -->
+    <!-- Iconos -->
     <link rel="stylesheet" href="https://cloudflare.com">
-
-    <!-- Tu archivo de estilos personalizado -->
+    <!-- Google Fonts para replicar la letra -->
+    <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body id="home">
 
     <header class="navbar">
-        <!-- Lado Izquierdo: Logo -->
-        <div class="logo">
-            LOS NORTEÑOS <span class="logo-light">DEL CARBÓN</span>
+        <!-- Logo basado en la imagen -->
+        <div class="logo-container">
+            <img src="img/logo.png" alt="Logo" class="logo-img">
+            <div class="logo-text">Gustavo <span>Mexican grill</span></div>
         </div>
 
-        <!-- Centro: Navegación -->
+        <!-- Navegación con el espaciado y letra de la imagen -->
         <nav class="nav-links">
-            <a href="#inicio">INICIO</a>
-            <a href="#menu">MENÚ</a>
-            <a href="#ubicacion">UBICACIÓN</a>
+            <a href="#home" class="active">HOME</a>
+            <a href="#about">ABOUT US</a>
+            <a href="#menu">MENU</a>
+            <a href="#blog">BLOG</a>
+            <a href="#features">FEATURES</a>
+            <a href="#catering">CATERING</a>
+            <a href="#locations">LOCATIONS</a>
+            <i class="fa-solid fa-ellipsis-vertical more-icon"></i>
         </nav>
 
-        <!-- Lado Derecho: Social y Botón -->
+        <!-- Acciones: Carrito, Redes y Botón -->
         <div class="nav-actions">
-            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me" class="btn-pide">¡PIDE AQUÍ!</a>
+            <div class="cart-icon">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="badge">0</span>
+            </div>
+            <a href="#" class="social-circle"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-circle"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://wa.me" class="btn-shop">SHOP NOW</a>
         </div>
     </header>
-
-    <!-- Aquí iremos agregando las siguientes secciones (Hero, Menú, etc.) -->
 
 </body>
 </html>
