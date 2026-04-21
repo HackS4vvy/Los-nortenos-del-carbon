@@ -1,11 +1,9 @@
-/* --- Estilos que ya tienes (Sin cambios en diseño) --- */
+/* --- Estilos del Header que ya tienes --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-html { scroll-behavior: smooth; }
 
 body { font-family: 'Montserrat', sans-serif; }
 
@@ -25,7 +23,6 @@ body { font-family: 'Montserrat', sans-serif; }
 .logo-img {
     height: 150px;
     width: auto;
-    object-fit: contain;
 }
 
 .nav-links {
@@ -61,12 +58,17 @@ body { font-family: 'Montserrat', sans-serif; }
     text-decoration: none;
 }
 
-/* --- ESTO ES LO QUE HACE QUE SE VEAN (SOLUCIÓN TÉCNICA) --- */
+/* --- SOLUCIÓN TÉCNICA DEFINITIVA --- */
+/* Esta regla fuerza al navegador a mostrar los iconos blancos y con la fuente correcta */
 .social-circle i {
-    color: #ffffff !important; /* Fuerza el color blanco */
-    font-family: "Font Awesome 6 Brands" !important; /* Fuerza la fuente de los iconos */
+    color: #ffffff !important; 
     font-size: 20px;
+    font-weight: 400; /* Importante para iconos de marcas */
+    display: inline-block;
     font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
 }
 
 .btn-shop {
