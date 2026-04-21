@@ -1,4 +1,13 @@
-/* --- Estilos del Header --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body { font-family: 'Montserrat', sans-serif; }
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -7,11 +16,15 @@
     padding: 25px 5%;
     background-color: #ffffff;
     border-bottom: 1px solid #f2f2f2;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .logo-img {
     height: 150px;
     width: auto;
+    object-fit: contain;
 }
 
 .nav-links {
@@ -28,33 +41,30 @@
     letter-spacing: 1px;
 }
 
-/* --- ESTILO DE LOS ICONOS (Copia esto tal cual) --- */
+.nav-links a.active { color: #e65100; }
+
+/* AJUSTE DE AIRE: Reducción de espacio entre redes y botón */
 .nav-actions {
     display: flex;
     align-items: center;
-    gap: 15px; /* Poco aire entre redes y botón */
+    gap: 12px;
 }
 
 .social-circle {
-    width: 45px; /* Tamaño del círculo de tu imagen */
-    height: 45px;
-    background-color: #613e3e; /* El color café de tu imagen */
+    width: 42px;
+    height: 42px;
+    background: #4a3434;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    transition: transform 0.2s ease;
 }
 
+/* FORZADO DE VISIBILIDAD PARA ICONOS */
 .social-circle i {
-    color: #ffffff !important; /* Icono blanco obligatorio */
-    font-size: 22px; /* Tamaño visual del icono */
-    font-family: "Font Awesome 6 Brands" !important; /* Fuerza la carga del icono */
-}
-
-.social-circle:hover {
-    transform: scale(1.1);
+    color: #ffffff !important;
+    font-size: 20px;
 }
 
 .btn-shop {
@@ -65,5 +75,8 @@
     font-weight: 800;
     font-size: 14px;
     border-radius: 10px;
-    margin-left: 5px;
+}
+
+@media (max-width: 1350px) {
+    .nav-links { display: none; }
 }
