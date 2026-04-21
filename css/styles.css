@@ -1,4 +1,4 @@
-/* --- Configuración General --- */
+/* --- Reset y Configuración de Pantalla --- */
 * {
     margin: 0;
     padding: 0;
@@ -11,31 +11,34 @@ html {
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #fff;
+    background-color: #ffffff;
+    overflow-x: hidden; /* Evita scroll horizontal */
 }
 
-/* --- Header / Navbar --- */
+/* --- Navbar (El contenedor principal) --- */
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Distribuye Izquierda, Centro y Derecha */
     align-items: center;
-    padding: 12px 4%;
+    width: 100%;
+    padding: 12px 5%;
     background-color: #ffffff;
     border-bottom: 1px solid #f2f2f2;
-    position: sticky; /* Se queda fijo al bajar */
+    position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-/* --- Lado Izquierdo: Logo --- */
+/* --- Logo y Texto --- */
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+    flex-shrink: 0; /* Evita que el logo se aplaste */
 }
 
 .logo-img {
-    height: 50px; /* Tamaño estilo Gustavo */
+    height: 55px; /* Tamaño ideal para el header */
     width: auto;
     object-fit: contain;
 }
@@ -44,7 +47,7 @@ body {
     display: block;
     font-weight: 800;
     font-size: 20px;
-    color: #e65100; /* Naranja quemado del logo */
+    color: #e65100; /* Naranja estilo Gustavo */
     line-height: 0.9;
     letter-spacing: -0.5px;
 }
@@ -56,28 +59,24 @@ body {
     font-weight: 400;
 }
 
-/* --- Centro: Enlaces (Color solicitado #613e3e) --- */
+/* --- Enlaces de Navegación --- */
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 18px; /* Espaciado compacto entre enlaces */
+    gap: 20px; /* Espaciado entre enlaces solicitado */
 }
 
 .nav-links a {
     text-decoration: none;
-    color: #613e3e; /* Color café solicitado */
+    color: #613e3e; /* Tu color café solicitado */
     font-weight: 800;
     font-size: 12px;
     letter-spacing: 0.5px;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease;
 }
 
-.nav-links a.active {
-    color: #e65100; /* Resalte para HOME */
-}
-
-.nav-links a:hover {
-    color: #e65100;
+.nav-links a.active, .nav-links a:hover {
+    color: #e65100; /* Cambio a naranja */
 }
 
 .more-icon {
@@ -86,18 +85,19 @@ body {
     margin-left: -5px;
 }
 
-/* --- Lado Derecho: Iconos y Botón --- */
+/* --- Acciones (Derecha) --- */
 .nav-actions {
     display: flex;
     align-items: center;
     gap: 12px;
+    flex-shrink: 0;
 }
 
 .cart-icon {
     position: relative;
     color: #613e3e;
     font-size: 18px;
-    cursor: pointer;
+    margin-right: 5px;
 }
 
 .badge {
@@ -115,7 +115,7 @@ body {
 .social-circle {
     width: 32px;
     height: 32px;
-    background: #4a3434; /* Fondo circular oscuro para iconos */
+    background: #4a3434; /* Fondo oscuro iconos circulares */
     color: white;
     border-radius: 50%;
     display: flex;
@@ -123,32 +123,22 @@ body {
     justify-content: center;
     text-decoration: none;
     font-size: 13px;
-    transition: opacity 0.3s;
-}
-
-.social-circle:hover {
-    opacity: 0.8;
 }
 
 .btn-shop {
-    background-color: #b3d435; /* Verde lima del botón */
+    background-color: #b3d435; /* Verde lima */
     color: #333;
-    padding: 12px 24px;
+    padding: 12px 25px;
     text-decoration: none;
     font-weight: 800;
     font-size: 11px;
     border-radius: 8px;
     letter-spacing: 0.5px;
-    transition: transform 0.2s ease;
 }
 
-.btn-shop:hover {
-    transform: scale(1.05);
-}
-
-/* --- Ajuste para Móviles --- */
-@media (max-width: 1024px) {
+/* --- Responsive Móvil --- */
+@media (max-width: 1100px) {
     .nav-links {
-        display: none; /* Ocultamos el menú para luego agregar un botón hamburguesa */
+        display: none; /* Oculta enlaces en tablets/celulares para no amontonar */
     }
 }
