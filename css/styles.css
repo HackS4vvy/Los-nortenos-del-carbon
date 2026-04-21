@@ -11,13 +11,12 @@ html {
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #ffffff;
 }
 
-/* --- Header / Navbar --- */
+/* --- Header / Navbar (Estructura Original) --- */
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Mantiene la distribución Izquierda-Centro-Derecha */
     align-items: center;
     width: 100%;
     padding: 25px 5%; 
@@ -28,13 +27,7 @@ body {
     z-index: 1000;
 }
 
-/* --- Logo (150px) --- */
-.logo-container {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-}
-
+/* --- Logo --- */
 .logo-img {
     height: 150px; 
     width: auto;
@@ -54,42 +47,30 @@ body {
     font-weight: 800;
     font-size: 16px; 
     letter-spacing: 1px;
-    transition: color 0.3s ease;
 }
 
-.nav-links a.active, .nav-links a:hover {
+.nav-links a.active {
     color: #e65100;
 }
 
-.more-icon {
-    color: #ddd;
-    font-size: 16px;
-    margin-left: -5px;
-}
-
-/* --- Lado Derecho: Ajuste de "Aire" --- */
+/* --- Lado Derecho: Iconos y Botón --- */
 .nav-actions {
     display: flex;
     align-items: center;
-    gap: 10px; /* Reducido para que Instagram y Facebook estén más cerca */
+    gap: 15px; /* Controla el aire entre redes y el botón PIDE AQUÍ */
 }
 
 .social-circle {
-    width: 38px;
-    height: 38px;
+    width: 40px;
+    height: 40px;
     background: #4a3434;
-    color: white;
+    color: #ffffff !important; /* Asegura que el icono sea blanco */
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    font-size: 15px;
-    transition: background 0.3s;
-}
-
-.social-circle:hover {
-    background: #e65100;
+    font-size: 18px; /* Tamaño del icono dentro del círculo */
 }
 
 .btn-shop {
@@ -101,15 +82,10 @@ body {
     font-size: 14px;
     border-radius: 10px;
     letter-spacing: 0.5px;
-    margin-left: 10px; /* Pequeña separación del botón con las redes */
+    margin-left: 5px; /* Espacio mínimo para que no se pegue a los círculos */
 }
 
 /* --- Responsive --- */
 @media (max-width: 1350px) {
-    .nav-links {
-        display: none;
-    }
-    .logo-img {
-        height: 100px;
-    }
+    .nav-links { display: none; }
 }
