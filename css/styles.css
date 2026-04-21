@@ -28,18 +28,18 @@ body { font-family: 'Montserrat', sans-serif; }
     width: auto;
 }
 
-/* --- Navegación (Tus medidas exactas) --- */
+/* --- Navegación (16px / Gap 35px) --- */
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 35px; /* Espaciado solicitado */
+    gap: 35px;
 }
 
 .nav-links a {
     text-decoration: none;
     color: #613e3e;
-    font-weight: 800; /* Negrita */
-    font-size: 16px;  /* Tamaño solicitado */
+    font-weight: 800;
+    font-size: 16px;
     letter-spacing: 1px;
 }
 
@@ -66,13 +66,18 @@ body { font-family: 'Montserrat', sans-serif; }
 .social-circle svg { display: block; }
 
 .btn-shop {
-    background-color: #b3d435;
-    color: #333;
+    background-color: #697359; /* Nuevo color verde oliva solicitado */
+    color: #ffffff; /* Texto blanco para mejor contraste */
     padding: 16px 32px;
     text-decoration: none;
     font-weight: 800;
     font-size: 14px;
     border-radius: 10px;
+    transition: opacity 0.3s ease;
+}
+
+.btn-shop:hover {
+    opacity: 0.9; /* Efecto sutil al pasar el mouse */
 }
 
 @media (max-width: 1350px) {
