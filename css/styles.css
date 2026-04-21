@@ -20,7 +20,6 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    /* Aumentamos el padding vertical para acomodar el logo grande */
     padding: 25px 5%; 
     background-color: #ffffff;
     border-bottom: 1px solid #f2f2f2;
@@ -29,7 +28,7 @@ body {
     z-index: 1000;
 }
 
-/* --- Logo: Máximo Protagonismo --- */
+/* --- Logo --- */
 .logo-container {
     display: flex;
     align-items: center;
@@ -37,30 +36,24 @@ body {
 }
 
 .logo-img {
-    /* Tamaño aumentado a 150px para que destaque */
     height: 150px; 
     width: auto;
     object-fit: contain;
-    transition: transform 0.3s ease;
 }
 
-.logo-img:hover {
-    transform: scale(1.03);
-}
-
-/* --- Enlaces: Color #613e3e --- */
+/* --- Enlaces: MÁS GRANDES Y SEPARADOS --- */
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 22px; /* Un poco más de espacio entre ellos */
+    gap: 35px; /* Separación aumentada (estaba en 22px) */
 }
 
 .nav-links a {
     text-decoration: none;
     color: #613e3e; 
     font-weight: 800;
-    font-size: 14px; /* Ligeramente más grande para equilibrar el logo */
-    letter-spacing: 0.5px;
+    font-size: 16px; /* Tamaño aumentado (estaba en 14px) */
+    letter-spacing: 1px; /* Espacio entre letras de cada palabra */
     transition: color 0.3s ease;
 }
 
@@ -70,7 +63,7 @@ body {
 
 .more-icon {
     color: #ddd;
-    font-size: 14px;
+    font-size: 16px;
     margin-left: -5px;
 }
 
@@ -118,17 +111,14 @@ body {
     padding: 16px 32px;
     text-decoration: none;
     font-weight: 800;
-    font-size: 13px;
+    font-size: 14px;
     border-radius: 10px;
     letter-spacing: 0.5px;
 }
 
 /* --- Responsive --- */
-@media (max-width: 1200px) {
+@media (max-width: 1250px) {
     .nav-links {
         display: none;
-    }
-    .logo-img {
-        height: 100px; /* Reducimos un poco en tablets */
     }
 }
