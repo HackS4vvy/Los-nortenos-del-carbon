@@ -20,14 +20,14 @@
         <nav class="nav-links">
             <a href="#home" class="active">INICIO</a>
             <a href="#nosotros">NOSOTROS</a>
-            <a href="#tacos">TACOS</a>
-            <a href="#cortes premium">CORTES PREMIUM</a>
+            <a href="#menu">MENÚ</a>
+            <a href="#experiencia">EXPERIENCIA</a>
             <a href="#opiniones">OPINIONES</a>
-             <a href="#galeria">GALERIA</a>
+            <a href="#carniceria">CARNICERÍA</a>
             <a href="#ubicacion">UBICACIÓN</a>
         </nav>
 
-        <!-- Lado Derecho: Redes y Botón Nuevo Color -->
+        <!-- Lado Derecho: Redes y Botón -->
         <div class="nav-actions">
             <a href="#" class="social-circle">
                 <svg viewBox="0 0 448 512" width="20" height="20">
@@ -43,5 +43,38 @@
         </div>
     </header>
 
+    <!-- SECCIÓN HERO CON CARRUSEL -->
+    <section class="hero-slider">
+        <!-- Diapositiva 1 -->
+        <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/hero1.jpg');">
+            <div class="hero-content">
+                <h1>EL SABOR REAL <br><span>DEL CARBÓN</span></h1>
+                <p>La mejor carne asada de la región en tu mesa.</p>
+                <a href="#menu" class="btn-hero">VER MENÚ</a>
+            </div>
+        </div>
+
+        <!-- Diapositiva 2 -->
+        <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/hero2.jpg');">
+            <div class="hero-content">
+                <h1>MAESTROS <br><span>PARRILLEROS</span></h1>
+                <p>Tradición norteña cuidada en cada detalle.</p>
+                <a href="#carniceria" class="btn-hero">COMPRAR CARNE</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        setInterval(nextSlide, 5000); // Cambia cada 5 segundos
+    </script>
 </body>
 </html>
