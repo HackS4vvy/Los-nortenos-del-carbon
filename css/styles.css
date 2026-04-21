@@ -1,0 +1,59 @@
+/* Reset básico */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Separa los 3 bloques principaless */
+    align-items: center; /* Alineación vertical perfecta */
+    padding: 10px 40px;
+    background-color: #fff;
+    font-family: 'Arial', sans-serif;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Logo */
+.logo {
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: 14px;
+}
+.logo-light { font-weight: 300; color: #777; }
+
+/* Enlaces del centro - CONTROL DEL AIRE */
+.nav-links {
+    display: flex;
+    gap: 25px; /* Ajusta este número (ej. 15px) para menos aire */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+/* Bloque derecho */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.social-icon { color: #333; font-size: 16px; text-decoration: none; }
+
+.btn-pide {
+    background-color: #a2c139; /* El verde de tu imagen */
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+    .navbar { flex-direction: column; gap: 15px; text-align: center; }
+    .nav-links { gap: 15px; }
+}
