@@ -1,3 +1,4 @@
+/* --- Estilos que ya tienes (Sin cambios en diseño) --- */
 * {
     margin: 0;
     padding: 0;
@@ -43,7 +44,6 @@ body { font-family: 'Montserrat', sans-serif; }
 
 .nav-links a.active { color: #e65100; }
 
-/* AJUSTE DE AIRE: Reducción de espacio entre redes y botón */
 .nav-actions {
     display: flex;
     align-items: center;
@@ -61,10 +61,12 @@ body { font-family: 'Montserrat', sans-serif; }
     text-decoration: none;
 }
 
-/* FORZADO DE VISIBILIDAD PARA ICONOS */
+/* --- ESTO ES LO QUE HACE QUE SE VEAN (SOLUCIÓN TÉCNICA) --- */
 .social-circle i {
-    color: #ffffff !important;
+    color: #ffffff !important; /* Fuerza el color blanco */
+    font-family: "Font Awesome 6 Brands" !important; /* Fuerza la fuente de los iconos */
     font-size: 20px;
+    font-style: normal;
 }
 
 .btn-shop {
