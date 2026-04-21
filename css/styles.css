@@ -1,26 +1,19 @@
-/* --- Reset y Configuración General --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #ffffff;
-}
+body { font-family: 'Montserrat', sans-serif; }
 
-/* --- Header / Navbar --- */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 25px 5%; 
+    padding: 25px 5%;
     background-color: #ffffff;
     border-bottom: 1px solid #f2f2f2;
     position: sticky;
@@ -28,44 +21,33 @@ body {
     z-index: 1000;
 }
 
-/* --- Logo (150px de alto) --- */
-.logo-container {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-}
-
 .logo-img {
-    height: 150px; 
+    height: 150px;
     width: auto;
     object-fit: contain;
 }
 
-/* --- Enlaces de Navegación --- */
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 35px; /* Espaciado entre enlaces */
+    gap: 35px;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: #613e3e; 
+    color: #613e3e;
     font-weight: 800;
-    font-size: 16px; 
+    font-size: 16px;
     letter-spacing: 1px;
-    transition: color 0.3s ease;
 }
 
-.nav-links a.active, .nav-links a:hover {
-    color: #e65100;
-}
+.nav-links a.active { color: #e65100; }
 
-/* --- Acciones (Redes y Botón) --- */
+/* AJUSTE DE AIRE: Reducción de espacio entre redes y botón */
 .nav-actions {
     display: flex;
     align-items: center;
-    gap: 12px; /* Reducción de aire entre iconos y botón */
+    gap: 12px;
 }
 
 .social-circle {
@@ -77,20 +59,12 @@ body {
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    transition: transform 0.2s;
 }
 
-.social-circle:hover {
-    transform: scale(1.1);
-}
-
-/* SOLUCIÓN PARA QUE LOS ICONOS APAREZCAN */
+/* FORZADO DE VISIBILIDAD PARA ICONOS */
 .social-circle i {
     color: #ffffff !important;
-    font-family: "Font Awesome 6 Brands" !important; /* Fuerza la fuente de iconos */
-    font-style: normal;
     font-size: 20px;
-    display: inline-block;
 }
 
 .btn-shop {
@@ -101,16 +75,8 @@ body {
     font-weight: 800;
     font-size: 14px;
     border-radius: 10px;
-    letter-spacing: 0.5px;
-    margin-left: 5px; /* Ajuste fino de posición */
 }
 
-/* --- Ajuste para Tablets/Móviles --- */
-@media (max-width: 1400px) {
-    .nav-links {
-        display: none; /* Oculta para el futuro menú hamburguesa */
-    }
-    .logo-img {
-        height: 100px;
-    }
+@media (max-width: 1350px) {
+    .nav-links { display: none; }
 }
