@@ -1,4 +1,4 @@
-/* --- Reset y Configuración de Pantalla --- */
+/* --- Reset y Estilos Base --- */
 * {
     margin: 0;
     padding: 0;
@@ -12,16 +12,15 @@ html {
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #ffffff;
-    overflow-x: hidden; /* Evita scroll horizontal */
 }
 
-/* --- Navbar (El contenedor principal) --- */
+/* --- Header / Navbar (Ajustado para logo grande) --- */
 .navbar {
     display: flex;
-    justify-content: space-between; /* Distribuye Izquierda, Centro y Derecha */
+    justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 12px 5%;
+    padding: 15px 5%; /* Más aire arriba y abajo */
     background-color: #ffffff;
     border-bottom: 1px solid #f2f2f2;
     position: sticky;
@@ -29,16 +28,15 @@ body {
     z-index: 1000;
 }
 
-/* --- Logo y Texto --- */
+/* --- Logo: Ahora con más presencia --- */
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 12px;
-    flex-shrink: 0; /* Evita que el logo se aplaste */
+    gap: 15px;
 }
 
 .logo-img {
-    height: 55px; /* Tamaño ideal para el header */
+    height: 100px; /* Aumentado de 55px a 100px */
     width: auto;
     object-fit: contain;
 }
@@ -46,58 +44,56 @@ body {
 .brand-name {
     display: block;
     font-weight: 800;
-    font-size: 20px;
-    color: #e65100; /* Naranja estilo Gustavo */
+    font-size: 24px; /* Un poco más grande para acompañar al logo */
+    color: #e65100; /* Naranja quemado */
     line-height: 0.9;
     letter-spacing: -0.5px;
 }
 
 .brand-sub {
-    font-size: 9px;
+    font-size: 10px;
     color: #888;
     text-transform: lowercase;
     font-weight: 400;
 }
 
-/* --- Enlaces de Navegación --- */
+/* --- Enlaces: Color solicitado #613e3e --- */
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 20px; /* Espaciado entre enlaces solicitado */
+    gap: 20px;
 }
 
 .nav-links a {
     text-decoration: none;
     color: #613e3e; /* Tu color café solicitado */
     font-weight: 800;
-    font-size: 12px;
+    font-size: 13.5px; /* Ligeramente más grande */
     letter-spacing: 0.5px;
     transition: color 0.3s ease;
 }
 
 .nav-links a.active, .nav-links a:hover {
-    color: #e65100; /* Cambio a naranja */
+    color: #e65100;
 }
 
 .more-icon {
     color: #ddd;
-    font-size: 12px;
+    font-size: 14px;
     margin-left: -5px;
 }
 
-/* --- Acciones (Derecha) --- */
+/* --- Acciones y Botón --- */
 .nav-actions {
     display: flex;
     align-items: center;
     gap: 12px;
-    flex-shrink: 0;
 }
 
 .cart-icon {
     position: relative;
     color: #613e3e;
-    font-size: 18px;
-    margin-right: 5px;
+    font-size: 20px;
 }
 
 .badge {
@@ -106,39 +102,39 @@ body {
     right: -10px;
     background: #e65100;
     color: white;
-    font-size: 9px;
-    padding: 2px 5px;
+    font-size: 10px;
+    padding: 2px 6px;
     border-radius: 50%;
     font-weight: 800;
 }
 
 .social-circle {
-    width: 32px;
-    height: 32px;
-    background: #4a3434; /* Fondo oscuro iconos circulares */
+    width: 35px;
+    height: 35px;
+    background: #4a3434; /* Café oscuro de la imagen */
     color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .btn-shop {
     background-color: #b3d435; /* Verde lima */
     color: #333;
-    padding: 12px 25px;
+    padding: 14px 28px;
     text-decoration: none;
     font-weight: 800;
-    font-size: 11px;
+    font-size: 12px;
     border-radius: 8px;
     letter-spacing: 0.5px;
 }
 
-/* --- Responsive Móvil --- */
-@media (max-width: 1100px) {
+/* --- Responsive --- */
+@media (max-width: 1200px) {
     .nav-links {
-        display: none; /* Oculta enlaces en tablets/celulares para no amontonar */
+        display: none;
     }
 }
