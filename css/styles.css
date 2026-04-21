@@ -28,7 +28,7 @@ body {
     z-index: 1000;
 }
 
-/* --- Logo --- */
+/* --- Logo (150px) --- */
 .logo-container {
     display: flex;
     align-items: center;
@@ -41,19 +41,19 @@ body {
     object-fit: contain;
 }
 
-/* --- Enlaces: MÁS GRANDES Y SEPARADOS --- */
+/* --- Enlaces (16px y 35px de separación) --- */
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 35px; /* Separación aumentada (estaba en 22px) */
+    gap: 35px; 
 }
 
 .nav-links a {
     text-decoration: none;
     color: #613e3e; 
     font-weight: 800;
-    font-size: 16px; /* Tamaño aumentado (estaba en 14px) */
-    letter-spacing: 1px; /* Espacio entre letras de cada palabra */
+    font-size: 16px; 
+    letter-spacing: 1px;
     transition: color 0.3s ease;
 }
 
@@ -67,29 +67,11 @@ body {
     margin-left: -5px;
 }
 
-/* --- Acciones y Botón --- */
+/* --- Lado Derecho: Ajuste de "Aire" --- */
 .nav-actions {
     display: flex;
     align-items: center;
-    gap: 15px;
-}
-
-.cart-icon {
-    position: relative;
-    color: #613e3e;
-    font-size: 22px;
-}
-
-.badge {
-    position: absolute;
-    top: -8px;
-    right: -12px;
-    background: #e65100;
-    color: white;
-    font-size: 10px;
-    padding: 3px 7px;
-    border-radius: 50%;
-    font-weight: 800;
+    gap: 10px; /* Reducido para que Instagram y Facebook estén más cerca */
 }
 
 .social-circle {
@@ -103,6 +85,11 @@ body {
     justify-content: center;
     text-decoration: none;
     font-size: 15px;
+    transition: background 0.3s;
+}
+
+.social-circle:hover {
+    background: #e65100;
 }
 
 .btn-shop {
@@ -114,11 +101,15 @@ body {
     font-size: 14px;
     border-radius: 10px;
     letter-spacing: 0.5px;
+    margin-left: 10px; /* Pequeña separación del botón con las redes */
 }
 
 /* --- Responsive --- */
-@media (max-width: 1250px) {
+@media (max-width: 1350px) {
     .nav-links {
         display: none;
+    }
+    .logo-img {
+        height: 100px;
     }
 }
