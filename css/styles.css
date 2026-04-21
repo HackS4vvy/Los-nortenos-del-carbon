@@ -1,67 +1,129 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* Reset y Comportamiento */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-body { font-family: 'Montserrat', sans-serif; }
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 4%;
-    background: #fff;
+    padding: 12px 4%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #f0f0f0;
 }
 
-/* Tipografía y espaciado de enlaces */
+/* Logo */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    height: 50px; /* Tamaño ideal según la imagen */
+    width: auto;
+}
+
+.brand-name {
+    display: block;
+    font-weight: 800;
+    font-size: 22px;
+    color: #e65100; /* Naranja del logo */
+    line-height: 0.9;
+}
+
+.brand-sub {
+    font-size: 9px;
+    color: #888;
+    text-transform: lowercase;
+}
+
+/* Enlaces con color #613e3e y espaciado compacto */
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 22px; /* Espaciado idéntico al de la imagen */
+    gap: 20px; /* Espaciado entre enlaces */
 }
 
 .nav-links a {
     text-decoration: none;
-    color: #333; /* Gris oscuro para enlaces normales */
-    font-weight: 800; /* Letra gruesa como la imagen */
+    color: #613e3e; /* Tu color café solicitado */
+    font-weight: 800;
     font-size: 12.5px;
-    letter-spacing: 0.5px;
-    transition: color 0.3s;
+    letter-spacing: 0.3px;
+    transition: color 0.3s ease;
 }
 
 .nav-links a.active {
-    color: #e65100; /* Naranja quemado de 'HOME' */
+    color: #e65100; /* Resalte naranja para HOME */
 }
 
-.more-icon { color: #ccc; font-size: 14px; margin-left: -5px; }
+.more-icon {
+    color: #ccc;
+    font-size: 14px;
+    margin-left: -5px;
+}
 
-/* Lado derecho */
+/* Acciones y Botón */
 .nav-actions {
     display: flex;
     align-items: center;
     gap: 12px;
 }
 
-.cart-icon { position: relative; font-size: 18px; margin-right: 10px; }
+.cart-icon {
+    position: relative;
+    color: #613e3e;
+    font-size: 18px;
+    margin-right: 5px;
+}
+
 .badge {
-    position: absolute; top: -8px; right: -8px;
-    background: #e65100; color: white;
-    font-size: 10px; padding: 2px 5px; border-radius: 50%;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #e65100;
+    color: white;
+    font-size: 9px;
+    padding: 2px 5px;
+    border-radius: 50%;
 }
 
 .social-circle {
-    width: 32px; height: 32px;
-    background: #4a3434; /* Café oscuro de los iconos circulares */
-    color: white; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    text-decoration: none; font-size: 14px;
+    width: 32px;
+    height: 32px;
+    background: #4a3434; /* Fondo circular oscuro */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 14px;
 }
 
 .btn-shop {
-    background-color: #b3d435; /* Verde lima del botón */
+    background-color: #b3d435; /* Verde lima */
     color: #333;
-    padding: 12px 28px;
+    padding: 12px 25px;
     text-decoration: none;
     font-weight: 800;
     font-size: 12px;
-    border-radius: 8px;
-    margin-left: 10px;
+    border-radius: 6px;
+    margin-left: 5px;
 }
 
+/* Responsivo rápido */
+@media (max-width: 1024px) {
+    .nav-links { display: none; } /* Oculta el menú en móviles para usar menú hamburguesa después */
+}
