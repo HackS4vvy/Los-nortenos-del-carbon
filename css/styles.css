@@ -1,59 +1,67 @@
-/* Reset básico */
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { font-family: 'Montserrat', sans-serif; }
 
 .navbar {
     display: flex;
-    justify-content: space-between; /* Separa los 3 bloques principaless */
-    align-items: center; /* Alineación vertical perfecta */
-    padding: 10px 40px;
-    background-color: #fff;
-    font-family: 'Arial', sans-serif;
-    border-bottom: 1px solid #e0e0e0;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 4%;
+    background: #fff;
 }
 
-/* Logo */
-.logo {
-    font-weight: 800;
-    letter-spacing: 2px;
-    font-size: 14px;
-}
-.logo-light { font-weight: 300; color: #777; }
-
-/* Enlaces del centro - CONTROL DEL AIRE */
+/* Tipografía y espaciado de enlaces */
 .nav-links {
     display: flex;
-    gap: 25px; /* Ajusta este número (ej. 15px) para menos aire */
+    align-items: center;
+    gap: 22px; /* Espaciado idéntico al de la imagen */
 }
 
 .nav-links a {
     text-decoration: none;
-    color: #333;
-    font-weight: 600;
-    font-size: 13px;
-    letter-spacing: 1px;
+    color: #333; /* Gris oscuro para enlaces normales */
+    font-weight: 800; /* Letra gruesa como la imagen */
+    font-size: 12.5px;
+    letter-spacing: 0.5px;
+    transition: color 0.3s;
 }
 
-/* Bloque derecho */
+.nav-links a.active {
+    color: #e65100; /* Naranja quemado de 'HOME' */
+}
+
+.more-icon { color: #ccc; font-size: 14px; margin-left: -5px; }
+
+/* Lado derecho */
 .nav-actions {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
 }
 
-.social-icon { color: #333; font-size: 16px; text-decoration: none; }
+.cart-icon { position: relative; font-size: 18px; margin-right: 10px; }
+.badge {
+    position: absolute; top: -8px; right: -8px;
+    background: #e65100; color: white;
+    font-size: 10px; padding: 2px 5px; border-radius: 50%;
+}
 
-.btn-pide {
-    background-color: #a2c139; /* El verde de tu imagen */
-    color: white;
-    padding: 12px 25px;
+.social-circle {
+    width: 32px; height: 32px;
+    background: #4a3434; /* Café oscuro de los iconos circulares */
+    color: white; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; font-size: 14px;
+}
+
+.btn-shop {
+    background-color: #b3d435; /* Verde lima del botón */
+    color: #333;
+    padding: 12px 28px;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 13px;
-    letter-spacing: 1px;
+    font-weight: 800;
+    font-size: 12px;
+    border-radius: 8px;
+    margin-left: 10px;
 }
 
-/* Responsivo para móviles */
-@media (max-width: 768px) {
-    .navbar { flex-direction: column; gap: 15px; text-align: center; }
-    .nav-links { gap: 15px; }
-}
