@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Los Norteños del Carbón</title>
-    <!-- Tipografía Montserrat Oficial -->
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -13,6 +12,13 @@
     <header class="navbar">
         <div class="logo-container">
             <img src="img/logo-pagina-web.png" alt="Los Norteños del Carbón" class="logo-img">
+        </div>
+
+        <!-- Botón Menú Móvil -->
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
         </div>
 
         <nav class="nav-links">
@@ -61,6 +67,7 @@
     </section>
 
     <script>
+        // Carrusel
         const slides = document.querySelectorAll('.slide');
         let currentSlide = 0;
         function nextSlide() {
@@ -69,6 +76,23 @@
             slides[currentSlide].classList.add('active');
         }
         setInterval(nextSlide, 5000);
+
+        // Menú Móvil
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('is-active');
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('is-active');
+            });
+        });
     </script>
 </body>
 </html>
