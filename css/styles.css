@@ -1,14 +1,7 @@
-/* --- Reset y Base --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+* { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
 
-/* --- Navbar (Mantenido) --- */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -23,90 +16,21 @@ body { font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
 }
 
 .logo-img { height: 150px; width: auto; }
-
 .nav-links { display: flex; align-items: center; gap: 35px; }
 .nav-links a { text-decoration: none; color: #613e3e; font-weight: 800; font-size: 16px; letter-spacing: 1px; }
 .nav-links a.active { color: #e65100; }
-
 .nav-actions { display: flex; align-items: center; gap: 12px; }
 .social-circle { width: 42px; height: 42px; background: #4a3434; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-.social-circle svg { display: block; }
+.btn-shop { background-color: #697359; color: #ffffff; padding: 16px 32px; text-decoration: none; font-weight: 800; font-size: 14px; border-radius: 10px; }
 
-.btn-shop {
-    background-color: #697359;
-    color: #ffffff;
-    padding: 16px 32px;
-    text-decoration: none;
-    font-weight: 800;
-    font-size: 14px;
-    border-radius: 10px;
-}
-
-/* --- Hero Carrusel --- */
-.hero-slider {
-    position: relative;
-    height: 85vh;
-    width: 100%;
-    background-color: #000;
-}
-
-.slide {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 1.5s ease-in-out;
-}
-
+.hero-slider { position: relative; height: 85vh; width: 100%; background-color: #000; }
+.slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 1.5s ease-in-out; }
 .slide.active { opacity: 1; z-index: 1; }
-
-/* --- Animaciones Hero --- */
-.hero-content {
-    text-align: center;
-    color: white;
-    transform: translateY(40px);
-    opacity: 0;
-    transition: all 1s cubic-bezier(0.2, 1, 0.3, 1) 0.5s;
-}
-
-.slide.active .hero-content {
-    transform: translateY(0);
-    opacity: 1;
-}
-
-.hero-content h1 {
-    font-size: clamp(35px, 7vw, 75px);
-    font-weight: 800;
-    line-height: 0.9;
-    margin-bottom: 15px;
-}
-
+.hero-content { text-align: center; color: white; transform: translateY(40px); opacity: 0; transition: all 1s cubic-bezier(0.2, 1, 0.3, 1) 0.5s; }
+.slide.active .hero-content { transform: translateY(0); opacity: 1; }
+.hero-content h1 { font-size: clamp(35px, 7vw, 75px); font-weight: 800; line-height: 0.9; margin-bottom: 15px; }
 .hero-content h1 span { color: #e65100; }
-
-.hero-content p {
-    font-size: clamp(14px, 3vw, 20px);
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-.btn-hero {
-    display: inline-block;
-    background-color: #697359;
-    color: white;
-    padding: 18px 45px;
-    text-decoration: none;
-    font-weight: 800;
-    border-radius: 8px;
-    margin-top: 30px;
-    transition: transform 0.3s;
-}
-
-.btn-hero:hover { transform: scale(1.05); }
+.hero-content p { font-size: clamp(14px, 3vw, 20px); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+.btn-hero { display: inline-block; background-color: #697359; color: white; padding: 18px 45px; text-decoration: none; font-weight: 800; border-radius: 8px; margin-top: 30px; }
 
 @media (max-width: 1350px) { .nav-links { display: none; } }
