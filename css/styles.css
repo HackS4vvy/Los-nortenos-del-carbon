@@ -78,7 +78,7 @@ body { font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
 }
 
 .hero-content h1 { font-size: clamp(35px, 7vw, 75px); font-weight: 800; line-height: 0.9; margin-bottom: 15px; }
-.hero-content h1 span { color: #e65100; }
+.hero-content h1 span { color: #4a3434; }
 .hero-content p { font-size: clamp(14px, 3vw, 20px); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
 
 .btn-hero {
