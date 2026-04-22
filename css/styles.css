@@ -1,18 +1,7 @@
-/* --- Reset --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+* { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+body { font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
 
-body { 
-    font-family: 'Montserrat', sans-serif; 
-    overflow-x: hidden;
-}
-
-/* --- Navbar (Mantenido) --- */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -26,45 +15,12 @@ body {
     z-index: 1000;
 }
 
-.logo-img {
-    height: 150px;
-    width: auto;
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 35px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #613e3e;
-    font-weight: 800;
-    font-size: 16px;
-    letter-spacing: 1px;
-}
-
+.logo-img { height: 150px; width: auto; }
+.nav-links { display: flex; align-items: center; gap: 35px; }
+.nav-links a { text-decoration: none; color: #613e3e; font-weight: 800; font-size: 16px; letter-spacing: 1px; }
 .nav-links a.active { color: #e65100; }
-
-.nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.social-circle {
-    width: 42px;
-    height: 42px;
-    background: #4a3434;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-}
-
-.social-circle svg { display: block; }
+.nav-actions { display: flex; align-items: center; gap: 12px; }
+.social-circle { width: 42px; height: 42px; background: #4a3434; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
 
 .btn-shop {
     background-color: #697359;

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Los Norteños del Carbón</title>
-    <!-- Tipografía Montserrat -->
+    <!-- Tipografía Montserrat Oficial -->
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -36,7 +36,6 @@
     </header>
 
     <section class="hero-slider">
-        <!-- Diapositiva 1 -->
         <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/hero1.jpg');">
             <div class="hero-content">
                 <h1>EL SABOR REAL <br><span>DEL CARBÓN</span></h1>
@@ -44,7 +43,6 @@
                 <a href="#tacos" class="btn-hero">VER MENÚ</a>
             </div>
         </div>
-        <!-- Diapositiva 2 -->
         <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/hero2.jpg');">
             <div class="hero-content">
                 <h1>MAESTROS <br><span>PARRILLEROS</span></h1>
@@ -52,7 +50,6 @@
                 <a href="#cortes premium" class="btn-hero">CORTES PREMIUM</a>
             </div>
         </div>
-        <!-- Diapositiva 3 -->
         <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/hero3.png');">
             <div class="hero-content">
                 <h1>PARA TODA <br><span>LA FAMILIA</span></h1>
@@ -70,7 +67,7 @@
             currentSlide = (currentSlide + 1) % slides.length;
             slides[currentSlide].classList.add('active');
         }
-        setInterval(nextSlide, 5000);
+        setInterval(nextSlide, 5000); // Cambia cada 5 segundos
     </script>
 </body>
 </html>
