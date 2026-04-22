@@ -24,11 +24,11 @@ body { font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
 
 .logo-img { height: 150px; width: auto; }
 .nav-links { display: flex; align-items: center; gap: 35px; }
-.nav-links a { text-decoration: none; color: #613e3e; font-weight: 800; font-size: 16px; letter-spacing: 1px; }
-.nav-links a.active { color: #e65100; }
+.nav-links a { text-decoration: none; color: #694321; font-weight: 800; font-size: 16px; letter-spacing: 1px; }
+.nav-links a.active { color: #694321; }
 
 .nav-actions { display: flex; align-items: center; gap: 12px; }
-.social-circle { width: 42px; height: 42px; background: #4a3434; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.social-circle { width: 42px; height: 42px; background: #9a6433; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
 .social-circle svg { display: block; }
 
 .btn-shop {
