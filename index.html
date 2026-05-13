@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Los Norteños del Carbón</title>
+    <!-- Importación correcta de Google Fonts (Montserrat) -->
     <link rel="preconnect" href="googleapis.com">
     <link rel="preconnect" href="gstatic.com" crossorigin>
     <link href="googleapis.com" rel="stylesheet">
@@ -31,8 +32,8 @@
             <a href="#opiniones">OPINIONES</a>
             <a href="#ubicacion">UBICACIÓN</a>
             
-            <!-- Botón exclusivo para celulares con enlace universal api oficial -->
-            <a href="whatsapp.com" target="_blank" class="btn-shop mobile-shop-btn">PIDE AQUÍ</a>
+            <!-- Botón exclusivo para celulares con enlace universal seguro -->
+            <a href="https://wa.me" target="_blank" class="btn-shop mobile-shop-btn">PIDE AQUÍ</a>
             
             <div class="mobile-socials">
                 <a href="#" class="social-circle">
@@ -51,8 +52,8 @@
             <a href="#" class="social-circle">
                 <svg viewBox="0 0 320 512" width="18" height="18"><path fill="white" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
             </a>
-            <!-- Botón de WhatsApp para computadoras con enlace oficial seguro -->
-            <a href="whatsapp.com" target="_blank" class="btn-shop">PIDE AQUÍ</a>
+            <!-- Botón para computadoras con enlace seguro oficial -->
+            <a href="wa.me" target="_blank" class="btn-shop">PIDE AQUÍ</a>
         </div>
     </header>
 
@@ -157,13 +158,16 @@
             <p class="contact-info">📍 Av. Revolución 1008, Pachuca, Hgo.</p>
             <p class="contact-info">⏰ Horario: Sábado y Domingo de 10:00 AM a 17:00 PM</p>
             
+            <!-- Contenedor responsivo para el mapa de Google Maps -->
             <div class="map-container">
                 <iframe src="about:blank" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
 
+    <!-- JAVASCRIPT: Lógica de Menú Móvil y Slider -->
     <script>
+        // Lógica del Slider automático
         const slides = document.querySelectorAll('.slide');
         let currentSlide = 0;
         function nextSlide() {
@@ -173,6 +177,7 @@
         }
         setInterval(nextSlide, 5000);
 
+        // Lógica del Menú Móvil (Hamburguesa)
         const menuToggle = document.getElementById('mobile-menu');
         const navLinks = document.querySelector('.nav-links');
 
@@ -181,6 +186,7 @@
             menuToggle.classList.toggle('active'); 
         });
 
+        // Cierra el menú móvil al dar click en cualquier sección del menú
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
