@@ -1,4 +1,4 @@
-/* Registro local de la fuente Broadway */
+/* Fuente Principal */
 @font-face {
     font-family: 'Broadway';
     src: url('fonts/BROADW.TTF') format('truetype');
@@ -6,7 +6,7 @@
     font-style: normal;
 }
 
-/* MODIFICACIÓN: Registro de tu fuente Poppins-Regular local */
+/* Fuente de Cuerpo */
 @font-face {
     font-family: 'Poppins';
     src: url('fonts/Poppins-Regular.ttf') format('truetype');
@@ -14,10 +14,18 @@
     font-style: normal;
 }
 
+/* MODIFICACIÓN: Importación nativa de tu nueva tipografía secundaria */
+@font-face {
+    font-family: 'MotterCorpus';
+    src: url('fonts/MotterCorpusStd-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
-/* MODIFICACIÓN: Todo el cuerpo y textos por defecto adoptan Poppins de forma global */
+/* El cuerpo por defecto mantiene Poppins para facilitar lecturas */
 body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color: #fcfbf9; }
 
 .navbar {
@@ -103,7 +111,7 @@ body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color:
 .hero-content { text-align: center; color: white; transform: translateY(40px); opacity: 0; transition: 1s cubic-bezier(0.2, 1, 0.3, 1) 0.5s; padding: 0 20px; }
 .slide.active .hero-content { transform: translateY(0); opacity: 1; }
 
-/* REGLA DE EXCLUSIVIDAD: Broadway se mantiene únicamente para los títulos H1 del slider */
+/* Broadway exclusiva para títulos principales del Slider */
 .hero-content h1 { font-family: 'Broadway', 'Impact', sans-serif !important; font-size: clamp(30px, 8vw, 70px); font-weight: normal !important; line-height: 1; margin-bottom: 15px; }
 .hero-content h1 span { color: #d6d8be; }
 .hero-content p { font-size: clamp(12px, 3vw, 18px); font-weight: 700; letter-spacing: 2px; }
@@ -111,10 +119,10 @@ body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color:
 .btn-hero { display: inline-block; background-color: #697359; color: white; padding: 16px 40px; text-decoration: none; font-family: 'Poppins', sans-serif !important; font-weight: 700 !important; border-radius: 8px; margin-top: 25px; transition: 0.3s; }
 .btn-hero:hover { background-color: #555e49; }
 
-/* Títulos de secciones heredan Poppins con un grosor estilizado */
+/* MODIFICACIÓN: Los títulos de las secciones adoptan de forma limpia MotterCorpus */
 .section-padding { padding: 90px 5%; text-align: center; background-color: #ffffff; }
 .section-padding:nth-child(even) { background-color: #fcfbf9; } 
-.section-padding h2 { font-family: 'Poppins', sans-serif !important; font-size: 32px; font-weight: 700 !important; color: #694321; margin-bottom: 35px; letter-spacing: 1px; position: relative; display: inline-block; }
+.section-padding h2 { font-family: 'MotterCorpus', 'Arial Black', sans-serif !important; font-size: 36px; font-weight: normal !important; color: #694321; margin-bottom: 35px; letter-spacing: 1px; position: relative; display: inline-block; }
 .section-padding h2::after { content: ''; display: block; width: 60px; height: 3px; background-color: #E53935; margin: 10px auto 0 auto; }
 .container { max-width: 1200px; margin: 0 auto; }
 .section-desc { font-size: 16px; color: #555; max-width: 750px; margin: 0 auto; line-height: 1.8; }
@@ -124,7 +132,8 @@ body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color:
 .menu-item { background: #ffffff; padding: 20px; border-radius: 12px; border: 1px solid #f2f2f2; transition: 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.01); }
 .menu-item img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
 
-.menu-item h3 { font-family: 'Poppins', sans-serif !important; font-size: 20px; color: #694321; margin-bottom: 10px; font-weight: 700 !important; }
+/* MODIFICACIÓN: Los nombres de platillos/cortes adoptan MotterCorpus */
+.menu-item h3 { font-family: 'MotterCorpus', 'Arial Black', sans-serif !important; font-size: 22px; color: #694321; margin-bottom: 10px; font-weight: normal !important; }
 .menu-item p { color: #666; font-size: 14px; line-height: 1.5; margin-bottom: 15px; }
 .menu-item .price { display: block; font-size: 18px; font-weight: 700; color: #E53935; }
 
@@ -133,9 +142,9 @@ body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color:
 .testimonial p { font-style: italic; font-size: 18px; margin-bottom: 15px; line-height: 1.6; }
 .testimonial span { font-weight: 700; color: #d6d8be; letter-spacing: 1px; font-size: 14px; }
 
-/* Ubicación y Datos de Contacto */
+/* Datos de Contacto */
 .contact-info { font-size: 18px; color: #333; margin: 10px 0; font-weight: 700; }
 
-/* Contenedor responsivo para el mapa de Google Maps */
+/* Mapa */
 .map-container { margin-top: 30px; width: 100%; max-width: 800px; margin-left: auto; margin-right: auto; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
 .map-container iframe { display: block; width: 100%; }
