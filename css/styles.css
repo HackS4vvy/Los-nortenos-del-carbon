@@ -1,4 +1,4 @@
-/* Registro de la fuente Broadway para usar localmente */
+/* Registro local de la fuente Broadway */
 @font-face {
     font-family: 'Broadway';
     src: url('fonts/BROADW.TTF') format('truetype');
@@ -26,9 +26,9 @@ body { font-family: 'Montserrat', sans-serif; overflow-x: hidden; background-col
 .logo-container { display: flex; align-items: center; }
 .logo-img { height: 100px; width: auto; transition: 0.3s; }
 
-/* CORRECCIÓN: Los menús regresan a la tipografía estándar sans-serif para legibilidad limpia */
+/* CORRECCIÓN ABSOLUTA: El menú usa Montserrat obligatoriamente aislándolo de Broadway */
 .nav-links { display: flex; align-items: center; gap: 35px; }
-.nav-links a { text-decoration: none; color: #694321; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 14px; letter-spacing: 1px; transition: 0.3s; }
+.nav-links a { text-decoration: none; color: #694321; font-family: 'Montserrat', sans-serif !important; font-weight: 800 !important; font-size: 14px; letter-spacing: 1px; transition: 0.3s; }
 .nav-links a.active { color: #E53935; }
 
 .nav-actions { display: flex; align-items: center; gap: 12px; }
@@ -39,8 +39,8 @@ body { font-family: 'Montserrat', sans-serif; overflow-x: hidden; background-col
 .ig-color { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important; }
 .ig-color:hover { filter: brightness(0.9); }
 
-/* CORRECCIÓN: Los botones comerciales usan tipografía pesada estándar */
-.btn-shop { background-color: #697359; color: #ffffff !important; padding: 14px 28px; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 14px; border-radius: 10px; transition: 0.3s; border: none; cursor: pointer; display: inline-block; text-align: center; }
+/* CORRECCIÓN ABSOLUTA: El botón de ordenes usa Montserrat de forma estricta */
+.btn-shop { background-color: #697359; color: #ffffff !important; padding: 14px 28px; text-decoration: none; font-family: 'Montserrat', sans-serif !important; font-weight: 800 !important; font-size: 14px; border-radius: 10px; transition: 0.3s; border: none; cursor: pointer; display: inline-block; text-align: center; }
 .btn-shop:hover { background-color: #555e49; }
 
 .mobile-shop-btn { display: none; }
@@ -95,18 +95,18 @@ body { font-family: 'Montserrat', sans-serif; overflow-x: hidden; background-col
 .hero-content { text-align: center; color: white; transform: translateY(40px); opacity: 0; transition: 1s cubic-bezier(0.2, 1, 0.3, 1) 0.5s; padding: 0 20px; }
 .slide.active .hero-content { transform: translateY(0); opacity: 1; }
 
-/* CORRECCIÓN: La fuente 'Broadway' se mantiene ÚNICA Y EXCLUSIVAMENTE para los textos del slider (h1) */
-.hero-content h1 { font-family: 'Broadway', 'Impact', sans-serif; font-size: clamp(30px, 8vw, 70px); font-weight: normal; line-height: 1; margin-bottom: 15px; }
+/* REGLA ÚNICA: Broadway se aplica de forma exclusiva y aislada a los títulos del slider (h1) */
+.hero-content h1 { font-family: 'Broadway', 'Impact', sans-serif !important; font-size: clamp(30px, 8vw, 70px); font-weight: normal !important; line-height: 1; margin-bottom: 15px; }
 .hero-content h1 span { color: #d6d8be; }
 .hero-content p { font-size: clamp(12px, 3vw, 18px); font-weight: 700; letter-spacing: 2px; }
 
-.btn-hero { display: inline-block; background-color: #697359; color: white; padding: 16px 40px; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 800; border-radius: 8px; margin-top: 25px; transition: 0.3s; }
+.btn-hero { display: inline-block; background-color: #697359; color: white; padding: 16px 40px; text-decoration: none; font-family: 'Montserrat', sans-serif !important; font-weight: 800 !important; border-radius: 8px; margin-top: 25px; transition: 0.3s; }
 .btn-hero:hover { background-color: #555e49; }
 
-/* CORRECCIÓN: Los títulos de secciones generales regresan a Montserrat pesada */
+/* CORRECCIÓN ABSOLUTA: Títulos de secciones regresan a Montserrat */
 .section-padding { padding: 90px 5%; text-align: center; background-color: #ffffff; }
 .section-padding:nth-child(even) { background-color: #fcfbf9; } 
-.section-padding h2 { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 800; color: #694321; margin-bottom: 35px; letter-spacing: 1px; position: relative; display: inline-block; }
+.section-padding h2 { font-family: 'Montserrat', sans-serif !important; font-size: 32px; font-weight: 800 !important; color: #694321; margin-bottom: 35px; letter-spacing: 1px; position: relative; display: inline-block; }
 .section-padding h2::after { content: ''; display: block; width: 60px; height: 3px; background-color: #E53935; margin: 10px auto 0 auto; }
 .container { max-width: 1200px; margin: 0 auto; }
 .section-desc { font-size: 16px; color: #555; max-width: 750px; margin: 0 auto; line-height: 1.8; }
@@ -114,11 +114,10 @@ body { font-family: 'Montserrat', sans-serif; overflow-x: hidden; background-col
 /* Cuadrícula de Menú / Productos */
 .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 20px; }
 .menu-item { background: #ffffff; padding: 20px; border-radius: 12px; border: 1px solid #f2f2f2; transition: 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.01); }
-.menu-item:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(105,67,33,0.12); }
 .menu-item img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
 
-/* CORRECCIÓN: Los nombres de productos en el menú regresan a Montserrat */
-.menu-item h3 { font-family: 'Montserrat', sans-serif; font-size: 20px; color: #694321; margin-bottom: 10px; font-weight: 700; }
+/* CORRECCIÓN ABSOLUTA: Títulos de productos regresan a Montserrat */
+.menu-item h3 { font-family: 'Montserrat', sans-serif !important; font-size: 20px; color: #694321; margin-bottom: 10px; font-weight: 700 !important; }
 .menu-item p { color: #666; font-size: 14px; line-height: 1.5; margin-bottom: 15px; }
 .menu-item .price { display: block; font-size: 18px; font-weight: 800; color: #E53935; }
 
