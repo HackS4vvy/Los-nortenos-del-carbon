@@ -15,47 +15,52 @@ body { font-family: 'Montserrat', sans-serif; overflow-x: hidden; background-col
     z-index: 1000;
 }
 
+.logo-container { display: flex; align-items: center; }
 .logo-img { height: 100px; width: auto; transition: 0.3s; }
 .nav-links { display: flex; align-items: center; gap: 35px; }
-.nav-links a { text-decoration: none; color: #694321; font-weight: 800; font-size: 14px; letter-spacing: 1px; }
+.nav-links a { text-decoration: none; color: #694321; font-weight: 800; font-size: 14px; letter-spacing: 1px; transition: 0.3s; }
 .nav-links a.active { color: #E53935; }
 .nav-actions { display: flex; align-items: center; gap: 12px; }
 .social-circle { width: 40px; height: 40px; background: #9a6433; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
 .social-circle:hover { background-color: #694321; }
-.btn-shop { background-color: #697359; color: #ffffff; padding: 14px 28px; text-decoration: none; font-weight: 800; font-size: 14px; border-radius: 10px; transition: 0.3s; }
+.btn-shop { background-color: #697359; color: #ffffff; padding: 14px 28px; text-decoration: none; font-weight: 800; font-size: 14px; border-radius: 10px; transition: 0.3s; border: none; cursor: pointer; }
 .btn-shop:hover { background-color: #555e49; }
 
-/* Ocultar botón móvil por defecto en pantallas grandes */
 .mobile-shop-btn { display: none; }
 
 /* Menú Móvil */
 .menu-toggle { display: none; flex-direction: column; cursor: pointer; z-index: 1001; }
 .menu-toggle .bar { width: 25px; height: 3px; background-color: #694321; margin: 4px 0; transition: 0.4s; }
 
-/* Estilo para las redes sociales dentro del menú móvil */
 .mobile-socials { display: none; gap: 15px; margin-top: 20px; }
 
-/* Animación de las barras a cruz (X) */
 .menu-toggle.active .bar:nth-child(1) { transform: translateY(11px) rotate(45deg); }
 .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
 .menu-toggle.active .bar:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
 
 @media (max-width: 1100px) {
-    .menu-toggle { display: flex; order: 2; }
-    .logo-container { order: 1; }
+    .navbar { padding: 15px 5%; height: 90px; }
+    .menu-toggle { display: flex; order: 3; }
+    
+    /* Centrado absoluto para el logotipo en celulares */
+    .logo-container { order: 2; position: absolute; left: 50%; transform: translateX(-50%); }
+    .logo-img { height: 65px; }
+    
     .nav-actions { display: none; } 
 
     .nav-links {
-        position: absolute; top: 150px; left: -100%; flex-direction: column;
-        background-color: white; width: 100%; padding: 30px 0;
+        position: absolute; top: 90px; left: -100%; flex-direction: column;
+        background-color: white; width: 100%; padding: 20px 0; gap: 0;
         text-align: center; transition: 0.5s; box-shadow: 0 10px 15px rgba(0,0,0,0.1); z-index: 999;
     }
     .nav-links.active { left: 0; }
-    .nav-links a { font-size: 18px; width: 100%; padding: 10px 0; display: block; }
     
-    /* Mostrar el botón de WhatsApp ordenado dentro del menú celular */
-    .mobile-shop-btn { display: inline-block; width: 80%; margin: 15px auto; text-align: center; }
-    .mobile-socials { display: flex; justify-content: center; } 
+    /* Modificación: Sombreado de selección color verde oliva al pasar el dedo o cursor */
+    .nav-links a { font-size: 16px; width: 100%; padding: 15px 0; display: block; }
+    .nav-links a:hover, .nav-links a:active { background-color: rgba(105, 115, 89, 0.15); color: #697359; }
+    
+    .mobile-shop-btn { display: inline-block; width: 85%; margin: 15px auto; text-align: center; }
+    .mobile-socials { display: flex; justify-content: center; padding-top: 10px; } 
 }
 
 /* Hero Slider */
