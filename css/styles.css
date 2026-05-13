@@ -54,24 +54,26 @@ body { font-family: 'Montserrat', sans-serif; overflow-x: hidden; background-col
     
     .nav-actions { display: none; } 
 
-    /* CORRECCIÓN: Distribución equilibrada de secciones en la pantalla móvil usando flexbox */
+    /* CORRECCIÓN: Ajuste de altura a auto para evitar el hueco en blanco y amontonamiento */
     .nav-links {
         position: absolute; top: 90px; left: -100%; flex-direction: column;
-        background-color: white; width: 100%; padding: 30px 0; gap: 5px;
+        background-color: white; width: 100%; padding: 25px 0 15px 0; gap: 2px;
         text-align: center; transition: 0.5s; box-shadow: 0 10px 15px rgba(0,0,0,0.1); z-index: 999;
-        height: calc(100vh - 90px); justify-content: flex-start; overflow-y: auto;
+        height: auto; justify-content: flex-start;
     }
     .nav-links.active { left: 0; }
     
     .nav-links a { font-size: 16px; width: 100%; padding: 12px 0; display: block; }
     .nav-links a:hover, .nav-links a:active { background-color: rgba(105, 115, 89, 0.15); color: #697359; }
     
-    /* CORRECCIÓN: Estilos responsivos limpios para el botón PIDE AQUÍ */
-    .mobile-shop-btn { display: inline-block; width: 85%; margin: 15px auto; padding: 16px 0; font-size: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); flex-shrink: 0; }
+    .mobile-shop-btn { display: inline-block; width: 85%; margin: 10px auto; padding: 14px 0; font-size: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); flex-shrink: 0; }
     
-    /* CORRECCIÓN: Contenedor y simetría circular fija para los íconos de redes sociales */
-    .mobile-socials { display: flex; justify-content: center; gap: 20px; padding: 20px 0; width: 100%; border-top: 1px solid #f2f2f2; margin-top: auto; flex-shrink: 0; } 
-    .mobile-socials .social-circle { width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    /* CORRECCIÓN: Reducción del margen de redes sociales para pegarlas orgánicamente al menú */
+    .mobile-socials { display: flex; justify-content: center; gap: 20px; padding: 15px 0 5px 0; width: 100%; border-top: 1px solid #f2f2f2; margin-top: 15px; flex-shrink: 0; } 
+    
+    /* CORRECCIÓN: Alineación interna flex-center y padding para centrar el vector de Facebook sin cortes */
+    .mobile-socials .social-circle { width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; padding: 0; }
+    .mobile-socials .fb-color svg { transform: translateX(1px); }
 }
 
 /* Hero Slider */
