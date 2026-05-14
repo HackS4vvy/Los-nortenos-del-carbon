@@ -92,19 +92,20 @@ body {
     
     .nav-actions { display: none; } 
 
+    /* Estructura del menú móvil con textura de madera original intacta */
     .nav-links {
         position: absolute; top: 90px; left: -100%; flex-direction: column;
-        background-color: #fcfbf9 !important; width: 100%; padding: 25px 0 25px 0; gap: 2px;
+        background-color: #f7f3eb !important; width: 100%; padding: 25px 0 25px 0; gap: 2px;
         text-align: center; transition: 0.5s; box-shadow: 0 10px 15px rgba(0,0,0,0.1); z-index: 999;
         height: calc(100vh - 90px); min-height: 520px; justify-content: flex-start;
         background-image: 
-            linear-gradient(90deg, rgba(105, 67, 33, 0.02) 50%, transparent 50%),
-            linear-gradient(rgba(105, 67, 33, 0.02) 50%, transparent 50%) !important;
-        background-size: 24px 24px !important;
+            linear-gradient(90deg, rgba(105, 67, 33, 0.015) 1px, transparent 1px),
+            linear-gradient(0deg, rgba(105, 67, 33, 0.01) 2px, transparent 2px) !important;
+        background-size: 50px 30px !important;
     }
     .nav-links.active { left: 0; }
     
-    /* CACTUS 1: Esquina Superior Izquierda (Efecto de baile) */
+    /* Cactus 1: Superior Izquierda Menú Móvil (Ángulo 130° al 70%) */
     .nav-links::before {
         content: "";
         position: absolute;
@@ -118,11 +119,11 @@ body {
         opacity: 0.7;
         pointer-events: none;
         z-index: 1;
-        transform-origin: bottom center; /* Hace que dancen pivotando desde su base rústica */
+        transform-origin: bottom center;
         animation: cactusBailando 1.2s ease-in-out infinite alternate;
     }
     
-    /* CACTUS 2: Esquina Superior Derecha (Efecto de baile desfasado de forma simétrica) */
+    /* Cactus 2: Superior Derecha Menú Móvil */
     .nav-links::after {
         content: "";
         position: absolute;
@@ -138,7 +139,7 @@ body {
         z-index: 1;
         transform-origin: bottom center;
         animation: cactusBailando 1.2s ease-in-out infinite alternate;
-        animation-delay: -0.6s; /* Inicia la animación exactamente al revés para simular un baile coordinado */
+        animation-delay: -0.6s;
     }
     
     .nav-links a { font-size: 20px; width: 100%; padding: 12px 0; display: block; position: relative; z-index: 2; }
@@ -151,7 +152,7 @@ body {
         position: relative; z-index: 2; 
     } 
     
-    /* CACTUS 3: Esquina Inferior Izquierda (Efecto de baile) */
+    /* Cactus 3: Inferior Izquierda Menú Móvil */
     .mobile-socials::before {
         content: "";
         position: absolute;
@@ -168,7 +169,7 @@ body {
         animation: cactusBailando 1.2s ease-in-out infinite alternate;
     }
 
-    /* CACTUS 4: Esquina Inferior Derecha (Efecto de baile desfasado) */
+    /* Cactus 4: Inferior Derecha Menú Móvil */
     .mobile-socials::after {
         content: "";
         position: absolute;
@@ -241,16 +242,35 @@ body {
 .btn-hero { display: inline-block; background-color: #697359; color: white; padding: 16px 40px; text-decoration: none; font-family: 'Poppins', sans-serif !important; font-weight: 700 !important; border-radius: 8px; margin-top: 25px; transition: 0.3s; }
 .btn-hero:hover { background-color: #555e49; }
 
-/* Secciones Generales */
+
+/* ==========================================================================
+   MEZCLA DE TEXTURAS CONFIGURADA EN LA ESTRUCTURA ONE PAGE
+   ========================================================================== */
+
 .section-padding { padding: 90px 5%; text-align: center; background-color: #ffffff; }
 
-.section-padding:nth-child(even) { 
+/* TEXTURA A: Secciones impares (MANTEL DE PICNIC) */
+.section-padding:nth-child(odd) {
     background-color: #fcfbf9; 
     background-image: 
         linear-gradient(90deg, rgba(105, 67, 33, 0.02) 50%, transparent 50%),
         linear-gradient(rgba(105, 67, 33, 0.02) 50%, transparent 50%);
     background-size: 24px 24px;
+}
+
+/* TEXTURA B: Secciones pares (TABLONES DE MADERA CLARA) */
+.section-padding:nth-child(even) { 
+    background-color: #f7f3eb; 
+    background-image: 
+        linear-gradient(90deg, rgba(105, 67, 33, 0.015) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(105, 67, 33, 0.01) 2px, transparent 2px);
+    background-size: 50px 30px;
 } 
+
+
+/* ==========================================================================
+   ELEMENTOS INTERNOS DE LA PLANTILLA
+   ========================================================================== */
 
 .section-padding h2 { font-family: 'MotterCorpus', 'Impact', 'Arial Black', sans-serif !important; font-size: 36px; font-weight: normal !important; color: #694321; margin-bottom: 35px; letter-spacing: 1px; position: relative; display: inline-block; text-transform: uppercase; }
 
@@ -269,7 +289,35 @@ body {
 
 
 /* ==========================================================================
-   DECORACIONES DE FONDO EN COMPUTADORA: HABANEROS FIJOS
+   CLASES NUEVAS: CONTROL TOTAL DE IMÁGENES LARGAS (SIN RECORTES)
+   ========================================================================== */
+
+.vertical-menu-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px; 
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.single-banner-container, .menu-banner-item {
+    width: 100%;
+    max-width: 700px; 
+    margin: 0 auto;
+}
+
+.full-view-img {
+    width: 100%;
+    height: auto !important; 
+    object-fit: contain !important; 
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+
+/* ==========================================================================
+   DECORACIONES: HABANEROS DE FONDO EN ESCRITORIO
    ========================================================================== */
 
 #nosotros {
@@ -319,7 +367,6 @@ body {
    LÓGICA DE ANIMACIÓN (KEYFRAMES COMPATIBLES)
    ========================================================================== */
 
-/* Animación del Baile: Oscilación milimétrica y rítmica entre -10° y 10° grados */
 @keyframes cactusBailando {
     0% {
         transform: rotate(-10deg);
