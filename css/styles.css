@@ -92,6 +92,7 @@ body {
     
     .nav-actions { display: none; } 
 
+    /* OPTIMIZACIÓN: Añadidos los dos cactus decorativos con 70% de opacidad en las esquinas inferiores del menú móvil */
     .nav-links {
         position: absolute; top: 90px; left: -100%; flex-direction: column;
         background-color: #fcfbf9 !important; width: 100%; padding: 25px 0 15px 0; gap: 2px;
@@ -104,12 +105,42 @@ body {
     }
     .nav-links.active { left: 0; }
     
-    .nav-links a { font-size: 20px; width: 100%; padding: 12px 0; display: block; }
+    /* Cactus Esquina Inferior Izquierda del menú */
+    .nav-links::before {
+        content: "";
+        position: absolute;
+        bottom: 75px; /* Separación inteligente para no encimarse con las redes sociales fijas */
+        left: 15px;
+        width: 42px;
+        height: 42px;
+        background-image: url('../img/cactus.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        opacity: 0.7; /* Solicitado al 70% */
+        pointer-events: none;
+    }
+    
+    /* Cactus Esquina Inferior Derecha del menú */
+    .nav-links::after {
+        content: "";
+        position: absolute;
+        bottom: 75px;
+        right: 15px;
+        width: 42px;
+        height: 42px;
+        background-image: url('../img/cactus.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        opacity: 0.7; /* Solicitado al 70% */
+        pointer-events: none;
+    }
+    
+    .nav-links a { font-size: 20px; width: 100%; padding: 12px 0; display: block; position: relative; z-index: 2; }
     .nav-links a:hover, .nav-links a:active { background-color: rgba(105, 115, 89, 0.15); color: #697359; }
     
-    .mobile-shop-btn { display: inline-block; width: 85%; margin: 10px auto; padding: 14px 0; font-family: 'Poppins', sans-serif !important; font-weight: 700 !important; font-size: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); flex-shrink: 0; }
+    .mobile-shop-btn { display: inline-block; width: 85%; margin: 10px auto; padding: 14px 0; font-family: 'Poppins', sans-serif !important; font-weight: 700 !important; font-size: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); flex-shrink: 0; position: relative; z-index: 2; }
     
-    .mobile-socials { display: flex; justify-content: center; gap: 20px; padding: 15px 0 5px 0; width: 100%; border-top: 1px solid #f2f2f2; margin-top: 15px; flex-shrink: 0; } 
+    .mobile-socials { display: flex; justify-content: center; gap: 20px; padding: 15px 0 5px 0; width: 100%; border-top: 1px solid #f2f2f2; margin-top: 15px; flex-shrink: 0; position: relative; z-index: 2; } 
     
     .mobile-socials .social-circle { width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; padding: 0; }
     .mobile-socials .fb-color svg { transform: translateX(1px); }
@@ -169,6 +200,7 @@ body {
 /* Secciones Generales */
 .section-padding { padding: 90px 5%; text-align: center; background-color: #ffffff; }
 
+/* Mantel de Picnic sutil en las secciones pares */
 .section-padding:nth-child(even) { 
     background-color: #fcfbf9; 
     background-image: 
@@ -194,15 +226,15 @@ body {
 
 
 /* ==========================================================================
-   DECORACIONES: CONFIGURACIÓN INTEGRAL DE CHILES Y CACTUS RESPONSIVOS
+   DECORACIONES DE FONDO EN COMPUTADORA: HABANEROS FIJOS
    ========================================================================== */
 
-#nosotros, #tacos, #paquetes-parrilleros {
+#nosotros {
     position: relative;
     overflow: hidden;
 }
 
-/* Habanero Esquina Superior Izquierda */
+/* Habanero Esquina Superior Izquierda en Escritorio */
 #nosotros::before {
     content: "";
     position: absolute;
@@ -219,7 +251,7 @@ body {
     z-index: 1;
 }
 
-/* Habanero Esquina Superior Divergente */
+/* Habanero Esquina Superior Derecha en Escritorio */
 #nosotros::after {
     content: "";
     position: absolute;
@@ -236,87 +268,8 @@ body {
     z-index: 1;
 }
 
-/* Cactus a la derecha del título en Computadora (NOSOTROS) */
-#nosotros h2::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: -65px;
-    transform: translateY(-40%);
-    width: 48px;
-    height: 48px;
-    background-image: url('../img/cactus.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    opacity: 1;
-    pointer-events: none;
-}
-
-/* Cactus a la derecha del título en Computadora (TACOS DE ASADA) */
-#tacos h2 {
-    position: relative;
-    display: inline-block;
-}
-#tacos h2::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: -65px;
-    transform: translateY(-40%);
-    width: 48px;
-    height: 48px;
-    background-image: url('../img/cactus.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    opacity: 1;
-    pointer-events: none;
-}
-
-/* Cactus a la derecha del título en Computadora (PAQUETES PARRILLEROS) */
-#paquetes-parrilleros h2 {
-    position: relative;
-    display: inline-block;
-}
-#paquetes-parrilleros h2::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: -65px;
-    transform: translateY(-40%);
-    width: 48px;
-    height: 48px;
-    background-image: url('../img/cactus.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    opacity: 1;
-    pointer-events: none;
-}
-
-/* OPTIMIZACIÓN RESPONSIVA SEPARANDO TOTALMENTE EL CACTUS DE LA LÍNEA */
+/* RESPONSIVO DE HABANEROS SUPERIORES EN PANTALLAS CHICAS */
 @media (max-width: 600px) {
     #nosotros::before { width: 45px; height: 45px; top: 20px; left: 2vw; }
     #nosotros::after { width: 45px; height: 45px; top: 20px; right: 2vw; }
-    
-    /* REUBICACIÓN MÓVIL EXACTA: Posición superior fija para que la línea quede abajo */
-    #nosotros h2::before,
-    #tacos h2::before,
-    #paquetes-parrilleros h2::before {
-        right: 50% !important;
-        left: 50% !important;
-        top: 45px !important;       /* Baja el cactus de manera controlada abajo del texto */
-        bottom: auto !important;
-        transform: translateX(-50%) !important;
-        width: 34px;
-        height: 34px;
-    }
-    
-    /* Ampliamos el espacio total del título para albergar los dos elementos en orden vertical */
-    .section-padding h2 {
-        margin-bottom: 75px !important;
-    }
-    
-    /* Empujamos la línea verde horizontal para que se sitúe estrictamente por debajo del cactus */
-    .section-padding h2::after {
-        margin: 48px auto 0 auto !important; /* Desplazamiento limpio hacia la base del cactus */
-    }
 }
