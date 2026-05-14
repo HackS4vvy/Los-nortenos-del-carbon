@@ -92,12 +92,12 @@ body {
     
     .nav-actions { display: none; } 
 
-    /* OPTIMIZACIÓN: Añadidos los dos cactus decorativos con 70% de opacidad en las esquinas inferiores del menú móvil */
+    /* Estructuración base del contenedor del menú móvil con el papel tapiz */
     .nav-links {
         position: absolute; top: 90px; left: -100%; flex-direction: column;
-        background-color: #fcfbf9 !important; width: 100%; padding: 25px 0 15px 0; gap: 2px;
+        background-color: #fcfbf9 !important; width: 100%; padding: 25px 0 25px 0; gap: 2px;
         text-align: center; transition: 0.5s; box-shadow: 0 10px 15px rgba(0,0,0,0.1); z-index: 999;
-        height: auto; justify-content: flex-start;
+        height: calc(100vh - 90px); min-height: 520px; justify-content: flex-start;
         background-image: 
             linear-gradient(90deg, rgba(105, 67, 33, 0.02) 50%, transparent 50%),
             linear-gradient(rgba(105, 67, 33, 0.02) 50%, transparent 50%) !important;
@@ -105,34 +105,42 @@ body {
     }
     .nav-links.active { left: 0; }
     
-    /* Cactus Esquina Inferior Izquierda del menú */
+    /* ==========================================================
+       NUEVA DECORACIÓN: 4 CACTUS EN LAS ESQUINAS DEL MENÚ MÓVIL
+       ========================================================== */
+
+    /* CACTUS 1: Esquina Superior Izquierda (Anclado a nav-links::before) */
     .nav-links::before {
         content: "";
         position: absolute;
-        bottom: 75px; /* Separación inteligente para no encimarse con las redes sociales fijas */
-        left: 15px;
-        width: 42px;
-        height: 42px;
+        top: 20px;
+        left: 20px;
+        width: 38px;
+        height: 38px;
         background-image: url('../img/cactus.png');
         background-size: contain;
         background-repeat: no-repeat;
-        opacity: 0.7; /* Solicitado al 70% */
+        opacity: 0.7;
+        transform: rotate(120deg); /* Ángulo solicitado */
         pointer-events: none;
+        z-index: 1;
     }
     
-    /* Cactus Esquina Inferior Derecha del menú */
+    /* CACTUS 2: Esquina Superior Derecha (Anclado a nav-links::after) */
     .nav-links::after {
         content: "";
         position: absolute;
-        bottom: 75px;
-        right: 15px;
-        width: 42px;
-        height: 42px;
+        top: 20px;
+        right: 20px;
+        width: 38px;
+        height: 38px;
         background-image: url('../img/cactus.png');
         background-size: contain;
         background-repeat: no-repeat;
-        opacity: 0.7; /* Solicitado al 70% */
+        opacity: 0.7;
+        transform: rotate(120deg); /* Ángulo solicitado */
         pointer-events: none;
+        z-index: 1;
     }
     
     .nav-links a { font-size: 20px; width: 100%; padding: 12px 0; display: block; position: relative; z-index: 2; }
@@ -140,8 +148,44 @@ body {
     
     .mobile-shop-btn { display: inline-block; width: 85%; margin: 10px auto; padding: 14px 0; font-family: 'Poppins', sans-serif !important; font-weight: 700 !important; font-size: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); flex-shrink: 0; position: relative; z-index: 2; }
     
-    .mobile-socials { display: flex; justify-content: center; gap: 20px; padding: 15px 0 5px 0; width: 100%; border-top: 1px solid #f2f2f2; margin-top: 15px; flex-shrink: 0; position: relative; z-index: 2; } 
+    /* Contenedor de redes móviles modificado a relativo para anclar los cactus inferiores */
+    .mobile-socials { 
+        display: flex; justify-content: center; gap: 20px; padding: 15px 0 5px 0; width: 100%; border-top: 1px solid #f2f2f2; margin-top: 15px; flex-shrink: 0; 
+        position: relative; z-index: 2; 
+    } 
     
+    /* CACTUS 3: Esquina Inferior Izquierda (Alineado debajo de las redes sociales) */
+    .mobile-socials::before {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        left: 20px;
+        width: 38px;
+        height: 38px;
+        background-image: url('../img/cactus.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        opacity: 0.7;
+        transform: rotate(120deg); /* Ángulo solicitado */
+        pointer-events: none;
+    }
+
+    /* CACTUS 4: Esquina Inferior Derecha (Alineado debajo de las redes sociales) */
+    .mobile-socials::after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        right: 20px;
+        width: 38px;
+        height: 38px;
+        background-image: url('../img/cactus.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        opacity: 0.7;
+        transform: rotate(120deg); /* Ángulo solicitado */
+        pointer-events: none;
+    }
+
     .mobile-socials .social-circle { width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; padding: 0; }
     .mobile-socials .fb-color svg { transform: translateX(1px); }
 }
