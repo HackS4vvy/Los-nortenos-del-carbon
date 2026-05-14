@@ -178,7 +178,7 @@ body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color:
 
 
 /* ==========================================================================
-   DECORACIONES REVISADAS: CONFIGURACIÓN DE CHILES Y CACTUS SIMÉTRICOS
+   DECORACIONES ACTUALIZADAS: COLOR INTENSO, CACTUS MÁS GRANDES Y CENTRADOS
    ========================================================================== */
 
 #nosotros, #tacos, #paquetes-parrilleros {
@@ -197,7 +197,7 @@ body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color:
     background-image: url('../img/habanero.png');
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0.18;
+    opacity: 1; /* Opacidad total sin transparencia */
     transform: rotate(-15deg);
     pointer-events: none;
     z-index: 1;
@@ -214,7 +214,7 @@ body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color:
     background-image: url('../img/habanero.png');
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0.18;
+    opacity: 1; /* Opacidad total sin transparencia */
     transform: rotate(15deg);
     pointer-events: none;
     z-index: 1;
@@ -225,14 +225,14 @@ body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color:
     content: "";
     position: absolute;
     top: 50%;
-    right: -55px;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
+    right: -65px; /* Ajuste para mayor separación por tamaño */
+    transform: translateY(-40%); /* Alineación vertical más exacta */
+    width: 48px;  /* Tamaño más grande */
+    height: 48px;
     background-image: url('../img/cactus.png');
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0.25;
+    opacity: 1; /* Opacidad total sin transparencia */
     pointer-events: none;
 }
 
@@ -245,14 +245,14 @@ body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color:
     content: "";
     position: absolute;
     top: 50%;
-    right: -55px;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
+    right: -65px;
+    transform: translateY(-40%);
+    width: 48px;
+    height: 48px;
     background-image: url('../img/cactus.png');
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0.25;
+    opacity: 1;
     pointer-events: none;
 }
 
@@ -265,39 +265,37 @@ body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color:
     content: "";
     position: absolute;
     top: 50%;
-    right: -55px;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
+    right: -65px;
+    transform: translateY(-40%);
+    width: 48px;
+    height: 48px;
     background-image: url('../img/cactus.png');
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0.25;
+    opacity: 1;
     pointer-events: none;
 }
 
 /* Optimización de visualización en pantallas móviles */
 @media (max-width: 600px) {
     #nosotros::before {
-        width: 40px;
-        height: 40px;
+        width: 45px;
+        height: 45px;
         top: 20px;
         left: 2vw;
-        opacity: 0.1;
     }
     #nosotros::after {
-        width: 40px;
-        height: 40px;
+        width: 45px;
+        height: 45px;
         top: 20px;
         right: 2vw;
-        opacity: 0.1;
     }
     #nosotros h2::before,
     #tacos h2::before,
     #paquetes-parrilleros h2::before {
-        width: 25px;
-        height: 25px;
-        right: -35px;
-        opacity: 0.15;
+        width: 30px;
+        height: 30px;
+        right: -42px;
+        transform: translateY(-45%);
     }
 }
