@@ -92,7 +92,6 @@ body {
     
     .nav-actions { display: none; } 
 
-    /* Contenedor del menú desplegable móvil con papel tapiz */
     .nav-links {
         position: absolute; top: 90px; left: -100%; flex-direction: column;
         background-color: #fcfbf9 !important; width: 100%; padding: 25px 0 25px 0; gap: 2px;
@@ -105,7 +104,7 @@ body {
     }
     .nav-links.active { left: 0; }
     
-    /* CACTUS 1: Esquina Superior Izquierda del menú */
+    /* CACTUS 1: Esquina Superior Izquierda (Con rotación infinita en su propio eje) */
     .nav-links::before {
         content: "";
         position: absolute;
@@ -117,13 +116,13 @@ body {
         background-size: contain;
         background-repeat: no-repeat;
         opacity: 0.7;
-        transform: rotate(-18deg); /* Modificado exactamente a -18° */
-        transform-origin: center center;
         pointer-events: none;
         z-index: 1;
+        transform-origin: center center; /* Fuerza al pivote a estar al centro exacto */
+        animation: giroEjeContinuous 6s linear infinite; /* 'linear' evita pausas entre vueltas */
     }
     
-    /* CACTUS 2: Esquina Superior Derecha del menú */
+    /* CACTUS 2: Esquina Superior Derecha (Rotación infinita) */
     .nav-links::after {
         content: "";
         position: absolute;
@@ -135,10 +134,10 @@ body {
         background-size: contain;
         background-repeat: no-repeat;
         opacity: 0.7;
-        transform: rotate(-18deg); /* Modificado exactamente a -18° */
-        transform-origin: center center;
         pointer-events: none;
         z-index: 1;
+        transform-origin: center center;
+        animation: giroEjeContinuous 6s linear infinite;
     }
     
     .nav-links a { font-size: 20px; width: 100%; padding: 12px 0; display: block; position: relative; z-index: 2; }
@@ -151,7 +150,7 @@ body {
         position: relative; z-index: 2; 
     } 
     
-    /* CACTUS 3: Esquina Inferior Izquierda del menú */
+    /* CACTUS 3: Esquina Inferior Izquierda (Rotación infinita) */
     .mobile-socials::before {
         content: "";
         position: absolute;
@@ -163,12 +162,12 @@ body {
         background-size: contain;
         background-repeat: no-repeat;
         opacity: 0.7;
-        transform: rotate(-18deg); /* Modificado exactamente a -18° */
-        transform-origin: center center;
         pointer-events: none;
+        transform-origin: center center;
+        animation: giroEjeContinuous 6s linear infinite;
     }
 
-    /* CACTUS 4: Esquina Inferior Derecha del menú */
+    /* CACTUS 4: Esquina Inferior Derecha (Rotación infinita) */
     .mobile-socials::after {
         content: "";
         position: absolute;
@@ -180,9 +179,9 @@ body {
         background-size: contain;
         background-repeat: no-repeat;
         opacity: 0.7;
-        transform: rotate(-18deg); /* Modificado exactamente a -18° */
-        transform-origin: center center;
         pointer-events: none;
+        transform-origin: center center;
+        animation: giroEjeContinuous 6s linear infinite;
     }
 
     .mobile-socials .social-circle { width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; padding: 0; }
@@ -243,7 +242,6 @@ body {
 /* Secciones Generales */
 .section-padding { padding: 90px 5%; text-align: center; background-color: #ffffff; }
 
-/* Mantel de Picnic sutil en las secciones pares */
 .section-padding:nth-child(even) { 
     background-color: #fcfbf9; 
     background-image: 
@@ -277,7 +275,6 @@ body {
     overflow: hidden;
 }
 
-/* Habanero Esquina Superior Izquierda en Escritorio */
 #nosotros::before {
     content: "";
     position: absolute;
@@ -289,12 +286,11 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 1;
-    transform: rotate(-15deg);
     pointer-events: none;
     z-index: 1;
+    animation: latidoFuego 4s ease-in-out infinite alternate;
 }
 
-/* Habanero Esquina Superior Derecha en Escritorio */
 #nosotros::after {
     content: "";
     position: absolute;
@@ -306,13 +302,37 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 1;
-    transform: rotate(15deg);
     pointer-events: none;
     z-index: 1;
+    animation: latidoFuegoInvertido 4s ease-in-out infinite alternate;
 }
 
-/* RESPONSIVO DE HABANEROS SUPERIORES EN PANTALLAS CHICAS */
 @media (max-width: 600px) {
     #nosotros::before { width: 45px; height: 45px; top: 20px; left: 2vw; }
     #nosotros::after { width: 45px; height: 45px; top: 20px; right: 2vw; }
+}
+
+
+/* ==========================================================================
+   LÓGICA DE ANIMACIÓN (KEYFRAMES COMPATIBLES)
+   ========================================================================== */
+
+/* Animación de Giro Completo: Hace rotar los cactus los 360° continuos en bucle */
+@keyframes giroEjeContinuous {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes latidoFuego {
+    0% { transform: rotate(-15deg) scale(1); }
+    100% { transform: rotate(-13deg) scale(1.04); }
+}
+
+@keyframes latidoFuegoInvertido {
+    0% { transform: rotate(15deg) scale(1); }
+    100% { transform: rotate(13deg) scale(1.04); }
 }
