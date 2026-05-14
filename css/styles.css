@@ -51,7 +51,7 @@ body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color:
 .logo-container { display: flex; align-items: center; }
 .logo-img { height: 145px; width: auto; transition: 0.3s; }
 
-/* CORRECCIÓN DEFINITIVA: Las opciones del menú superior/móvil adoptan MotterCorpus */
+/* Las opciones del menú superior/móvil adoptan MotterCorpus */
 .nav-links { display: flex; align-items: center; gap: 35px; }
 .nav-links a { text-decoration: none; color: #694321; font-family: 'MotterCorpus', 'Impact', sans-serif !important; font-weight: normal !important; font-size: 18px; letter-spacing: 0.5px; transition: 0.3s; }
 .nav-links a.active { color: #E53935; }
@@ -97,6 +97,8 @@ body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color:
     .nav-links.active { left: 0; }
     
     .nav-links a { font-size: 20px; width: 100%; padding: 12px 0; display: block; }
+    
+    /* MODIFICACIÓN: Sombras de selección color verde oliva al pasar el dedo o cursor en móvil */
     .nav-links a:hover, .nav-links a:active { background-color: rgba(105, 115, 89, 0.15); color: #697359; }
     
     .mobile-shop-btn { display: inline-block; width: 85%; margin: 10px auto; padding: 14px 0; font-size: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); flex-shrink: 0; }
