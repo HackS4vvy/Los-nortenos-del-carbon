@@ -62,7 +62,6 @@
     </header>
 
     <section class="hero-slider">
-        <!-- CORRECCIÓN: El nombre de la clase cambió a slider-wave-mask-top para que lea tus estilos CSS -->
         <div class="slider-wave-mask-top">
             <svg viewBox="0 0 1440 40" fill="none" xmlns="w3.org">
                 <path d="M0 0H1440V15C1320 28 1120 35 960 35C720 35 600 12 280 22C160 26 70 14 0 5V0Z" fill="#ffffff"/>
@@ -110,15 +109,21 @@
             <h2>TACOS DE ASADA</h2>
             <div class="menu-grid">
                 <div class="menu-item">
-                    <img src="img/taco-asada.jpg" alt="Taco de Asada">
+                    <img src="img/tacos.jpeg" alt="Taco de Asada Clásico">
+                    <h3>Taco de Asada Clásico</h3>
+                    <p>Pura pulpa de res seleccionada y picada fina al momento.</p>
+                    <span class="price">$XX.XX</span>
+                </div>
+                <div class="menu-item">
+                    <img src="img/tacos2.jpeg" alt="Taco Campechano">
                     <h3>Taco Campechano</h3>
                     <p>Combinación perfecta de asada y chorizo sobre tortilla artesanal.</p>
                     <span class="price">$XX.XX</span>
                 </div>
                 <div class="menu-item">
-                    <img src="img/taco-asada.jpg" alt="Taco de Asada">
-                    <h3>Taco de Asada Clásico</h3>
-                    <p>Pura pulpa de res seleccionada y picada fina al momento.</p>
+                    <img src="img/taco-ribeye.jpeg" alt="Taco de Ribeye">
+                    <h3>Taco de Ribeye</h3>
+                    <p>Corte premium de Ribeye seleccionado asado a la perfección.</p>
                     <span class="price">$XX.XX</span>
                 </div>
             </div>
@@ -130,75 +135,35 @@
             <h2>PAQUETES PARRILLEROS</h2>
             <div class="menu-grid">
                 <div class="menu-item">
-                    <img src="img/paquete1.jpg" alt="Paquete Familiar">
-                    <h3>Paquete Parrillero Familiar</h3>
-                    <p>Incluye carne, cebollitas, nopales, tortillas y salsas de la casa.</p>
+                    <img src="img/paquetedelmes.jpeg" alt="Paquete del Mes">
+                    <h3>Paquete del Mes</h3>
+                    <p>La combinación parrillera perfecta para compartir en familia o amigos.</p>
                     <span class="price">$XXX.XX</span>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- SECCIÓN CORTES PREMIUM CONFIGURADA CON TUS IMÁGENES REALES -->
     <section id="cortes" class="section-padding">
         <div class="container">
             <h2>CORTES PREMIUM</h2>
             <div class="menu-grid">
                 <div class="menu-item">
-                    <img src="img/ribeye.jpg" alt="Rib Eye">
-                    <h3>Rib Eye</h3>
-                    <p>Corte jugoso de gran marmoleo cocinado a la perfección sobre brasas.</p>
+                    <img src="img/Listadepreciospublico1.jpg" alt="Lista de Precios al Público">
+                    <h3>Nuestra Variedad</h3>
+                    <p>Consulta nuestra selección completa de cortes disponibles al público.</p>
+                    <span class="price">Menú Especial</span>
+                </div>
+                <div class="menu-item">
+                    <img src="img/arrachera.jpeg" alt="Arrachera Premium">
+                    <h3>Arrachera Premium</h3>
+                    <p>Arrachera marinada ultra suave y jugosa, sellada a fuego directo.</p>
                     <span class="price">$XXX.XX</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="opiniones" class="section-padding">
-        <div class="container">
-            <h2>LO QUE DICEN NUESTROS CLIENTES</h2>
-            <div class="testimonial">
-                <p>"El mejor sabor al carbón que he probado en Pachuca. La carne súper suave y las salsas buenísimas. 100% recomendados."</p>
-                <span>- Juan Pérez</span>
-            </div>
-        </div>
-    </section>
-
-    <section id="ubicacion" class="section-padding">
-        <div class="container">
-            <h2>UBICACIÓN Y HORARIOS</h2>
-            <p class="contact-info">📍 Av. Revolución 1008, Pachuca, Hgo.</p>
-            <p class="contact-info">⏰ Horario: Sábado y Domingo de 10:00 AM a 17:00 PM</p>
-            
-            <div class="map-container">
-                <iframe src="about:blank" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        const slides = document.querySelectorAll('.slide');
-        let currentSlide = 0;
-        function nextSlide() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
-        setInterval(nextSlide, 5000);
-
-        const menuToggle = document.getElementById('mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            menuToggle.classList.toggle('active'); 
-        });
-
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                menuToggle.classList.remove('active');
-            });
-        });
-    </script>
 </body>
 </html>
