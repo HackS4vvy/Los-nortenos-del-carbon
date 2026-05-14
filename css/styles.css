@@ -110,7 +110,6 @@ body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color:
 /* Hero Slider */
 .hero-slider { position: relative; height: 85vh; width: 100%; background-color: #000; }
 
-/* MODIFICACIÓN: Reemplazo por selectores individuales para la curva superior e inferior */
 .slider-wave-mask-top {
     position: absolute;
     top: 0;
@@ -126,7 +125,6 @@ body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color:
     height: auto;
 }
 
-/* MODIFICACIÓN: Estilos específicos para posicionar e invertir la curva en la parte inferior */
 .slider-wave-mask-bottom {
     position: absolute;
     bottom: 0;
@@ -135,7 +133,7 @@ body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color:
     z-index: 10;
     line-height: 0;
     pointer-events: none;
-    transform: rotate(180deg); /* Invierte la onda para que apunte hacia abajo */
+    transform: rotate(180deg);
 }
 .slider-wave-mask-bottom svg {
     display: block;
@@ -178,11 +176,182 @@ body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color:
 
 .menu-item .price { display: block; font-size: 18px; font-weight: 700; color: #697359; }
 
-.testimonial { background: #694321; color: white; padding: 45px 30px; border-radius: 15px; max-width: 800px; margin: 0 auto; box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
-.testimonial p { font-style: italic; font-size: 18px; margin-bottom: 15px; line-height: 1.6; }
-.testimonial span { font-weight: 700; color: #d6d8be; letter-spacing: 1px; font-size: 14px; }
 
-.contact-info { font-size: 18px; color: #333; margin: 10px 0; font-weight: 700; }
+/* ==========================================================================
+   NUEVOS ESTILOS: SECCIÓN NOSOTROS (TARJETAS E ÍCONOS)
+   ========================================================================== */
 
-.map-container { margin-top: 30px; width: 100%; max-width: 800px; margin-left: auto; margin-right: auto; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-.map-container iframe { display: block; width: 100%; }
+.about-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.about-card {
+    background: #ffffff;
+    padding: 35px 25px;
+    border-radius: 12px;
+    border: 1px solid #f2f2f2;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.01);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(105, 67, 33, 0.08);
+}
+
+.about-icon-box {
+    width: 65px;
+    height: 65px;
+    background-color: #697359; 
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 22px auto;
+    transition: 0.3s;
+}
+
+.about-card:hover .about-icon-box {
+    background-color: #694321;
+}
+
+.about-svg {
+    width: 32px;
+    height: 32px;
+    stroke: #ffffff;
+}
+
+.about-card h3 {
+    font-family: 'MotterCorpus', 'Impact', 'Arial Black', sans-serif !important;
+    font-size: 22px;
+    color: #694321;
+    margin-bottom: 12px;
+    font-weight: normal !important;
+    text-transform: uppercase;
+}
+
+.about-card p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+}
+
+
+/* ==========================================================================
+   NUEVOS ESTILOS: ELEMENTOS DECORATIVOS RESPONSIVOS (CACTUS Y HABANERO)
+   ========================================================================== */
+
+#nosotros, #tacos, #paquetes-parrilleros {
+    position: relative;
+    overflow: hidden;
+}
+
+/* --- Nosotros --- */
+#nosotros::before {
+    content: "";
+    position: absolute;
+    bottom: 20px;
+    left: 2vw;
+    width: 90px;
+    height: 90px;
+    background-image: url('../img/cactus.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 1;
+}
+
+#nosotros::after {
+    content: "";
+    position: absolute;
+    top: 40px;
+    right: 2vw;
+    width: 70px;
+    height: 70px;
+    background-image: url('../img/habanero.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.18;
+    transform: rotate(15deg);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* --- Tacos de Asada --- */
+#tacos::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 2vw;
+    width: 80px;
+    height: 80px;
+    background-image: url('../img/habanero.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    transform: rotate(-20deg);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* --- Paquetes Parrilleros --- */
+#paquetes-parrilleros::after {
+    content: "";
+    position: absolute;
+    bottom: 30px;
+    right: 2vw;
+    width: 95px;
+    height: 95px;
+    background-image: url('../img/cactus.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* --- Adaptación móvil avanzada --- */
+@media (max-width: 600px) {
+    #nosotros::before {
+        width: 45px;
+        height: 45px;
+        bottom: 10px;
+        left: 1vw;
+        opacity: 0.08;
+    }
+    
+    #nosotros::after {
+        width: 40px;
+        height: 40px;
+        top: 20px;
+        right: 1vw;
+        opacity: 0.1;
+    }
+    
+    #tacos::before {
+        width: 45px;
+        height: 45px;
+        top: 15px;
+        left: 1vw;
+        opacity: 0.08;
+    }
+    
+    #paquetes-parrilleros::after {
+        width: 50px;
+        height: 50px;
+        bottom: 15px;
+        right: 1vw;
+        opacity: 0.08;
+    }
+}
