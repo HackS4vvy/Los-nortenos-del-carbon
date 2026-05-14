@@ -92,6 +92,7 @@ body {
     
     .nav-actions { display: none; } 
 
+    /* Estructura del menú móvil con textura de madera original intacta */
     .nav-links {
         position: absolute; top: 90px; left: -100%; flex-direction: column;
         background-color: #f7f3eb !important; width: 100%; padding: 25px 0 25px 0; gap: 2px;
@@ -104,18 +105,41 @@ body {
     }
     .nav-links.active { left: 0; }
     
+    /* Cactus 1: Superior Izquierda Menú Móvil */
     .nav-links::before {
-        content: ""; position: absolute; top: 20px; left: 20px; width: 38px; height: 38px;
-        background-image: url('../img/cactus.png'); background-size: contain; background-repeat: no-repeat;
-        opacity: 0.7; pointer-events: none; z-index: 1; transform-origin: bottom center;
+        content: "";
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 38px;
+        height: 38px;
+        background-image: url('../img/cactus.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        opacity: 0.7;
+        pointer-events: none;
+        z-index: 1;
+        transform-origin: bottom center;
         animation: cactusBailando 1.2s ease-in-out infinite alternate;
     }
     
+    /* Cactus 2: Superior Derecha Menú Móvil */
     .nav-links::after {
-        content: ""; position: absolute; top: 20px; right: 20px; width: 38px; height: 38px;
-        background-image: url('../img/cactus.png'); background-size: contain; background-repeat: no-repeat;
-        opacity: 0.7; pointer-events: none; z-index: 1; transform-origin: bottom center;
-        animation: cactusBailando 1.2s ease-in-out infinite alternate; animation-delay: -0.6s;
+        content: "";
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 38px;
+        height: 38px;
+        background-image: url('../img/cactus.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        opacity: 0.7;
+        pointer-events: none;
+        z-index: 1;
+        transform-origin: bottom center;
+        animation: cactusBailando 1.2s ease-in-out infinite alternate;
+        animation-delay: -0.6s;
     }
     
     .nav-links a { font-size: 20px; width: 100%; padding: 12px 0; display: block; position: relative; z-index: 2; }
@@ -124,19 +148,43 @@ body {
     .mobile-shop-btn { display: inline-block; width: 85%; margin: 10px auto; padding: 14px 0; font-family: 'Poppins', sans-serif !important; font-weight: 700 !important; font-size: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); flex-shrink: 0; position: relative; z-index: 2; }
     
     .mobile-socials { 
-        display: flex; justify-content: center; gap: 20px; padding: 15px 0 5px 0; width: 100%; border-top: 1px solid #f2f2f2; margin-top: 15px; flex-shrink: 0; position: relative; z-index: 2; 
+        display: flex; justify-content: center; gap: 20px; padding: 15px 0 5px 0; width: 100%; border-top: 1px solid #f2f2f2; margin-top: 15px; flex-shrink: 0; 
+        position: relative; z-index: 2; 
     } 
     
+    /* Cactus 3: Inferior Izquierda Menú Móvil */
     .mobile-socials::before {
-        content: ""; position: absolute; bottom: -15px; left: 20px; width: 38px; height: 38px;
-        background-image: url('../img/cactus.png'); background-size: contain; background-repeat: no-repeat;
-        opacity: 0.7; pointer-events: none; transform-origin: bottom center; animation: cactusBailando 1.2s ease-in-out infinite alternate;
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        left: 20px;
+        width: 38px;
+        height: 38px;
+        background-image: url('../img/cactus.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        opacity: 0.7;
+        pointer-events: none;
+        transform-origin: bottom center;
+        animation: cactusBailando 1.2s ease-in-out infinite alternate;
     }
 
+    /* Cactus 4: Inferior Derecha Menú Móvil */
     .mobile-socials::after {
-        content: ""; position: absolute; bottom: -15px; right: 20px; width: 38px; height: 38px;
-        background-image: url('../img/cactus.png'); background-size: contain; background-repeat: no-repeat;
-        opacity: 0.7; pointer-events: none; transform-origin: bottom center; animation: cactusBailando 1.2s ease-in-out infinite alternate; animation-delay: -0.6s;
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        right: 20px;
+        width: 38px;
+        height: 38px;
+        background-image: url('../img/cactus.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        opacity: 0.7;
+        pointer-events: none;
+        transform-origin: bottom center;
+        animation: cactusBailando 1.2s ease-in-out infinite alternate;
+        animation-delay: -0.6s;
     }
 
     .mobile-socials .social-circle { width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; padding: 0; }
@@ -146,13 +194,40 @@ body {
 /* Hero Slider */
 .hero-slider { position: relative; height: 85vh; width: 100%; background-color: #000; }
 
-.slider-wave-mask-top { position: absolute; top: 0; left: 0; width: 100%; z-index: 10; line-height: 0; pointer-events: none; }
-.slider-wave-mask-top svg { display: block; width: 100%; height: auto; }
-.slider-wave-mask-bottom { position: absolute; bottom: 0; left: 0; width: 100%; z-index: 10; line-height: 0; pointer-events: none; transform: rotate(180deg); }
-.slider-wave-mask-bottom svg { display: block; width: 100%; height: auto; }
+.slider-wave-mask-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    line-height: 0;
+    pointer-events: none;
+}
+.slider-wave-mask-top svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.slider-wave-mask-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    line-height: 0;
+    pointer-events: none;
+    transform: rotate(180deg);
+}
+.slider-wave-mask-bottom svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
 
 .slide { 
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; 
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+    background-size: cover; background-position: center; 
     display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 1.5s ease-in-out; 
 }
 .slide.active { opacity: 1; z-index: 1; }
@@ -167,7 +242,11 @@ body {
 .btn-hero { display: inline-block; background-color: #697359; color: white; padding: 16px 40px; text-decoration: none; font-family: 'Poppins', sans-serif !important; font-weight: 700 !important; border-radius: 8px; margin-top: 25px; transition: 0.3s; }
 .btn-hero:hover { background-color: #555e49; }
 
-/* Secciones Generales */
+
+/* ==========================================================================
+   MEZCLA DE TEXTURAS EN LA ESTRUCTURA ONE PAGE
+   ========================================================================== */
+
 .section-padding { padding: 90px 5%; text-align: center; background-color: #ffffff; }
 
 /* TEXTURA A: Secciones impares (MANTEL DE PICNIC) */
@@ -184,4 +263,125 @@ body {
     background-color: #f7f3eb; 
     background-image: 
         linear-gradient(90deg, rgba(105, 67, 33, 0.015) 1px, transparent 1px),
-        linear-gradient(0
+        linear-gradient(0deg, rgba(105, 67, 33, 0.01) 2px, transparent 2px);
+    background-size: 50px 30px;
+} 
+
+
+/* ==========================================================================
+   ELEMENTOS INTERNOS DE LA PLANTILLA
+   ========================================================================== */
+
+.section-padding h2 { font-family: 'MotterCorpus', 'Impact', 'Arial Black', sans-serif !important; font-size: 36px; font-weight: normal !important; color: #694321; margin-bottom: 35px; letter-spacing: 1px; position: relative; display: inline-block; text-transform: uppercase; }
+
+.section-padding h2::after { content: ''; display: block; width: 60px; height: 3px; background-color: #697359; margin: 10px auto 0 auto; }
+.container { max-width: 1200px; margin: 0 auto; }
+.section-desc { font-size: 16px; color: #555; max-width: 750px; margin: 0 auto; line-height: 1.8; }
+
+.menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 20px; }
+.menu-item { background: #ffffff; padding: 20px; border-radius: 12px; border: 1px solid #f2f2f2; transition: 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.01); }
+.menu-item img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
+
+.menu-item h3 { font-family: 'MotterCorpus', 'Impact', 'Arial Black', sans-serif !important; font-size: 22px; color: #694321; margin-bottom: 10px; font-weight: normal !important; text-transform: uppercase; }
+.menu-item p { color: #666; font-size: 14px; line-height: 1.5; margin-bottom: 15px; }
+
+.menu-item .price { display: block; font-size: 18px; font-weight: 700; color: #697359; }
+
+
+/* ==========================================================================
+   CLASES PARA IMÁGENES LARGAS (SIN RECORTES)
+   ========================================================================== */
+
+.vertical-menu-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px; 
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.single-banner-container, .menu-banner-item {
+    width: 100%;
+    max-width: 700px; 
+    margin: 0 auto;
+}
+
+.full-view-img {
+    width: 100%;
+    height: auto !important; 
+    object-fit: contain !important; 
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+
+/* ==========================================================================
+   DECORACIONES DE FONDO EN COMPUTADORA: HABANEROS FIJOS
+   ========================================================================== */
+
+#nosotros {
+    position: relative;
+    overflow: hidden;
+}
+
+#nosotros::before {
+    content: "";
+    position: absolute;
+    top: 40px;
+    left: 3vw;
+    width: 70px;
+    height: 70px;
+    background-image: url('../img/habanero.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 1;
+    pointer-events: none;
+    z-index: 1;
+    animation: latidoFuego 4s ease-in-out infinite alternate;
+}
+
+#nosotros::after {
+    content: "";
+    position: absolute;
+    top: 40px;
+    right: 3vw;
+    width: 70px;
+    height: 70px;
+    background-image: url('../img/habanero.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 1;
+    pointer-events: none;
+    z-index: 1;
+    animation: latidoFuegoInvertido 4s ease-in-out infinite alternate;
+}
+
+@media (max-width: 600px) {
+    #nosotros::before { width: 45px; height: 45px; top: 20px; left: 2vw; }
+    #nosotros::after { width: 45px; height: 45px; top: 20px; right: 2vw; }
+}
+
+
+/* ==========================================================================
+   LÓGICA DE ANIMACIÓN (KEYFRAMES COMPATIBLES)
+   ========================================================================== */
+
+@keyframes cactusBailando {
+    0% {
+        transform: rotate(-10deg);
+    }
+    100% {
+        transform: rotate(10deg);
+    }
+}
+
+@keyframes latidoFuego {
+    0% { transform: rotate(-15deg) scale(1); }
+    100% { transform: rotate(-13deg) scale(1.04); }
+}
+
+@keyframes latidoFuegoInvertido {
+    0% { transform: rotate(15deg) scale(1); }
+    100% { transform: rotate(13deg) scale(1.04); }
+}
