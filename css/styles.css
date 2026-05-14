@@ -84,7 +84,7 @@ body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color:
     .menu-toggle { display: flex; order: 3; }
     
     .logo-container { order: 2; position: absolute; left: 50%; transform: translateX(-50%); }
-    .logo-img { height: 65px; }
+    .logo-img { height: 85px; }
     
     .nav-actions { display: none; } 
 
