@@ -1,16 +1,190 @@
-/* ==========================================================================
-   NUEVOS ESTILOS: DECORACIONES CONFIGURADAS (HABANEROS Y CACTUS ALINEADOS)
-   ========================================================================== */
-
-/* Preparación de contenedores */
-#nosotros, #tacos, #paquetes-parrilleros {
-    position: relative;
-    overflow: hidden; /* Evita que las imágenes generen barras de scroll horizontal */
+/* Fuente Principal (Slider) */
+@font-face {
+    font-family: 'Broadway';
+    src: url('fonts/BROADW.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
-/* ==========================================
-   HABANEROS (ESQUINAS SUPERIORES DE NOSOTROS)
-   ========================================== */
+/* Fuente de Cuerpo (Descripciones) */
+@font-face {
+    font-family: 'Poppins';
+    src: url('fonts/Poppins-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Fuente Secundaria (Títulos de Secciones, Platillos y ahora Menú) */
+@font-face {
+    font-family: 'MotterCorpus';
+    src: url('fonts/motter.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Fuente Habanero (Guardada en sistema por respaldo) */
+@font-face {
+    font-family: 'Habanero';
+    src: url('fonts/habanero.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color: #fcfbf9; }
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 25px 5%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #f2f2f2;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-container { display: flex; align-items: center; }
+.logo-img { height: 145px; width: auto; transition: 0.3s; }
+
+.nav-links { display: flex; align-items: center; gap: 35px; }
+.nav-links a { text-decoration: none; color: #694321; font-family: 'MotterCorpus', 'Impact', sans-serif !important; font-weight: normal !important; font-size: 18px; letter-spacing: 0.5px; transition: 0.3s; }
+
+.nav-links a.active { color: #697359; }
+
+.nav-actions { display: flex; align-items: center; gap: 12px; }
+.social-circle { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s; background-color: #9a6433; flex-shrink: 0; }
+
+.fb-color { background-color: #1877F2 !important; }
+.fb-color:hover { background-color: #0d5dd1 !important; }
+.ig-color { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important; }
+.ig-color:hover { filter: brightness(0.9); }
+
+.btn-shop { background-color: #697359; color: #ffffff !important; padding: 14px 28px; text-decoration: none; font-family: 'MotterCorpus', 'Impact', sans-serif !important; font-weight: normal !important; font-size: 16px; border-radius: 10px; transition: 0.3s; border: none; cursor: pointer; display: inline-block; text-align: center; }
+.btn-shop:hover { background-color: #555e49; }
+
+.mobile-shop-btn { display: none; }
+
+/* Menú Móvil */
+.menu-toggle { display: none; flex-direction: column; cursor: pointer; z-index: 1001; }
+.menu-toggle .bar { width: 25px; height: 3px; background-color: #694321; margin: 4px 0; transition: 0.4s; }
+
+.mobile-socials { display: none; gap: 15px; margin-top: 20px; }
+
+.menu-toggle.active .bar:nth-child(1) { transform: translateY(11px) rotate(45deg); }
+.menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+.menu-toggle.active .bar:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
+
+@media (max-width: 1100px) {
+    .navbar { padding: 15px 5%; height: 90px; }
+    .menu-toggle { display: flex; order: 3; }
+    
+    .logo-container { order: 2; position: absolute; left: 50%; transform: translateX(-50%); }
+    .logo-img { height: 135px; }
+    
+    .nav-actions { display: none; } 
+
+    .nav-links {
+        position: absolute; top: 90px; left: -100%; flex-direction: column;
+        background-color: white; width: 100%; padding: 25px 0 15px 0; gap: 2px;
+        text-align: center; transition: 0.5s; box-shadow: 0 10px 15px rgba(0,0,0,0.1); z-index: 999;
+        height: auto; justify-content: flex-start;
+    }
+    .nav-links.active { left: 0; }
+    
+    .nav-links a { font-size: 20px; width: 100%; padding: 12px 0; display: block; }
+    .nav-links a:hover, .nav-links a:active { background-color: rgba(105, 115, 89, 0.15); color: #697359; }
+    
+    .mobile-shop-btn { display: inline-block; width: 85%; margin: 10px auto; padding: 14px 0; font-family: 'Poppins', sans-serif !important; font-weight: 700 !important; font-size: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); flex-shrink: 0; }
+    
+    .mobile-socials { display: flex; justify-content: center; gap: 20px; padding: 15px 0 5px 0; width: 100%; border-top: 1px solid #f2f2f2; margin-top: 15px; flex-shrink: 0; } 
+    
+    .mobile-socials .social-circle { width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; padding: 0; }
+    .mobile-socials .fb-color svg { transform: translateX(1px); }
+}
+
+/* Hero Slider */
+.hero-slider { position: relative; height: 85vh; width: 100%; background-color: #000; }
+
+.slider-wave-mask-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    line-height: 0;
+    pointer-events: none;
+}
+.slider-wave-mask-top svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.slider-wave-mask-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    line-height: 0;
+    pointer-events: none;
+    transform: rotate(180deg);
+}
+.slider-wave-mask-bottom svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.slide { 
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+    background-size: cover; background-position: center; 
+    display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 1.5s ease-in-out; 
+}
+.slide.active { opacity: 1; z-index: 1; }
+
+.hero-content { text-align: center; color: white; transform: translateY(40px); opacity: 0; transition: 1s cubic-bezier(0.2, 1, 0.3, 1) 0.5s; padding: 0 20px; }
+.slide.active .hero-content { transform: translateY(0); opacity: 1; }
+
+.hero-content h1 { font-family: 'Broadway', 'Impact', sans-serif !important; font-size: clamp(30px, 8vw, 70px); font-weight: normal !important; line-height: 1; margin-bottom: 15px; }
+.hero-content h1 span { color: #d6d8be; }
+.hero-content p { font-size: clamp(12px, 3vw, 18px); font-weight: 700; letter-spacing: 2px; }
+
+.btn-hero { display: inline-block; background-color: #697359; color: white; padding: 16px 40px; text-decoration: none; font-family: 'Poppins', sans-serif !important; font-weight: 700 !important; border-radius: 8px; margin-top: 25px; transition: 0.3s; }
+.btn-hero:hover { background-color: #555e49; }
+
+/* Secciones Generales */
+.section-padding { padding: 90px 5%; text-align: center; background-color: #ffffff; }
+.section-padding:nth-child(even) { background-color: #fcfbf9; } 
+.section-padding h2 { font-family: 'MotterCorpus', 'Impact', 'Arial Black', sans-serif !important; font-size: 36px; font-weight: normal !important; color: #694321; margin-bottom: 35px; letter-spacing: 1px; position: relative; display: inline-block; text-transform: uppercase; }
+
+.section-padding h2::after { content: ''; display: block; width: 60px; height: 3px; background-color: #697359; margin: 10px auto 0 auto; }
+.container { max-width: 1200px; margin: 0 auto; }
+.section-desc { font-size: 16px; color: #555; max-width: 750px; margin: 0 auto; line-height: 1.8; }
+
+.menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 20px; }
+.menu-item { background: #ffffff; padding: 20px; border-radius: 12px; border: 1px solid #f2f2f2; transition: 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.01); }
+.menu-item img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
+
+.menu-item h3 { font-family: 'MotterCorpus', 'Impact', 'Arial Black', sans-serif !important; font-size: 22px; color: #694321; margin-bottom: 10px; font-weight: normal !important; text-transform: uppercase; }
+.menu-item p { color: #666; font-size: 14px; line-height: 1.5; margin-bottom: 15px; }
+
+.menu-item .price { display: block; font-size: 18px; font-weight: 700; color: #697359; }
+
+
+/* ==========================================================================
+   DECORACIONES REVISADAS: CONFIGURACIÓN DE CHILES Y CACTUS SIMÉTRICOS
+   ========================================================================== */
+
+#nosotros, #tacos, #paquetes-parrilleros {
+    position: relative;
+    overflow: hidden;
+}
 
 /* Habanero Esquina Superior Izquierda */
 #nosotros::before {
@@ -24,7 +198,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0.18;
-    transform: rotate(-15deg); /* Inclinación opuesta para simetría */
+    transform: rotate(-15deg);
     pointer-events: none;
     z-index: 1;
 }
@@ -46,28 +220,23 @@
     z-index: 1;
 }
 
-
-/* ==========================================
-   CACTUS (ALINEADOS A LOS TÍTULOS DE SECCIÓN)
-   ========================================== */
-
-/* Cactus al lado del título "NOSOTROS" */
+/* Cactus al lado derecho del título "NOSOTROS" */
 #nosotros h2::before {
     content: "";
     position: absolute;
     top: 50%;
-    right: -55px; /* Lo coloca justo al lado derecho del texto */
+    right: -55px;
     transform: translateY(-50%);
     width: 40px;
     height: 40px;
     background-image: url('../img/cactus.png');
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0.25; /* Un poco más visible por estar junto al texto */
+    opacity: 0.25;
     pointer-events: none;
 }
 
-/* Cactus al lado del título "TACOS DE ASADA" */
+/* Cactus al lado derecho del título "TACOS DE ASADA" */
 #tacos h2 {
     position: relative;
     display: inline-block;
@@ -87,7 +256,7 @@
     pointer-events: none;
 }
 
-/* Cactus al lado del título "PAQUETES PARRILLEROS" */
+/* Cactus al lado derecho del título "PAQUETES PARRILLEROS" */
 #paquetes-parrilleros h2 {
     position: relative;
     display: inline-block;
@@ -107,12 +276,8 @@
     pointer-events: none;
 }
 
-
-/* ==========================================
-   OPTIMIZACIÓN RESPONSIVA PARA CELULARES
-   ========================================== */
+/* Optimización de visualización en pantallas móviles */
 @media (max-width: 600px) {
-    /* Ajuste de habaneros superiores en celular */
     #nosotros::before {
         width: 40px;
         height: 40px;
@@ -127,14 +292,12 @@
         right: 2vw;
         opacity: 0.1;
     }
-    
-    /* Ajuste de los cactus junto a los títulos en celular */
     #nosotros h2::before,
     #tacos h2::before,
     #paquetes-parrilleros h2::before {
         width: 25px;
         height: 25px;
-        right: -35px; /* Se acerca un poco más al reducir su tamaño */
+        right: -35px;
         opacity: 0.15;
     }
 }
