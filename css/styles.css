@@ -110,7 +110,8 @@ body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color:
 /* Hero Slider */
 .hero-slider { position: relative; height: 85vh; width: 100%; background-color: #000; }
 
-.slider-wave-mask {
+/* MODIFICACIÓN: Reemplazo por selectores individuales para la curva superior e inferior */
+.slider-wave-mask-top {
     position: absolute;
     top: 0;
     left: 0;
@@ -119,7 +120,24 @@ body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color:
     line-height: 0;
     pointer-events: none;
 }
-.slider-wave-mask svg {
+.slider-wave-mask-top svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* MODIFICACIÓN: Estilos específicos para posicionar e invertir la curva en la parte inferior */
+.slider-wave-mask-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    line-height: 0;
+    pointer-events: none;
+    transform: rotate(180deg); /* Invierte la onda para que apunte hacia abajo */
+}
+.slider-wave-mask-bottom svg {
     display: block;
     width: 100%;
     height: auto;
