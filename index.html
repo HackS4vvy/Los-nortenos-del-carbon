@@ -28,7 +28,7 @@
             <a href="#opiniones">Opiniones</a>
             <a href="#ubicacion">Ubicación</a>
             
-            <a href="https://wa.me/527711968253?text=¡Hola!,%20me%20gustaría%20hacer%20un%20pedido." target="_blank" class="btn-shop mobile-shop-btn"> ORDENE AQUÍ </a>
+            <a href="wa.me¡Hola!,%20me%20gustaría%20hacer%20un%20pedido." target="_blank" class="btn-shop mobile-shop-btn"> ORDENE AQUÍ </a>
             
             <!-- Redes sociales móviles con enlaces oficiales personalizados -->
             <div class="mobile-socials">
@@ -57,14 +57,16 @@
                     <circle fill="white" cx="362.25" cy="149.75" r="22"/>
                 </svg>
             </a>
-            <a href="https://wa.me/527711968253?text=¡Hola!,%20me%20gustaría%20hacer%20un%20pedido." target="_blank" class="btn-shop">ORDENE AQUÍ</a>
+            <a href="wa.me¡Hola!,%20me%20gustaría%20hacer%20un%20pedido." target="_blank" class="btn-shop">ORDENE AQUÍ</a>
         </div>
     </header>
 
     <section class="hero-slider">
-        <!-- CAPA DE MÁSCARA: Agrega esta línea con el vector ondulatorio debajo de la barra de navegación -->
+        <!-- CORRECCIÓN: Coordenadas vectoriales suavizadas para un corte curvo sutil y delicado -->
         <div class="slider-wave-mask">
-            <svg viewBox="0 0 1440 74" fill="none" xmlns="w3.org"><path d="M0 0H1440V44.2C1332.44 63.8 1146.44 74 960.444 74C681.444 74 547.444 26.6 241.444 44.2C140.778 50 51.4444 26.6 0 8.8V0Z" fill="#ffffff"/></svg>
+            <svg viewBox="0 0 1440 40" fill="none" xmlns="w3.org">
+                <path d="M0 0H1440V15C1320 28 1120 35 960 35C720 35 600 12 280 22C160 26 70 14 0 5V0Z" fill="#ffffff"/>
+            </svg>
         </div>
 
         <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/hero1.jpg');">
@@ -168,7 +170,6 @@
     </section>
 
     <script>
-        // Lógica del Slider automático
         const slides = document.querySelectorAll('.slide');
         let currentSlide = 0;
         function nextSlide() {
@@ -178,7 +179,6 @@
         }
         setInterval(nextSlide, 5000);
 
-        // Lógica del Menú Móvil
         const menuToggle = document.getElementById('mobile-menu');
         const navLinks = document.querySelector('.nav-links');
 
