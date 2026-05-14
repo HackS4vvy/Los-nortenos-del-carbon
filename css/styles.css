@@ -105,7 +105,7 @@ body {
     }
     .nav-links.active { left: 0; }
     
-    /* CACTUS 1: Esquina Superior Izquierda */
+    /* CACTUS 1: Esquina Superior Izquierda del menú */
     .nav-links::before {
         content: "";
         position: absolute;
@@ -117,12 +117,13 @@ body {
         background-size: contain;
         background-repeat: no-repeat;
         opacity: 0.7;
-        transform: rotate(130deg); /* Modificado a 130° */
+        transform: rotate(-18deg); /* Modificado exactamente a -18° */
+        transform-origin: center center;
         pointer-events: none;
         z-index: 1;
     }
     
-    /* CACTUS 2: Esquina Superior Derecha */
+    /* CACTUS 2: Esquina Superior Derecha del menú */
     .nav-links::after {
         content: "";
         position: absolute;
@@ -134,7 +135,8 @@ body {
         background-size: contain;
         background-repeat: no-repeat;
         opacity: 0.7;
-        transform: rotate(130deg); /* Modificado a 130° */
+        transform: rotate(-18deg); /* Modificado exactamente a -18° */
+        transform-origin: center center;
         pointer-events: none;
         z-index: 1;
     }
@@ -149,7 +151,7 @@ body {
         position: relative; z-index: 2; 
     } 
     
-    /* CACTUS 3: Esquina Inferior Izquierda */
+    /* CACTUS 3: Esquina Inferior Izquierda del menú */
     .mobile-socials::before {
         content: "";
         position: absolute;
@@ -161,11 +163,12 @@ body {
         background-size: contain;
         background-repeat: no-repeat;
         opacity: 0.7;
-        transform: rotate(130deg); /* Modificado a 130° */
+        transform: rotate(-18deg); /* Modificado exactamente a -18° */
+        transform-origin: center center;
         pointer-events: none;
     }
 
-    /* CACTUS 4: Esquina Inferior Derecha */
+    /* CACTUS 4: Esquina Inferior Derecha del menú */
     .mobile-socials::after {
         content: "";
         position: absolute;
@@ -177,7 +180,8 @@ body {
         background-size: contain;
         background-repeat: no-repeat;
         opacity: 0.7;
-        transform: rotate(130deg); /* Modificado a 130° */
+        transform: rotate(-18deg); /* Modificado exactamente a -18° */
+        transform-origin: center center;
         pointer-events: none;
     }
 
