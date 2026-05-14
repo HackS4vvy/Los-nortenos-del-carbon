@@ -36,7 +36,7 @@ html { scroll-behavior: smooth; }
 body { 
     font-family: 'Poppins', sans-serif; 
     overflow-x: hidden; 
-    background-color: #fdfdfc; /* Cambiado a blanco limpio para el papel tapiz base */
+    background-color: #fdfdfc; 
 }
 
 .navbar {
@@ -92,7 +92,6 @@ body {
     
     .nav-actions { display: none; } 
 
-    /* OPTIMIZACIÓN: Se le agrega la textura de mantel de picnic al menú desplegable móvil */
     .nav-links {
         position: absolute; top: 90px; left: -100%; flex-direction: column;
         background-color: #fcfbf9 !important; width: 100%; padding: 25px 0 15px 0; gap: 2px;
@@ -170,7 +169,6 @@ body {
 /* Secciones Generales */
 .section-padding { padding: 90px 5%; text-align: center; background-color: #ffffff; }
 
-/* OPTIMIZACIÓN: Aplicamos la textura de mantel de picnic a las secciones de fondo intercalado */
 .section-padding:nth-child(even) { 
     background-color: #fcfbf9; 
     background-image: 
@@ -300,26 +298,27 @@ body {
     #nosotros::before { width: 45px; height: 45px; top: 20px; left: 2vw; }
     #nosotros::after { width: 45px; height: 45px; top: 20px; right: 2vw; }
     
-    /* REUBICACIÓN MÓVIL: Cactus centrados perfectamente DEBAJO de cada título */
+    /* REUBICACIÓN MÓVIL: Cactus centrado ARRIBA de la línea horizontal */
     #nosotros h2::before,
     #tacos h2::before,
     #paquetes-parrilleros h2::before {
         right: 50% !important;
         left: 50% !important;
         top: auto !important;
-        bottom: -45px !important; /* Empuja el ícono debajo del texto */
+        bottom: -22px !important; /* Ajustado para que descanse justo encima de la línea verde */
         transform: translateX(-50%) !important;
         width: 32px;
         height: 32px;
+        z-index: 2; /* Asegura que se dibuje por encima de la línea horizontal */
     }
     
-    /* Añade separación extra inferior al h2 para que el cactus libre la descripción */
+    /* Incrementa sutilmente el margen para dar espacio al cactus y a la línea */
     .section-padding h2 {
-        margin-bottom: 55px !important;
+        margin-bottom: 60px !important;
     }
     
-    /* Ajuste de la línea verde oficial debajo del título para no encimarse con el cactus */
+    /* Empuja la línea verde un poco más abajo para que sirva de base al cactus */
     .section-padding h2::after {
-        margin: 45px auto 0 auto !important;
+        margin: 24px auto 0 auto !important;
     }
 }
