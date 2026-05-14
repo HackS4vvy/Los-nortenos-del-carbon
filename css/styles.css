@@ -219,7 +219,7 @@ body {
     z-index: 1;
 }
 
-/* Habanero Esquina Superior Derecha */
+/* Habanero Esquina Superior Divergente */
 #nosotros::after {
     content: "";
     position: absolute;
@@ -292,33 +292,31 @@ body {
     pointer-events: none;
 }
 
-/* OPTIMIZACIÓN RESPONSIVA AVANZADA PARA SMARTPHONES */
+/* OPTIMIZACIÓN RESPONSIVA SEPARANDO TOTALMENTE EL CACTUS DE LA LÍNEA */
 @media (max-width: 600px) {
-    /* Escala de habaneros superiores en celular */
     #nosotros::before { width: 45px; height: 45px; top: 20px; left: 2vw; }
     #nosotros::after { width: 45px; height: 45px; top: 20px; right: 2vw; }
     
-    /* REUBICACIÓN MÓVIL: Cactus centrado ARRIBA de la línea horizontal */
+    /* REUBICACIÓN MÓVIL EXACTA: Posición superior fija para que la línea quede abajo */
     #nosotros h2::before,
     #tacos h2::before,
     #paquetes-parrilleros h2::before {
         right: 50% !important;
         left: 50% !important;
-        top: auto !important;
-        bottom: -22px !important; /* Ajustado para que descanse justo encima de la línea verde */
+        top: 45px !important;       /* Baja el cactus de manera controlada abajo del texto */
+        bottom: auto !important;
         transform: translateX(-50%) !important;
-        width: 32px;
-        height: 32px;
-        z-index: 2; /* Asegura que se dibuje por encima de la línea horizontal */
+        width: 34px;
+        height: 34px;
     }
     
-    /* Incrementa sutilmente el margen para dar espacio al cactus y a la línea */
+    /* Ampliamos el espacio total del título para albergar los dos elementos en orden vertical */
     .section-padding h2 {
-        margin-bottom: 60px !important;
+        margin-bottom: 75px !important;
     }
     
-    /* Empuja la línea verde un poco más abajo para que sirva de base al cactus */
+    /* Empujamos la línea verde horizontal para que se sitúe estrictamente por debajo del cactus */
     .section-padding h2::after {
-        margin: 24px auto 0 auto !important;
+        margin: 48px auto 0 auto !important; /* Desplazamiento limpio hacia la base del cactus */
     }
 }
