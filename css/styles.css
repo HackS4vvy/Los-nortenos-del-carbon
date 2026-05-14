@@ -92,7 +92,7 @@ body {
     
     .nav-actions { display: none; } 
 
-    /* Estructuración base del contenedor del menú móvil con el papel tapiz */
+    /* Contenedor del menú desplegable móvil con papel tapiz */
     .nav-links {
         position: absolute; top: 90px; left: -100%; flex-direction: column;
         background-color: #fcfbf9 !important; width: 100%; padding: 25px 0 25px 0; gap: 2px;
@@ -105,11 +105,7 @@ body {
     }
     .nav-links.active { left: 0; }
     
-    /* ==========================================================
-       NUEVA DECORACIÓN: 4 CACTUS EN LAS ESQUINAS DEL MENÚ MÓVIL
-       ========================================================== */
-
-    /* CACTUS 1: Esquina Superior Izquierda (Anclado a nav-links::before) */
+    /* CACTUS 1: Esquina Superior Izquierda */
     .nav-links::before {
         content: "";
         position: absolute;
@@ -121,12 +117,12 @@ body {
         background-size: contain;
         background-repeat: no-repeat;
         opacity: 0.7;
-        transform: rotate(120deg); /* Ángulo solicitado */
+        transform: rotate(130deg); /* Modificado a 130° */
         pointer-events: none;
         z-index: 1;
     }
     
-    /* CACTUS 2: Esquina Superior Derecha (Anclado a nav-links::after) */
+    /* CACTUS 2: Esquina Superior Derecha */
     .nav-links::after {
         content: "";
         position: absolute;
@@ -138,7 +134,7 @@ body {
         background-size: contain;
         background-repeat: no-repeat;
         opacity: 0.7;
-        transform: rotate(120deg); /* Ángulo solicitado */
+        transform: rotate(130deg); /* Modificado a 130° */
         pointer-events: none;
         z-index: 1;
     }
@@ -148,13 +144,12 @@ body {
     
     .mobile-shop-btn { display: inline-block; width: 85%; margin: 10px auto; padding: 14px 0; font-family: 'Poppins', sans-serif !important; font-weight: 700 !important; font-size: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); flex-shrink: 0; position: relative; z-index: 2; }
     
-    /* Contenedor de redes móviles modificado a relativo para anclar los cactus inferiores */
     .mobile-socials { 
         display: flex; justify-content: center; gap: 20px; padding: 15px 0 5px 0; width: 100%; border-top: 1px solid #f2f2f2; margin-top: 15px; flex-shrink: 0; 
         position: relative; z-index: 2; 
     } 
     
-    /* CACTUS 3: Esquina Inferior Izquierda (Alineado debajo de las redes sociales) */
+    /* CACTUS 3: Esquina Inferior Izquierda */
     .mobile-socials::before {
         content: "";
         position: absolute;
@@ -166,11 +161,11 @@ body {
         background-size: contain;
         background-repeat: no-repeat;
         opacity: 0.7;
-        transform: rotate(120deg); /* Ángulo solicitado */
+        transform: rotate(130deg); /* Modificado a 130° */
         pointer-events: none;
     }
 
-    /* CACTUS 4: Esquina Inferior Derecha (Alineado debajo de las redes sociales) */
+    /* CACTUS 4: Esquina Inferior Derecha */
     .mobile-socials::after {
         content: "";
         position: absolute;
@@ -182,7 +177,7 @@ body {
         background-size: contain;
         background-repeat: no-repeat;
         opacity: 0.7;
-        transform: rotate(120deg); /* Ángulo solicitado */
+        transform: rotate(130deg); /* Modificado a 130° */
         pointer-events: none;
     }
 
