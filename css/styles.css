@@ -299,3 +299,27 @@ body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color:
         transform: translateY(-45%);
     }
 }
+
+/* ==========================================================================
+   TAPIZ OPCIÓN 1: PERGAMINO INTEGRAL Y PARRILLA INTERCALADA
+   ========================================================================== */
+
+/* Fondo general de la página: Efecto pergamino / fibra rústica sutil */
+body {
+    background-color: #fcfbf9;
+    background-image: 
+        radial-gradient(rgba(105, 67, 33, 0.03) 1px, transparent 0),
+        radial-gradient(rgba(105, 67, 33, 0.03) 1px, #fcfbf9 0);
+    background-size: 8px 8px;
+    background-position: 0 0, 4px 4px;
+}
+
+/* Cambia las secciones intercaladas para simular el tramado de una rejilla de fierro/carbón */
+.section-padding:nth-child(even) {
+    background-color: #f8f6f0;
+    background-image: 
+        linear-gradient(90deg, rgba(105, 67, 33, 0.02) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(105, 67, 33, 0.02) 1px, transparent 1px);
+    background-size: 16px 16px;
+    background-position: center;
+}
