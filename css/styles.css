@@ -105,7 +105,7 @@ body {
     }
     .nav-links.active { left: 0; }
     
-    /* Cactus 1: Superior Izquierda Menú Móvil */
+    /* Cactus 1: Superior Izquierda Menú Móvil (Ángulo 130° al 70%) */
     .nav-links::before {
         content: "";
         position: absolute;
@@ -244,7 +244,7 @@ body {
 
 
 /* ==========================================================================
-   MEZCLA DE TEXTURAS EN LA ESTRUCTURA ONE PAGE
+   MEZCLA DE TEXTURAS CONFIGURADA EN LA ESTRUCTURA ONE PAGE
    ========================================================================== */
 
 .section-padding { padding: 90px 5%; text-align: center; background-color: #ffffff; }
@@ -289,7 +289,7 @@ body {
 
 
 /* ==========================================================================
-   CLASES PARA IMÁGENES LARGAS (SIN RECORTES)
+   CLASES NUEVAS: CONTROL TOTAL DE IMÁGENES LARGAS (SIN RECORTES)
    ========================================================================== */
 
 .vertical-menu-stack {
@@ -317,7 +317,7 @@ body {
 
 
 /* ==========================================================================
-   DECORACIONES DE FONDO EN COMPUTADORA: HABANEROS FIJOS
+   DECORACIONES: HABANEROS DE FONDO EN ESCRITORIO
    ========================================================================== */
 
 #nosotros {
