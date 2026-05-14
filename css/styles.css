@@ -111,6 +111,23 @@ body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color:
 
 /* Hero Slider */
 .hero-slider { position: relative; height: 85vh; width: 100%; background-color: #000; }
+
+/* CAPA DE MÁSCARA: Estilos de posicionamiento para acoplar la onda arriba del slider */
+.slider-wave-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    line-height: 0;
+    pointer-events: none;
+}
+.slider-wave-mask svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 .slide { 
     position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
     background-size: cover; background-position: center; 
