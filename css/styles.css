@@ -33,7 +33,11 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
-body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color: #fcfbf9; }
+body { 
+    font-family: 'Poppins', sans-serif; 
+    overflow-x: hidden; 
+    background-color: #fdfdfc; /* Cambiado a blanco limpio para el papel tapiz base */
+}
 
 .navbar {
     display: flex;
@@ -88,11 +92,16 @@ body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color:
     
     .nav-actions { display: none; } 
 
+    /* OPTIMIZACIÓN: Se le agrega la textura de mantel de picnic al menú desplegable móvil */
     .nav-links {
         position: absolute; top: 90px; left: -100%; flex-direction: column;
-        background-color: white; width: 100%; padding: 25px 0 15px 0; gap: 2px;
+        background-color: #fcfbf9 !important; width: 100%; padding: 25px 0 15px 0; gap: 2px;
         text-align: center; transition: 0.5s; box-shadow: 0 10px 15px rgba(0,0,0,0.1); z-index: 999;
         height: auto; justify-content: flex-start;
+        background-image: 
+            linear-gradient(90deg, rgba(105, 67, 33, 0.02) 50%, transparent 50%),
+            linear-gradient(rgba(105, 67, 33, 0.02) 50%, transparent 50%) !important;
+        background-size: 24px 24px !important;
     }
     .nav-links.active { left: 0; }
     
@@ -160,7 +169,16 @@ body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color:
 
 /* Secciones Generales */
 .section-padding { padding: 90px 5%; text-align: center; background-color: #ffffff; }
-.section-padding:nth-child(even) { background-color: #fcfbf9; } 
+
+/* OPTIMIZACIÓN: Aplicamos la textura de mantel de picnic a las secciones de fondo intercalado */
+.section-padding:nth-child(even) { 
+    background-color: #fcfbf9; 
+    background-image: 
+        linear-gradient(90deg, rgba(105, 67, 33, 0.02) 50%, transparent 50%),
+        linear-gradient(rgba(105, 67, 33, 0.02) 50%, transparent 50%);
+    background-size: 24px 24px;
+} 
+
 .section-padding h2 { font-family: 'MotterCorpus', 'Impact', 'Arial Black', sans-serif !important; font-size: 36px; font-weight: normal !important; color: #694321; margin-bottom: 35px; letter-spacing: 1px; position: relative; display: inline-block; text-transform: uppercase; }
 
 .section-padding h2::after { content: ''; display: block; width: 60px; height: 3px; background-color: #697359; margin: 10px auto 0 auto; }
@@ -178,7 +196,7 @@ body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color:
 
 
 /* ==========================================================================
-   DECORACIONES ACTUALIZADAS: COLOR INTENSO, CACTUS MÁS GRANDES Y CENTRADOS
+   DECORACIONES: CONFIGURACIÓN INTEGRAL DE CHILES Y CACTUS RESPONSIVOS
    ========================================================================== */
 
 #nosotros, #tacos, #paquetes-parrilleros {
@@ -197,7 +215,7 @@ body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color:
     background-image: url('../img/habanero.png');
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 1; /* Opacidad total sin transparencia */
+    opacity: 1;
     transform: rotate(-15deg);
     pointer-events: none;
     z-index: 1;
@@ -214,29 +232,29 @@ body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color:
     background-image: url('../img/habanero.png');
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 1; /* Opacidad total sin transparencia */
+    opacity: 1;
     transform: rotate(15deg);
     pointer-events: none;
     z-index: 1;
 }
 
-/* Cactus al lado derecho del título "NOSOTROS" */
+/* Cactus a la derecha del título en Computadora (NOSOTROS) */
 #nosotros h2::before {
     content: "";
     position: absolute;
     top: 50%;
-    right: -65px; /* Ajuste para mayor separación por tamaño */
-    transform: translateY(-40%); /* Alineación vertical más exacta */
-    width: 48px;  /* Tamaño más grande */
+    right: -65px;
+    transform: translateY(-40%);
+    width: 48px;
     height: 48px;
     background-image: url('../img/cactus.png');
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 1; /* Opacidad total sin transparencia */
+    opacity: 1;
     pointer-events: none;
 }
 
-/* Cactus al lado derecho del título "TACOS DE ASADA" */
+/* Cactus a la derecha del título en Computadora (TACOS DE ASADA) */
 #tacos h2 {
     position: relative;
     display: inline-block;
@@ -256,7 +274,7 @@ body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color:
     pointer-events: none;
 }
 
-/* Cactus al lado derecho del título "PAQUETES PARRILLEROS" */
+/* Cactus a la derecha del título en Computadora (PAQUETES PARRILLEROS) */
 #paquetes-parrilleros h2 {
     position: relative;
     display: inline-block;
@@ -276,43 +294,32 @@ body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color:
     pointer-events: none;
 }
 
-/* Optimización de visualización en pantallas móviles */
+/* OPTIMIZACIÓN RESPONSIVA AVANZADA PARA SMARTPHONES */
 @media (max-width: 600px) {
-    #nosotros::before {
-        width: 45px;
-        height: 45px;
-        top: 20px;
-        left: 2vw;
-    }
-    #nosotros::after {
-        width: 45px;
-        height: 45px;
-        top: 20px;
-        right: 2vw;
-    }
+    /* Escala de habaneros superiores en celular */
+    #nosotros::before { width: 45px; height: 45px; top: 20px; left: 2vw; }
+    #nosotros::after { width: 45px; height: 45px; top: 20px; right: 2vw; }
+    
+    /* REUBICACIÓN MÓVIL: Cactus centrados perfectamente DEBAJO de cada título */
     #nosotros h2::before,
     #tacos h2::before,
     #paquetes-parrilleros h2::before {
-        width: 30px;
-        height: 30px;
-        right: -42px;
-        transform: translateY(-45%);
+        right: 50% !important;
+        left: 50% !important;
+        top: auto !important;
+        bottom: -45px !important; /* Empuja el ícono debajo del texto */
+        transform: translateX(-50%) !important;
+        width: 32px;
+        height: 32px;
     }
-}
-
-/* ==========================================================================
-   TAPIZ OPCIÓN 2: MANTEL DE PICNIC RÚSTICO (TAQUERÍA TRADICIONAL)
-   ========================================================================== */
-
-body {
-    background-color: #fdfdfc;
-}
-
-/* Aplicamos el tapiz de cuadros sutiles únicamente a las secciones de fondo intercalado */
-.section-padding:nth-child(even) {
-    background-color: #fcfbf9;
-    background-image: 
-        linear-gradient(90deg, rgba(105, 67, 33, 0.02) 50%, transparent 50%),
-        linear-gradient(rgba(105, 67, 33, 0.02) 50%, transparent 50%);
-    background-size: 24px 24px; /* Tamaño de los cuadros del mantel */
+    
+    /* Añade separación extra inferior al h2 para que el cactus libre la descripción */
+    .section-padding h2 {
+        margin-bottom: 55px !important;
+    }
+    
+    /* Ajuste de la línea verde oficial debajo del título para no encimarse con el cactus */
+    .section-padding h2::after {
+        margin: 45px auto 0 auto !important;
+    }
 }
