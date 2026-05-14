@@ -92,20 +92,19 @@ body {
     
     .nav-actions { display: none; } 
 
-    /* INTACTO: Se mantiene tu textura de madera/tablones original del menú desplegable móvil */
     .nav-links {
         position: absolute; top: 90px; left: -100%; flex-direction: column;
-        background-color: #f7f3eb !important; width: 100%; padding: 25px 0 25px 0; gap: 2px;
+        background-color: #fcfbf9 !important; width: 100%; padding: 25px 0 25px 0; gap: 2px;
         text-align: center; transition: 0.5s; box-shadow: 0 10px 15px rgba(0,0,0,0.1); z-index: 999;
         height: calc(100vh - 90px); min-height: 520px; justify-content: flex-start;
         background-image: 
-            linear-gradient(90deg, rgba(105, 67, 33, 0.015) 1px, transparent 1px),
-            linear-gradient(0deg, rgba(105, 67, 33, 0.01) 2px, transparent 2px) !important;
-        background-size: 50px 30px !important;
+            linear-gradient(90deg, rgba(105, 67, 33, 0.02) 50%, transparent 50%),
+            linear-gradient(rgba(105, 67, 33, 0.02) 50%, transparent 50%) !important;
+        background-size: 24px 24px !important;
     }
     .nav-links.active { left: 0; }
     
-    /* INTACTO: Cactus Superior Izquierdo */
+    /* CACTUS 1: Esquina Superior Izquierda (Efecto de baile) */
     .nav-links::before {
         content: "";
         position: absolute;
@@ -119,11 +118,11 @@ body {
         opacity: 0.7;
         pointer-events: none;
         z-index: 1;
-        transform-origin: bottom center;
+        transform-origin: bottom center; /* Hace que dancen pivotando desde su base rústica */
         animation: cactusBailando 1.2s ease-in-out infinite alternate;
     }
     
-    /* INTACTO: Cactus Superior Derecho */
+    /* CACTUS 2: Esquina Superior Derecha (Efecto de baile desfasado de forma simétrica) */
     .nav-links::after {
         content: "";
         position: absolute;
@@ -139,7 +138,7 @@ body {
         z-index: 1;
         transform-origin: bottom center;
         animation: cactusBailando 1.2s ease-in-out infinite alternate;
-        animation-delay: -0.6s;
+        animation-delay: -0.6s; /* Inicia la animación exactamente al revés para simular un baile coordinado */
     }
     
     .nav-links a { font-size: 20px; width: 100%; padding: 12px 0; display: block; position: relative; z-index: 2; }
@@ -152,7 +151,7 @@ body {
         position: relative; z-index: 2; 
     } 
     
-    /* INTACTO: Cactus Inferior Izquierdo */
+    /* CACTUS 3: Esquina Inferior Izquierda (Efecto de baile) */
     .mobile-socials::before {
         content: "";
         position: absolute;
@@ -169,7 +168,7 @@ body {
         animation: cactusBailando 1.2s ease-in-out infinite alternate;
     }
 
-    /* INTACTO: Cactus Inferior Derecho */
+    /* CACTUS 4: Esquina Inferior Derecha (Efecto de baile desfasado) */
     .mobile-socials::after {
         content: "";
         position: absolute;
@@ -242,36 +241,16 @@ body {
 .btn-hero { display: inline-block; background-color: #697359; color: white; padding: 16px 40px; text-decoration: none; font-family: 'Poppins', sans-serif !important; font-weight: 700 !important; border-radius: 8px; margin-top: 25px; transition: 0.3s; }
 .btn-hero:hover { background-color: #555e49; }
 
-
-/* ==========================================================================
-   NUEVA MEZCLA DE TEXTURAS EN LA ESTRUCTURA ONE PAGE
-   ========================================================================== */
-
 /* Secciones Generales */
 .section-padding { padding: 90px 5%; text-align: center; background-color: #ffffff; }
 
-/* TEXTURA A: Secciones impares (MANTEL DE PICNIC) */
-.section-padding:nth-child(odd) {
+.section-padding:nth-child(even) { 
     background-color: #fcfbf9; 
     background-image: 
         linear-gradient(90deg, rgba(105, 67, 33, 0.02) 50%, transparent 50%),
         linear-gradient(rgba(105, 67, 33, 0.02) 50%, transparent 50%);
     background-size: 24px 24px;
-}
-
-/* TEXTURA B: Secciones pares (TABLONES DE MADERA CLARA) */
-.section-padding:nth-child(even) { 
-    background-color: #f7f3eb; 
-    background-image: 
-        linear-gradient(90deg, rgba(105, 67, 33, 0.015) 1px, transparent 1px),
-        linear-gradient(0deg, rgba(105, 67, 33, 0.01) 2px, transparent 2px);
-    background-size: 50px 30px;
 } 
-
-
-/* ==========================================================================
-   CORTES DE ESTILOS DE ELEMENTOS E HISTORIAL
-   ========================================================================== */
 
 .section-padding h2 { font-family: 'MotterCorpus', 'Impact', 'Arial Black', sans-serif !important; font-size: 36px; font-weight: normal !important; color: #694321; margin-bottom: 35px; letter-spacing: 1px; position: relative; display: inline-block; text-transform: uppercase; }
 
@@ -340,6 +319,7 @@ body {
    LÓGICA DE ANIMACIÓN (KEYFRAMES COMPATIBLES)
    ========================================================================== */
 
+/* Animación del Baile: Oscilación milimétrica y rítmica entre -10° y 10° grados */
 @keyframes cactusBailando {
     0% {
         transform: rotate(-10deg);
