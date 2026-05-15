@@ -49,7 +49,7 @@ body {
     border-bottom: 1px solid #f2f2f2;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 2000;
 }
 
 .logo-container { display: flex; align-items: center; }
@@ -74,7 +74,7 @@ body {
 .mobile-shop-btn { display: none; }
 
 /* Menú Móvil */
-.menu-toggle { display: none; flex-direction: column; cursor: pointer; z-index: 1001; }
+.menu-toggle { display: none; flex-direction: column; cursor: pointer; z-index: 2001; position: relative; }
 .menu-toggle .bar { width: 25px; height: 3px; background-color: #694321; margin: 4px 0; transition: 0.4s; }
 
 .mobile-socials { display: none; gap: 15px; margin-top: 20px; }
@@ -92,12 +92,11 @@ body {
     
     .nav-actions { display: none; } 
 
-    /* Estructura del menú móvil con textura de madera original intacta */
     .nav-links {
         position: absolute; top: 90px; left: -100%; flex-direction: column;
         background-color: #f7f3eb !important; width: 100%; padding: 25px 0 25px 0; gap: 2px;
-        text-align: center; transition: 0.5s; box-shadow: 0 10px 15px rgba(0,0,0,0.1); z-index: 999;
-        height: calc(100vh - 90px); min-height: 520px; justify-content: flex-start;
+        text-align: center; transition: 0.5s ease-in-out; box-shadow: 0 10px 15px rgba(0,0,0,0.1); z-index: 1999;
+        height: calc(100vh - 90px); min-height: 520px; justify-content: flex-start; pointer-events: all;
         background-image: 
             linear-gradient(90deg, rgba(105, 67, 33, 0.015) 1px, transparent 1px),
             linear-gradient(0deg, rgba(105, 67, 33, 0.01) 2px, transparent 2px) !important;
@@ -105,41 +104,18 @@ body {
     }
     .nav-links.active { left: 0; }
     
-    /* Cactus 1: Superior Izquierda Menú Móvil (Ángulo 130° al 70%) */
     .nav-links::before {
-        content: "";
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        width: 38px;
-        height: 38px;
-        background-image: url('../img/cactus.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        opacity: 0.7;
-        pointer-events: none;
-        z-index: 1;
-        transform-origin: bottom center;
+        content: ""; position: absolute; top: 20px; left: 20px; width: 38px; height: 38px;
+        background-image: url('../img/cactus.png'); background-size: contain; background-repeat: no-repeat;
+        opacity: 0.7; pointer-events: none; z-index: 1; transform-origin: bottom center;
         animation: cactusBailando 1.2s ease-in-out infinite alternate;
     }
     
-    /* Cactus 2: Superior Derecha Menú Móvil */
     .nav-links::after {
-        content: "";
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        width: 38px;
-        height: 38px;
-        background-image: url('../img/cactus.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        opacity: 0.7;
-        pointer-events: none;
-        z-index: 1;
-        transform-origin: bottom center;
-        animation: cactusBailando 1.2s ease-in-out infinite alternate;
-        animation-delay: -0.6s;
+        content: ""; position: absolute; top: 20px; right: 20px; width: 38px; height: 38px;
+        background-image: url('../img/cactus.png'); background-size: contain; background-repeat: no-repeat;
+        opacity: 0.7; pointer-events: none; z-index: 1; transform-origin: bottom center;
+        animation: cactusBailando 1.2s ease-in-out infinite alternate; animation-delay: -0.6s;
     }
     
     .nav-links a { font-size: 20px; width: 100%; padding: 12px 0; display: block; position: relative; z-index: 2; }
@@ -148,43 +124,19 @@ body {
     .mobile-shop-btn { display: inline-block; width: 85%; margin: 10px auto; padding: 14px 0; font-family: 'Poppins', sans-serif !important; font-weight: 700 !important; font-size: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); flex-shrink: 0; position: relative; z-index: 2; }
     
     .mobile-socials { 
-        display: flex; justify-content: center; gap: 20px; padding: 15px 0 5px 0; width: 100%; border-top: 1px solid #f2f2f2; margin-top: 15px; flex-shrink: 0; 
-        position: relative; z-index: 2; 
+        display: flex; justify-content: center; gap: 20px; padding: 15px 0 5px 0; width: 100%; border-top: 1px solid #f2f2f2; margin-top: 15px; flex-shrink: 0; position: relative; z-index: 2; 
     } 
     
-    /* Cactus 3: Inferior Izquierda Menú Móvil */
     .mobile-socials::before {
-        content: "";
-        position: absolute;
-        bottom: -15px;
-        left: 20px;
-        width: 38px;
-        height: 38px;
-        background-image: url('../img/cactus.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        opacity: 0.7;
-        pointer-events: none;
-        transform-origin: bottom center;
-        animation: cactusBailando 1.2s ease-in-out infinite alternate;
+        content: ""; position: absolute; bottom: -15px; left: 20px; width: 38px; height: 38px;
+        background-image: url('../img/cactus.png'); background-size: contain; background-repeat: no-repeat;
+        opacity: 0.7; pointer-events: none; transform-origin: bottom center; animation: cactusBailando 1.2s ease-in-out infinite alternate;
     }
 
-    /* Cactus 4: Inferior Derecha Menú Móvil */
     .mobile-socials::after {
-        content: "";
-        position: absolute;
-        bottom: -15px;
-        right: 20px;
-        width: 38px;
-        height: 38px;
-        background-image: url('../img/cactus.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        opacity: 0.7;
-        pointer-events: none;
-        transform-origin: bottom center;
-        animation: cactusBailando 1.2s ease-in-out infinite alternate;
-        animation-delay: -0.6s;
+        content: ""; position: absolute; bottom: -15px; right: 20px; width: 38px; height: 38px;
+        background-image: url('../img/cactus.png'); background-size: contain; background-repeat: no-repeat;
+        opacity: 0.7; pointer-events: none; transform-origin: bottom center; animation: cactusBailando 1.2s ease-in-out infinite alternate; animation-delay: -0.6s;
     }
 
     .mobile-socials .social-circle { width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; padding: 0; }
@@ -192,42 +144,17 @@ body {
 }
 
 /* Hero Slider */
-.hero-slider { position: relative; height: 85vh; width: 100%; background-color: #000; }
+.hero-slider { position: relative; height: 85vh; width: 100%; background-color: #000; z-index: 1; }
 
-.slider-wave-mask-top {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-    line-height: 0;
-    pointer-events: none;
+.slider-wave-mask-top, .slider-wave-mask-bottom {
+    position: absolute; width: 100%; z-index: 10; line-height: 0; pointer-events: none;
 }
-.slider-wave-mask-top svg {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-.slider-wave-mask-bottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-    line-height: 0;
-    pointer-events: none;
-    transform: rotate(180deg);
-}
-.slider-wave-mask-bottom svg {
-    display: block;
-    width: 100%;
-    height: auto;
-}
+.slider-wave-mask-top { top: 0; }
+.slider-wave-mask-bottom { bottom: 0; transform: rotate(180deg); }
+.slider-wave-mask-top svg, .slider-wave-mask-bottom svg { display: block; width: 100%; height: auto; }
 
 .slide { 
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-    background-size: cover; background-position: center; 
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; 
     display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 1.5s ease-in-out; 
 }
 .slide.active { opacity: 1; z-index: 1; }
@@ -244,10 +171,10 @@ body {
 
 
 /* ==========================================================================
-   MEZCLA DE TEXTURAS CONFIGURADA EN LA ESTRUCTURA ONE PAGE
+   MEZCLA DE TEXTURAS EN LA ESTRUCTURA ONE PAGE
    ========================================================================== */
 
-.section-padding { padding: 90px 5%; text-align: center; background-color: #ffffff; }
+.section-padding { padding: 90px 5%; text-align: center; background-color: #ffffff; position: relative; z-index: 5; }
 
 /* TEXTURA A: Secciones impares (MANTEL DE PICNIC) */
 .section-padding:nth-child(odd) {
@@ -269,159 +196,7 @@ body {
 
 
 /* ==========================================================================
-   ELEMENTOS INTERNOS DE LA PLANTILLA
+   ELEMENTOS INTERNOS DE LA PLANTILLA Y CONTENEDORES
    ========================================================================== */
 
-.section-padding h2 { font-family: 'MotterCorpus', 'Impact', 'Arial Black', sans-serif !important; font-size: 36px; font-weight: normal !important; color: #694321; margin-bottom: 35px; letter-spacing: 1px; position: relative; display: inline-block; text-transform: uppercase; }
-
-.section-padding h2::after { content: ''; display: block; width: 60px; height: 3px; background-color: #697359; margin: 10px auto 0 auto; }
-.container { max-width: 1200px; margin: 0 auto; }
-.section-desc { font-size: 16px; color: #555; max-width: 750px; margin: 0 auto; line-height: 1.8; }
-
-.menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 20px; }
-.menu-item { background: #ffffff; padding: 20px; border-radius: 12px; border: 1px solid #f2f2f2; transition: 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.01); }
-.menu-item img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
-
-.menu-item h3 { font-family: 'MotterCorpus', 'Impact', 'Arial Black', sans-serif !important; font-size: 22px; color: #694321; margin-bottom: 10px; font-weight: normal !important; text-transform: uppercase; }
-.menu-item p { color: #666; font-size: 14px; line-height: 1.5; margin-bottom: 15px; }
-
-.menu-item .price { display: block; font-size: 18px; font-weight: 700; color: #697359; }
-
-
-/* ==========================================================================
-   CLASES NUEVAS: CONTROL TOTAL DE IMÁGENES LARGAS (SIN RECORTES)
-   ========================================================================== */
-
-.vertical-menu-stack {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px; 
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.single-banner-container, .menu-banner-item {
-    width: 100%;
-    max-width: 700px; 
-    margin: 0 auto;
-}
-
-.full-view-img {
-    width: 100%;
-    height: auto !important; 
-    object-fit: contain !important; 
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-}
-
-
-/* ==========================================================================
-   DECORACIONES: HABANEROS DE FONDO EN ESCRITORIO
-   ========================================================================== */
-
-#nosotros {
-    position: relative;
-    overflow: hidden;
-}
-
-#nosotros::before {
-    content: "";
-    position: absolute;
-    top: 40px;
-    left: 3vw;
-    width: 70px;
-    height: 70px;
-    background-image: url('../img/habanero.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    opacity: 1;
-    pointer-events: none;
-    z-index: 1;
-    animation: latidoFuego 4s ease-in-out infinite alternate;
-}
-
-#nosotros::after {
-    content: "";
-    position: absolute;
-    top: 40px;
-    right: 3vw;
-    width: 70px;
-    height: 70px;
-    background-image: url('../img/habanero.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    opacity: 1;
-    pointer-events: none;
-    z-index: 1;
-    animation: latidoFuegoInvertido 4s ease-in-out infinite alternate;
-}
-
-@media (max-width: 600px) {
-    #nosotros::before { width: 45px; height: 45px; top: 20px; left: 2vw; }
-    #nosotros::after { width: 45px; height: 45px; top: 20px; right: 2vw; }
-}
-
-
-/* ==========================================================================
-   LÓGICA DE ANIMACIÓN (KEYFRAMES COMPATIBLES)
-   ========================================================================== */
-
-@keyframes cactusBailando {
-    0% {
-        transform: rotate(-10deg);
-    }
-    100% {
-        transform: rotate(10deg);
-    }
-}
-
-@keyframes latidoFuego {
-    0% { transform: rotate(-15deg) scale(1); }
-    100% { transform: rotate(-13deg) scale(1.04); }
-}
-
-@keyframes latidoFuegoInvertido {
-    0% { transform: rotate(15deg) scale(1); }
-    100% { transform: rotate(13deg) scale(1.04); }
-}
-
-/* ==========================================================================
-   FORMATO DE LETRA 'MOTTER' PARA SUBSECCIONES Y EXPANSIÓN DE PAQUETES
-   ========================================================================== */
-
-/* Subtítulos de bloques con tu fuente secundaria matter oficial pero en tamaño menor */
-.sub-section-title h3 {
-    font-family: 'MotterCorpus', 'Impact', 'Arial Black', sans-serif !important;
-    font-size: 24px; /* Tamaño menor al h2 principal */
-    font-weight: normal !important;
-    color: #694321;
-    margin-top: 45px;
-    margin-bottom: 25px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-}
-
-/* Contenedor optimizado para que quepan todas las imágenes de eventos de forma fluida */
-#paquetes-parrilleros .menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Distribuye espacio automáticamente */
-    gap: 30px; /* Separación armónica entre cada paquete */
-    width: 100%;
-    margin-top: 20px;
-}
-
-/* Asegura que el contenedor general de la sección crezca proporcionalmente */
-#paquetes-parrilleros .container {
-    max-width: 1200px;
-    width: 100%;
-    height: auto; /* Permite expansión infinita hacia abajo según el número de imágenes */
-}
-
-/* Evita recortes bruscos y mantiene proporciones reales de tus volantes/diseños de paquetes */
-#paquetes-parrilleros .menu-item img {
-    width: 100%;
-    height: auto !important; /* Desactiva los 220px fijos solo para que estas luzcan completas */
-    object-fit: contain !important;
-    border-radius: 8px;
-}
+.section-padding h2 { font-family: 'MotterCorpus', 'Impact', 'Arial Black', sans-serif !important; font-size
