@@ -128,15 +128,13 @@
                 </div>
             </div>
 
-            <!-- SUBSECCIÓN: ESPECIALES -->
             <div class="sub-section-title">
                 <h3>Especiales</h3>
             </div>
-            <div class="single-banner-container">
+            <div class="crunch-wrap-container">
                 <img src="img/crunchwraps.jpeg" alt="Especial Crunchwraps" class="full-view-img">
             </div>
 
-            <!-- SUBSECCIÓN: MENÚ -->
             <div class="sub-section-title">
                 <h3>Menú</h3>
             </div>
@@ -158,43 +156,37 @@
             <div class="sub-section-title">
                 <h3>Paquete del Mes</h3>
             </div>
-            <div class="single-banner-container" style="margin-bottom: 50px;">
+            <div class="single-banner-container">
                 <img src="img/paquetedelmes.jpeg" alt="Paquete del Mes" class="full-view-img">
             </div>
 
             <div class="sub-section-title">
                 <h3>Paquetes para Eventos</h3>
             </div>
-            <!-- Grid dinámico para que quepan todos los paquetes expandiendo la sección -->
             <div class="menu-grid">
                 <div class="menu-item">
                     <img src="img/paquete10personas.jpeg" alt="Paquete 10 Personas">
                     <h3>Paquete Parrillero</h3>
-                    <p>Excelente opción para una comida completa entre amigos cercanos.</p>
                     <span class="price">10 Personas</span>
                 </div>
                 <div class="menu-item">
                     <img src="img/paquete15personas.jpeg" alt="Paquete 15 Personas">
                     <h3>Paquete Familiar</h3>
-                    <p>La porción ideal para tus celebraciones o reuniones familiares de fin de semana.</p>
                     <span class="price">15 Personas</span>
                 </div>
                 <div class="menu-item">
                     <img src="img/paquete30personas.jpeg" alt="Paquete 30 Personas">
                     <h3>Paquete Evento</h3>
-                    <p>Diseñado especialmente para banquetes o reuniones de tamaño mediano.</p>
                     <span class="price">30 Personas</span>
                 </div>
                 <div class="menu-item">
                     <img src="img/paquete50personas.jpeg" alt="Paquete 50 Personas">
                     <h3>Banquete Parrillero</h3>
-                    <p>Servicio robusto para fiestas importantes o integraciones corporativas.</p>
                     <span class="price">50 Personas</span>
                 </div>
                 <div class="menu-item">
                     <img src="img/paquete100personas.jpeg" alt="Paquete 100 Personas">
                     <h3>Macro Banquete</h3>
-                    <p>Infraestructura completa para eventos a gran escala con el mejor sabor.</p>
                     <span class="price">100 Personas</span>
                 </div>
             </div>
@@ -206,7 +198,7 @@
             <h2>CORTES PREMIUM</h2>
             <div class="vertical-menu-stack">
                 <div class="menu-banner-item">
-                    <img src="img/Listadepreciospublico1.jpg" alt="Lista de Precios al Público" class="full-view-img">
+                    <img src="img/Listadepreciospublico1.jpg" alt="Lista de Precios" class="full-view-img">
                 </div>
                 <div class="menu-banner-item">
                     <img src="img/arrachera.jpeg" alt="Arrachera Premium" class="full-view-img">
@@ -228,6 +220,14 @@
             <p class="section-desc">Próximamente nuestro mapa y horarios.</p>
         </div>
     </section>
+
+    <!-- INTERACCIÓN JAVASCRIPT GARANTIZADA PARA MENÚ HAMBURGUESA -->
+    <script>
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
 
 </body>
 </html>
