@@ -104,6 +104,7 @@ body {
     }
     .nav-links.active { left: 0; }
     
+    /* Cactus Esquinas del Menú */
     .nav-links::before {
         content: ""; position: absolute; top: 20px; left: 20px; width: 38px; height: 38px;
         background-image: url('../img/cactus.png'); background-size: contain; background-repeat: no-repeat;
@@ -179,24 +180,4 @@ body {
 /* TEXTURA A: Secciones impares (MANTEL DE PICNIC) */
 .section-padding:nth-child(odd) {
     background-color: #fcfbf9; 
-    background-image: 
-        linear-gradient(90deg, rgba(105, 67, 33, 0.02) 50%, transparent 50%),
-        linear-gradient(rgba(105, 67, 33, 0.02) 50%, transparent 50%);
-    background-size: 24px 24px;
-}
-
-/* TEXTURA B: Secciones pares (TABLONES DE MADERA CLARA) */
-.section-padding:nth-child(even) { 
-    background-color: #f7f3eb; 
-    background-image: 
-        linear-gradient(90deg, rgba(105, 67, 33, 0.015) 1px, transparent 1px),
-        linear-gradient(0deg, rgba(105, 67, 33, 0.01) 2px, transparent 2px);
-    background-size: 50px 30px;
-} 
-
-
-/* ==========================================================================
-   ELEMENTOS INTERNOS DE LA PLANTILLA Y CONTENEDORES
-   ========================================================================== */
-
-.section-padding h2 { font-family: 'MotterCorpus', 'Impact', 'Arial Black', sans-serif !important; font-size
+    
