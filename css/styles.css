@@ -385,3 +385,43 @@ body {
     0% { transform: rotate(15deg) scale(1); }
     100% { transform: rotate(13deg) scale(1.04); }
 }
+
+/* ==========================================================================
+   FORMATO DE LETRA 'MOTTER' PARA SUBSECCIONES Y EXPANSIÓN DE PAQUETES
+   ========================================================================== */
+
+/* Subtítulos de bloques con tu fuente secundaria matter oficial pero en tamaño menor */
+.sub-section-title h3 {
+    font-family: 'MotterCorpus', 'Impact', 'Arial Black', sans-serif !important;
+    font-size: 24px; /* Tamaño menor al h2 principal */
+    font-weight: normal !important;
+    color: #694321;
+    margin-top: 45px;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Contenedor optimizado para que quepan todas las imágenes de eventos de forma fluida */
+#paquetes-parrilleros .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Distribuye espacio automáticamente */
+    gap: 30px; /* Separación armónica entre cada paquete */
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Asegura que el contenedor general de la sección crezca proporcionalmente */
+#paquetes-parrilleros .container {
+    max-width: 1200px;
+    width: 100%;
+    height: auto; /* Permite expansión infinita hacia abajo según el número de imágenes */
+}
+
+/* Evita recortes bruscos y mantiene proporciones reales de tus volantes/diseños de paquetes */
+#paquetes-parrilleros .menu-item img {
+    width: 100%;
+    height: auto !important; /* Desactiva los 220px fijos solo para que estas luzcan completas */
+    object-fit: contain !important;
+    border-radius: 8px;
+}
