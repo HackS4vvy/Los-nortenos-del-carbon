@@ -326,7 +326,7 @@ h2 {
 }
 
 /* ==========================================================================
-   MENÚ DE COMIDA (TACOS Y PLATILLOS)
+   MENÚ DE COMIDA (TACOS Y PLATILLOS CHICOS)
    ========================================================================== */
 .menu-grid { 
     display: grid; 
@@ -390,8 +390,11 @@ h2 {
     box-shadow: 0 8px 20px rgba(0,0,0,0.1); 
 }
 
-/* Contenedores para imágenes de menús completos (Hojas impresas) */
-.menu-completo-stack {
+/* ==========================================================================
+   CONTENEDORES UNIFICADOS PARA IMÁGENES GRANDES (MENÚ Y PAQUETES)
+   ========================================================================== */
+.menu-completo-stack,
+.paquetes-completo-stack {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -400,17 +403,25 @@ h2 {
     width: 100%;
 }
 
-.menu-completo-container {
+.menu-completo-container,
+.paquete-card-container {
     width: 100%;
     max-width: 750px;       
     margin: 0 auto;
-    padding: 25px;          
+    padding: 25px;          /* Padding exactocomo solicitaste */
     background: #ffffff;
     border-radius: 20px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease;
 }
 
-.menu-completo-img {
+.menu-completo-container:hover,
+.paquete-card-container:hover {
+    transform: translateY(-4px); /* Sutil efecto flotante al pasar el cursor */
+}
+
+.menu-completo-img,
+.paquete-completo-img {
     width: 100%;
     height: auto;           
     display: block;
@@ -525,7 +536,7 @@ h2 {
         z-index: 2; 
     }
     
-    /* CORRECCIÓN ABSOLUTA PARA REDES SOCIALES MÓVILES */
+    /* Redes sociales móviles controladas */
     .mobile-socials { 
         display: flex; 
         justify-content: center; 
@@ -538,7 +549,6 @@ h2 {
         z-index: 2; 
     } 
 
-    /* Control riguroso de las dimensiones del contenedor circular */
     .mobile-social-link {
         width: 55px !important;
         height: 55px !important;
@@ -549,14 +559,13 @@ h2 {
         padding: 14px !important;
         transition: 0.3s;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        overflow: hidden !important; /* Evita cualquier desbordamiento visual */
+        overflow: hidden !important;
     }
 
-    /* Restricción absoluta para que el código SVG nunca se estire hacia afuera */
     .mobile-social-link svg {
         width: 100% !important;
         height: 100% !important;
-        max-width: 27px !important;  /* Dimensión exacta recomendada */
+        max-width: 27px !important;  
         max-height: 27px !important;
         display: block !important;
     }
