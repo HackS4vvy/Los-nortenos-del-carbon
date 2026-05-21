@@ -1,3 +1,7 @@
+/* ==========================================================================
+   FUENTES PERSONALIZADAS
+   ========================================================================== */
+
 /* Fuente Principal (Slider) */
 @font-face {
     font-family: 'Broadway';
@@ -14,7 +18,7 @@
     font-style: normal;
 }
 
-/* Fuente Secundaria (Títulos de Secciones, Platillos y ahora Menú) */
+/* Fuente Secundaria (Títulos de Secciones, Platillos y Menú) */
 @font-face {
     font-family: 'MotterCorpus';
     src: url('fonts/motter.ttf') format('truetype');
@@ -30,8 +34,18 @@
     font-style: normal;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+/* ==========================================================================
+   ESTILOS GENERALES Y CONFIGURACIÓN BASE
+   ========================================================================== */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+html { 
+    scroll-behavior: smooth; 
+}
 
 body { 
     font-family: 'Poppins', sans-serif; 
@@ -39,6 +53,40 @@ body {
     background-color: #fdfdfc; 
 }
 
+/* Previene que la barra fija tape los títulos al deslizarse por la página */
+section {
+    scroll-margin-top: 90px; 
+}
+
+.section-padding { 
+    padding: 80px 5%; 
+    text-align: center; 
+}
+
+.container { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+h2 { 
+    font-family: 'MotterCorpus', 'Impact', sans-serif !important; 
+    font-size: clamp(28px, 5vw, 42px); 
+    color: #694321; 
+    margin-bottom: 20px; 
+    letter-spacing: 1px;
+}
+
+.section-desc { 
+    font-size: 16px; 
+    color: #555; 
+    max-width: 800px; 
+    margin: 0 auto 40px auto; 
+    line-height: 1.6; 
+}
+
+/* ==========================================================================
+   BARRA DE NAVEGACIÓN (HEADER)
+   ========================================================================== */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -49,61 +97,373 @@ body {
     border-bottom: 1px solid #f2f2f2;
     position: sticky;
     top: 0;
-    z-index: 2000; /* Incrementado para estar siempre por encima de todo */
+    z-index: 2000;
 }
 
-.logo-container { display: flex; align-items: center; }
-.logo-img { height: 145px; width: auto; transition: 0.3s; }
+.logo-container { 
+    display: flex; 
+    align-items: center; 
+}
 
-.nav-links { display: flex; align-items: center; gap: 35px; }
-.nav-links a { text-decoration: none; color: #694321; font-family: 'MotterCorpus', 'Impact', sans-serif !important; font-weight: normal !important; font-size: 18px; letter-spacing: 0.5px; transition: 0.3s; }
+.logo-img { 
+    height: 145px; 
+    width: auto; 
+    transition: 0.3s; 
+}
 
-.nav-links a.active { color: #697359; }
+.nav-links { 
+    display: flex; 
+    align-items: center; 
+    gap: 35px; 
+}
 
-.nav-actions { display: flex; align-items: center; gap: 12px; }
-.social-circle { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s; background-color: #9a6433; flex-shrink: 0; }
+.nav-links a { 
+    text-decoration: none; 
+    color: #694321; 
+    font-family: 'MotterCorpus', 'Impact', sans-serif !important; 
+    font-weight: normal !important; 
+    font-size: 18px; 
+    letter-spacing: 0.5px; 
+    transition: 0.3s; 
+}
 
-.fb-color { background-color: #1877F2 !important; }
-.fb-color:hover { background-color: #0d5dd1 !important; }
-.ig-color { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important; }
-.ig-color:hover { filter: brightness(0.9); }
+.nav-links a.active { 
+    color: #697359; 
+}
 
-.btn-shop { background-color: #697359; color: #ffffff !important; padding: 14px 28px; text-decoration: none; font-family: 'MotterCorpus', 'Impact', sans-serif !important; font-weight: normal !important; font-size: 16px; border-radius: 10px; transition: 0.3s; border: none; cursor: pointer; display: inline-block; text-align: center; }
-.btn-shop:hover { background-color: #555e49; }
+/* Acciones y Redes Sociales en Escritorio */
+.nav-actions { 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+}
 
-.mobile-shop-btn { display: none; }
+.social-circle { 
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    transition: 0.3s; 
+    background-color: #9a6433; 
+    flex-shrink: 0; 
+}
 
-/* Menú Móvil */
-.menu-toggle { display: none; flex-direction: column; cursor: pointer; z-index: 2001; position: relative; }
-.menu-toggle .bar { width: 25px; height: 3px; background-color: #694321; margin: 4px 0; transition: 0.4s; }
+.fb-color { 
+    background-color: #1877F2 !important; 
+}
 
-.mobile-socials { display: none; gap: 15px; margin-top: 20px; }
+.fb-color:hover { 
+    background-color: #0d5dd1 !important; 
+}
 
-.menu-toggle.active .bar:nth-child(1) { transform: translateY(11px) rotate(45deg); }
-.menu-toggle.active .bar:nth-child(2) { opacity: 0; }
-.menu-toggle.active .bar:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
+.ig-color { 
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important; 
+}
+
+.ig-color:hover { 
+    filter: brightness(0.9); 
+}
+
+.btn-shop { 
+    background-color: #697359; 
+    color: #ffffff !important; 
+    padding: 14px 28px; 
+    text-decoration: none; 
+    font-family: 'MotterCorpus', 'Impact', sans-serif !important; 
+    font-weight: normal !important; 
+    font-size: 16px; 
+    border-radius: 10px; 
+    transition: 0.3s; 
+    border: none; 
+    cursor: pointer; 
+    display: inline-block; 
+    text-align: center; 
+}
+
+.btn-shop:hover { 
+    background-color: #555e49; 
+}
+
+.mobile-shop-btn { 
+    display: none; 
+}
+
+/* Menú Hamburguesa Móvil */
+.menu-toggle { 
+    display: none; 
+    flex-direction: column; 
+    cursor: pointer; 
+    z-index: 2001; 
+    position: relative; 
+}
+
+.menu-toggle .bar { 
+    width: 25px; 
+    height: 3px; 
+    background-color: #694321; 
+    margin: 4px 0; 
+    transition: 0.4s; 
+}
+
+.mobile-socials { 
+    display: none; 
+    gap: 15px; 
+    margin-top: 20px; 
+}
+
+/* Animaciones del Menú Hamburguesa */
+.menu-toggle.active .bar:nth-child(1) { 
+    transform: translateY(11px) rotate(45deg); 
+}
+
+.menu-toggle.active .bar:nth-child(2) { 
+    opacity: 0; 
+}
+
+.menu-toggle.active .bar:nth-child(3) { 
+    transform: translateY(-11px) rotate(-45deg); 
+}
+
+/* ==========================================================================
+   DISEÑO EN HÉROE / SLIDER PRINCIPAL
+   ========================================================================== */
+.hero-slider { 
+    position: relative; 
+    height: 85vh; 
+    width: 100%; 
+    background-color: #000; 
+    z-index: 1; 
+}
+
+.slider-wave-mask-top, .slider-wave-mask-bottom {
+    position: absolute; 
+    width: 100%; 
+    z-index: 10; 
+    line-height: 0; 
+    pointer-events: none;
+}
+
+.slider-wave-mask-top { 
+    top: 0; 
+}
+
+.slider-wave-mask-bottom { 
+    bottom: 0; 
+    transform: rotate(180deg); 
+}
+
+.slider-wave-mask-top svg, .slider-wave-mask-bottom svg { 
+    display: block; 
+    width: 100%; 
+    height: auto; 
+}
+
+.slide { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-size: cover; 
+    background-position: center; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    opacity: 0; 
+    transition: opacity 1.5s ease-in-out; 
+}
+
+.slide.active { 
+    opacity: 1; 
+    z-index: 1; 
+}
+
+.hero-content { 
+    text-align: center; 
+    color: white; 
+    transform: translateY(40px); 
+    opacity: 0; 
+    transition: 1s cubic-bezier(0.2, 1, 0.3, 1) 0.5s; 
+    padding: 0 20px; 
+}
+
+.slide.active .hero-content { 
+    transform: translateY(0); 
+    opacity: 1; 
+}
+
+.hero-content h1 { 
+    font-family: 'Broadway', 'Impact', sans-serif !important; 
+    font-size: clamp(30px, 8vw, 70px); 
+    font-weight: normal !important; 
+    line-height: 1; 
+    margin-bottom: 15px; 
+}
+
+.hero-content h1 span { 
+    color: #d6d8be; 
+}
+
+.hero-content p { 
+    font-size: clamp(12px, 3vw, 18px); 
+    font-weight: 700; 
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.btn-hero {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: #697359;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'MotterCorpus', sans-serif;
+    font-size: 18px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.btn-hero:hover {
+    background-color: #555e49;
+}
+
+/* ==========================================================================
+   MENÚ DE COMIDA (TACOS Y PLATILLOS)
+   ========================================================================== */
+.menu-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px; 
+    margin-bottom: 50px; 
+}
+
+.menu-item { 
+    background: #ffffff; 
+    padding: 20px; 
+    border-radius: 15px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+    transition: 0.3s; 
+}
+
+.menu-item:hover { 
+    transform: translateY(-5px); 
+}
+
+.menu-item img { 
+    width: 100%; 
+    height: 220px; 
+    object-fit: cover; 
+    border-radius: 10px; 
+    margin-bottom: 15px; 
+}
+
+.menu-item h3 { 
+    font-family: 'MotterCorpus', sans-serif; 
+    color: #694321; 
+    font-size: 20px; 
+    margin-bottom: 10px; 
+}
+
+.menu-item p { 
+    font-size: 14px; 
+    color: #666; 
+    margin-bottom: 15px; 
+}
+
+.price { 
+    font-family: 'Poppins', sans-serif; 
+    font-weight: 700; 
+    color: #697359; 
+    font-size: 18px; 
+}
+
+.sub-section-title h3 { 
+    font-family: 'MotterCorpus', sans-serif; 
+    font-size: 26px; 
+    color: #9a6433; 
+    margin: 40px 0 20px 0; 
+}
+
+.full-view-img { 
+    width: 100%; 
+    max-width: 900px; 
+    height: auto; 
+    border-radius: 15px; 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1); 
+}
+
+.vertical-menu-stack {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* ==========================================================================
+   RESPONSIVO (CELULARES Y TABLETAS)
+   ========================================================================== */
+@keyframes cactusBailando {
+    0% { transform: scale(1) rotate(-5deg); }
+    100% { transform: scale(1.05) rotate(5deg); }
+}
 
 @media (max-width: 1100px) {
-    .navbar { padding: 15px 5%; height: 90px; }
-    .menu-toggle { display: flex; order: 3; }
+    .navbar { 
+        padding: 15px 5%; 
+        height: 90px; 
+    }
     
-    .logo-container { order: 2; position: absolute; left: 50%; transform: translateX(-50%); }
-    .logo-img { height: 135px; }
+    .menu-toggle { 
+        display: flex; 
+        order: 3; 
+    }
     
-    .nav-actions { display: none; } 
+    .logo-container { 
+        order: 2; 
+        position: absolute; 
+        left: 50%; 
+        transform: translateX(-50%); 
+    }
+    
+    .logo-img { 
+        height: 135px; 
+    }
+    
+    .nav-actions { 
+        display: none; 
+    } 
 
-    /* CORRECCIÓN: Garantizado el despliegue del menú interactivo sobre las imágenes pesadas */
+    /* CORRECCIÓN INTERACTIVA: Se agrega 'visibility' para liberar clics en el Slider */
     .nav-links {
-        position: absolute; top: 90px; left: -100%; flex-direction: column;
-        background-color: #f7f3eb !important; width: 100%; padding: 25px 0 25px 0; gap: 2px;
-        text-align: center; transition: 0.5s ease-in-out; box-shadow: 0 10px 15px rgba(0,0,0,0.1); z-index: 1999;
-        height: calc(100vh - 90px); min-height: 520px; justify-content: flex-start; pointer-events: all;
+        position: absolute; 
+        top: 90px; 
+        left: -100%; 
+        flex-direction: column;
+        background-color: #f7f3eb !important; 
+        width: 100%; 
+        padding: 25px 0 25px 0; 
+        gap: 2px;
+        text-align: center; 
+        transition: 0.5s ease-in-out; 
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1); 
+        z-index: 1999;
+        height: calc(100vh - 90px); 
+        min-height: 520px; 
+        justify-content: flex-start; 
+        pointer-events: all;
         background-image: 
             linear-gradient(90deg, rgba(105, 67, 33, 0.015) 1px, transparent 1px),
             linear-gradient(0deg, rgba(105, 67, 33, 0.01) 2px, transparent 2px) !important;
         background-size: 50px 30px !important;
+        visibility: hidden;
     }
-    .nav-links.active { left: 0; }
+    
+    .nav-links.active { 
+        left: 0; 
+        visibility: visible;
+    }
     
     /* Cactus Esquinas del Menú */
     .nav-links::before {
@@ -120,13 +480,45 @@ body {
         animation: cactusBailando 1.2s ease-in-out infinite alternate; animation-delay: -0.6s;
     }
     
-    .nav-links a { font-size: 20px; width: 100%; padding: 12px 0; display: block; position: relative; z-index: 2; }
-    .nav-links a:hover, .nav-links a:active { background-color: rgba(105, 115, 89, 0.15); color: #697359; }
+    .nav-links a { 
+        font-size: 20px; 
+        width: 100%; 
+        padding: 12px 0; 
+        display: block; 
+        position: relative; 
+        z-index: 2; 
+    }
     
-    .mobile-shop-btn { display: inline-block; width: 85%; margin: 10px auto; padding: 14px 0; font-family: 'Poppins', sans-serif !important; font-weight: 700 !important; font-size: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); flex-shrink: 0; position: relative; z-index: 2; }
+    .nav-links a:hover, .nav-links a:active { 
+        background-color: rgba(105, 115, 89, 0.15); 
+        color: #697359; 
+    }
+    
+    .mobile-shop-btn { 
+        display: inline-block; 
+        width: 85%; 
+        margin: 10px auto; 
+        padding: 14px 0; 
+        font-family: 'Poppins', sans-serif !important; 
+        font-weight: 700 !important; 
+        font-size: 16px; 
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+        flex-shrink: 0; 
+        position: relative; 
+        z-index: 2; 
+    }
     
     .mobile-socials { 
-        display: flex; justify-content: center; gap: 20px; padding: 15px 0 5px 0; width: 100%; border-top: 1px solid #f2f2f2; margin-top: 15px; flex-shrink: 0; position: relative; z-index: 2; 
+        display: flex; 
+        justify-content: center; 
+        gap: 20px; 
+        padding: 15px 0 5px 0; 
+        width: 100%; 
+        border-top: 1px solid #f2f2f2; 
+        margin-top: 15px; 
+        flex-shrink: 0; 
+        position: relative; 
+        z-index: 2; 
     } 
     
     .mobile-socials::before {
@@ -141,146 +533,17 @@ body {
         opacity: 0.7; pointer-events: none; transform-origin: bottom center; animation: cactusBailando 1.2s ease-in-out infinite alternate; animation-delay: -0.6s;
     }
 
-    .mobile-socials .social-circle { width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; padding: 0; }
-    .mobile-socials .fb-color svg { transform: translateX(1px); }
+    .mobile-socials .social-circle { 
+        width: 45px; 
+        height: 45px; 
+        border-radius: 50%; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        padding: 0; 
+    }
+    
+    .mobile-socials .fb-color svg { 
+        transform: translateX(1px); 
+    }
 }
-
-/* Hero Slider */
-.hero-slider { position: relative; height: 85vh; width: 100%; background-color: #000; z-index: 1; }
-
-.slider-wave-mask-top, .slider-wave-mask-bottom {
-    position: absolute; width: 100%; z-index: 10; line-height: 0; pointer-events: none;
-}
-.slider-wave-mask-top { top: 0; }
-.slider-wave-mask-bottom { bottom: 0; transform: rotate(180deg); }
-.slider-wave-mask-top svg, .slider-wave-mask-bottom svg { display: block; width: 100%; height: auto; }
-
-.slide { 
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; 
-    display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 1.5s ease-in-out; 
-}
-.slide.active { opacity: 1; z-index: 1; }
-
-.hero-content { text-align: center; color: white; transform: translateY(40px); opacity: 0; transition: 1s cubic-bezier(0.2, 1, 0.3, 1) 0.5s; padding: 0 20px; }
-.slide.active .hero-content { transform: translateY(0); opacity: 1; }
-
-.hero-content h1 { font-family: 'Broadway', 'Impact', sans-serif !important; font-size: clamp(30px, 8vw, 70px); font-weight: normal !important; line-height: 1; margin-bottom: 15px; }
-.hero-content h1 span { color: #d6d8be; }
-.hero-content p { font-size: clamp(12px, 3vw, 18px); font-weight: 700; letter-spacing: 2px; }
-
-.btn-hero { display: inline-block; background-color: #697359; color: white; padding: 16px 40px; text-decoration: none; font-family: 'Poppins', sans-serif !important; font-weight: 700 !important; border-radius: 8px; margin-top: 25px; transition: 0.3s; }
-.btn-hero:hover { background-color: #555e49; }
-
-
-/* ==========================================================================
-   MEZCLA DE TEXTURAS EN LA ESTRUCTURA ONE PAGE
-   ========================================================================== */
-
-.section-padding { padding: 90px 5%; text-align: center; background-color: #ffffff; position: relative; z-index: 5; }
-
-/* TEXTURA A: Secciones impares (MANTEL DE PICNIC) */
-.section-padding:nth-child(odd) {
-    background-color: #fcfbf9; 
-    background-image: 
-        linear-gradient(90deg, rgba(105, 67, 33, 0.02) 50%, transparent 50%),
-        linear-gradient(rgba(105, 67, 33, 0.02) 50%, transparent 50%);
-    background-size: 24px 24px;
-}
-
-/* TEXTURA B: Secciones pares (TABLONES DE MADERA CLARA) */
-.section-padding:nth-child(even) { 
-    background-color: #f7f3eb; 
-    background-image: 
-        linear-gradient(90deg, rgba(105, 67, 33, 0.015) 1px, transparent 1px),
-        linear-gradient(0deg, rgba(105, 67, 33, 0.01) 2px, transparent 2px);
-    background-size: 50px 30px;
-} 
-
-
-/* ==========================================================================
-   ELEMENTOS INTERNOS DE LA PLANTILLA Y CONTENEDORES
-   ========================================================================== */
-
-.section-padding h2 { font-family: 'MotterCorpus', 'Impact', 'Arial Black', sans-serif !important; font-size: 36px; font-weight: normal !important; color: #694321; margin-bottom: 35px; letter-spacing: 1px; position: relative; display: inline-block; text-transform: uppercase; }
-.section-padding h2::after { content: ''; display: block; width: 60px; height: 3px; background-color: #697359; margin: 10px auto 0 auto; }
-.container { max-width: 1200px; margin: 0 auto; height: auto; }
-.section-desc { font-size: 16px; color: #555; max-width: 750px; margin: 0 auto; line-height: 1.8; }
-
-.menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 20px; }
-.menu-item { background: #ffffff; padding: 20px; border-radius: 12px; border: 1px solid #f2f2f2; transition: 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.01); }
-.menu-item img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
-.menu-item h3 { font-family: 'MotterCorpus', 'Impact', 'Arial Black', sans-serif !important; font-size: 22px; color: #694321; margin-bottom: 10px; font-weight: normal !important; text-transform: uppercase; }
-.menu-item p { color: #666; font-size: 14px; line-height: 1.5; margin-bottom: 15px; }
-.menu-item .price { display: block; font-size: 18px; font-weight: 700; color: #697359; }
-
-
-/* ==========================================================================
-   NUEVO FORMATO: SUBSECCIONES EN FUENTE MATTER PEQUEÑA
-   ========================================================================== */
-
-.sub-section-title h3 {
-    font-family: 'MotterCorpus', 'Impact', 'Arial Black', sans-serif !important;
-    font-size: 24px; /* Tamaño menor solicitado */
-    font-weight: normal !important;
-    color: #694321;
-    margin-top: 50px;
-    margin-bottom: 25px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-}
-
-
-/* ==========================================================================
-   ESTILOS PARA AGRANDAR SECCIÓN DE PAQUETES Y COMPATIBILIDAD DE IMÁGENES
-   ========================================================================== */
-
-/* Hace crecer la sección de paquetes de forma ilimitada para albergar los volantes completos */
-#paquetes-parrilleros .menu-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
-
-#paquetes-parrilleros .menu-item img {
-    height: auto !important; /* Quita los 220px fijos para evitar recortes bruscos */
-    object-fit: contain !important;
-}
-
-.vertical-menu-stack {
-    display: flex; flex-direction: column; align-items: center; gap: 40px; max-width: 800px; margin: 0 auto;
-}
-
-.single-banner-container, .menu-banner-item { width: 100%; max-width: 700px; margin: 0 auto; }
-
-.full-view-img {
-    width: 100%; height: auto !important; object-fit: contain !important; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-}
-
-
-/* ==========================================================================
-   DECORACIONES DE FONDO EN ESCRITORIO
-   ========================================================================== */
-
-#nosotros::before {
-    content: ""; position: absolute; top: 40px; left: 3vw; width: 70px; height: 70px;
-    background-image: url('../img/habanero.png'); background-size: contain; background-repeat: no-repeat;
-    opacity: 1; pointer-events: none; z-index: 1; animation: latidoFuego 4s ease-in-out infinite alternate;
-}
-
-#nosotros::after {
-    content: ""; position: absolute; top: 40px; right: 3vw; width: 70px; height: 70px;
-    background-image: url('../img/habanero.png'); background-size: contain; background-repeat: no-repeat;
-    opacity: 1; pointer-events: none; z-index: 1; animation: latidoFuegoInvertido 4s ease-in-out infinite alternate;
-}
-
-@media (max-width: 600px) {
-    #nosotros::before { width: 45px; height: 45px; top: 20px; left: 2vw; }
-    #nosotros::after { width: 45px; height: 45px; top: 20px; right: 2vw; }
-}
-
-
-/* ==========================================================================
-   LÓGICA DE ANIMACIÓN (KEYFRAMES COMPATIBLES)
-   ========================================================================== */
-
-@keyframes cactusBailando { 0% { transform: rotate(-10deg); } 100% { transform: rotate(10deg); } }
-@keyframes latidoFuego { 0% { transform: rotate(-15deg) scale(1); } 100% { transform: rotate(-13deg) scale(1.04); } }
-@keyframes latidoFuegoInvertido { 0% { transform: rotate(15deg) scale(1); } 100% { transform: rotate(13deg) scale(1.04); } }
