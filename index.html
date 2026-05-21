@@ -28,9 +28,9 @@
             <a href="#opiniones">Opiniones</a>
             <a href="#ubicacion">Ubicación</a>
             
-            <!-- Corrección de enlace WhatsApp Móvil -->
             <a href="https://wa.me." target="_blank" class="btn-shop mobile-shop-btn"> ORDENA AQUÍ </a>
             
+            <!-- Redes sociales móviles con enlaces oficiales personalizados -->
             <div class="mobile-socials">
                 <a href="https://facebook.com" target="_blank" class="social-circle fb-color" aria-label="Facebook">
                     <svg viewBox="0 0 512 512" width="18" height="18"><path fill="white" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
@@ -46,6 +46,7 @@
         </nav>
 
         <div class="nav-actions">
+            <!-- Redes sociales de escritorio con enlaces oficiales personalizados -->
             <a href="https://facebook.com" target="_blank" class="social-circle fb-color" aria-label="Facebook">
                 <svg viewBox="0 0 512 512" width="18" height="18"><path fill="white" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
             </a>
@@ -56,13 +57,11 @@
                     <circle fill="white" cx="362.25" cy="149.75" r="22"/>
                 </svg>
             </a>
-            <!-- Corrección de enlace WhatsApp Escritorio -->
             <a href="https://wa.me." target="_blank" class="btn-shop">ORDENA AQUÍ</a>
         </div>
     </header>
 
     <section class="hero-slider">
-        <!-- Corrección xmlns SVG -->
         <div class="slider-wave-mask-top">
             <svg viewBox="0 0 1440 40" fill="none" xmlns="http://w3.org">
                 <path d="M0 0H1440V15C1320 28 1120 35 960 35C720 35 600 12 280 22C160 26 70 14 0 5V0Z" fill="#ffffff"/>
@@ -91,7 +90,6 @@
             </div>
         </div>
 
-        <!-- Corrección xmlns SVG -->
         <div class="slider-wave-mask-bottom">
             <svg viewBox="0 0 1440 40" fill="none" xmlns="http://w3.org">
                 <path d="M0 0H1440V15C1320 28 1120 35 960 35C720 35 600 12 280 22C160 26 70 14 0 5V0Z" fill="#ffffff"/>
@@ -137,12 +135,16 @@
                 <img src="img/crunchwraps.jpeg" alt="Especial Crunchwraps" class="full-view-img">
             </div>
 
+            <!-- SECCIÓN DEL MENÚ FOTOGRÁFICO ADAPTADO -->
             <div class="sub-section-title">
                 <h3>Menú</h3>
             </div>
-            <div class="vertical-menu-stack">
-                <div class="menu-banner-item">
-                    <img src="img/banner-menu.jpg" alt="Menú Completo Norteños" class="full-view-img">
+            <div class="menu-hojas-grid">
+                <div class="menu-hoja-card">
+                    <img src="img/menu1.jpeg" alt="Menú Los Norteños del Carbón - Parte 1" class="menu-hoja-img">
+                </div>
+                <div class="menu-hoja-card">
+                    <img src="img/menu2.jpeg" alt="Menú Los Norteños del Carbón - Parte 2" class="menu-hoja-img">
                 </div>
             </div>
         </div>
@@ -176,7 +178,9 @@
         </div>
     </section>
 
-    <!-- LÓGICA DE INTERACCIÓN INTEGRADA -->
+    <!-- ==========================================
+         LÓGICA INTERACTIVA (JAVASCRIPT)
+         ========================================== -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // ---- 1. CONTROL DEL MENÚ MÓVIL ----
@@ -189,9 +193,9 @@
                     navLinks.classList.toggle('active');
                 });
 
-                // Cerrar menú al dar clic con retraso para permitir el scroll correcto [1]
+                // Cerrar menú al dar clic en cualquier enlace con retraso para permitir el scroll
                 document.querySelectorAll('.nav-links a').forEach(link => {
-                    link.addEventListener('click', () => {
+                    link.addEventListener('click', (e) => {
                         if (link.getAttribute('href').startsWith('#')) {
                             setTimeout(() => {
                                 mobileMenu.classList.remove('active');
