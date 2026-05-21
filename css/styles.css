@@ -1,8 +1,6 @@
 /* ==========================================================================
    FUENTES PERSONALIZADAS
    ========================================================================== */
-
-/* Fuente Principal (Slider) */
 @font-face {
     font-family: 'Broadway';
     src: url('fonts/BROADW.TTF') format('truetype');
@@ -10,7 +8,6 @@
     font-style: normal;
 }
 
-/* Fuente de Cuerpo (Descripciones) */
 @font-face {
     font-family: 'Poppins';
     src: url('fonts/Poppins-Regular.ttf') format('truetype');
@@ -18,7 +15,6 @@
     font-style: normal;
 }
 
-/* Fuente Secundaria (Títulos de Secciones, Platillos y Menú) */
 @font-face {
     font-family: 'MotterCorpus';
     src: url('fonts/motter.ttf') format('truetype');
@@ -26,7 +22,6 @@
     font-style: normal;
 }
 
-/* Fuente Habanero (Guardada en sistema por respaldo) */
 @font-face {
     font-family: 'Habanero';
     src: url('fonts/habanero.ttf') format('truetype');
@@ -53,7 +48,6 @@ body {
     background-color: #fdfdfc; 
 }
 
-/* Previene que la barra fija tape los títulos al deslizarse por la página */
 section {
     scroll-margin-top: 90px; 
 }
@@ -131,7 +125,6 @@ h2 {
     color: #697359; 
 }
 
-/* Acciones y Redes Sociales en Escritorio */
 .nav-actions { 
     display: flex; 
     align-items: center; 
@@ -190,7 +183,6 @@ h2 {
     display: none; 
 }
 
-/* Menú Hamburguesa Móvil */
 .menu-toggle { 
     display: none; 
     flex-direction: column; 
@@ -213,7 +205,6 @@ h2 {
     margin-top: 20px; 
 }
 
-/* Animaciones del Menú Hamburguesa */
 .menu-toggle.active .bar:nth-child(1) { 
     transform: translateY(11px) rotate(45deg); 
 }
@@ -395,7 +386,6 @@ h2 {
     box-shadow: 0 8px 20px rgba(0,0,0,0.1); 
 }
 
-/* Contenedores especiales para imágenes de menús completos (Hojas impresas) */
 .menu-completo-stack {
     display: flex;
     flex-direction: column;
@@ -456,7 +446,7 @@ h2 {
         display: none; 
     } 
 
-    /* CORRECCIÓN INTERACTIVA: Selectores reforzados y visibility: hidden para no bloquear el slider */
+    /* CORRECCIÓN DE VISIBILIDAD Y ADICIÓN DE SCROLL INTERNO */
     .navbar .nav-links {
         position: absolute; 
         top: 90px; 
@@ -464,107 +454,9 @@ h2 {
         flex-direction: column;
         background-color: #f7f3eb !important; 
         width: 100%; 
-        padding: 25px 0; 
+        padding: 30px 0; 
         gap: 2px;
         text-align: center; 
-        transition: left 0.5s ease-in-out, visibility 0.5s ease-in-out; 
+        transition: left 0.4s ease-in-out, visibility 0.4s ease-in-out; 
         box-shadow: 0 10px 15px rgba(0,0,0,0.1); 
-        z-index: 1999;
-        height: calc(100vh - 90px); 
-        min-height: 520px; 
-        justify-content: flex-start; 
-        pointer-events: all;
-        background-image: 
-            linear-gradient(90deg, rgba(105, 67, 33, 0.015) 1px, transparent 1px),
-            linear-gradient(0deg, rgba(105, 67, 33, 0.01) 2px, transparent 2px) !important;
-        background-size: 50px 30px !important;
-        visibility: hidden;
-    }
-    
-    .navbar .nav-links.active { 
-        left: 0; 
-        visibility: visible;
-    }
-    
-    /* Cactus Esquinas del Menú */
-    .navbar .nav-links::before {
-        content: ""; position: absolute; top: 20px; left: 20px; width: 38px; height: 38px;
-        background-image: url('../img/cactus.png'); background-size: contain; background-repeat: no-repeat;
-        opacity: 0.7; pointer-events: none; z-index: 1; transform-origin: bottom center;
-        animation: cactusBailando 1.2s ease-in-out infinite alternate;
-    }
-    
-    .navbar .nav-links::after {
-        content: ""; position: absolute; top: 20px; right: 20px; width: 38px; height: 38px;
-        background-image: url('../img/cactus.png'); background-size: contain; background-repeat: no-repeat;
-        opacity: 0.7; pointer-events: none; z-index: 1; transform-origin: bottom center;
-        animation: cactusBailando 1.2s ease-in-out infinite alternate; animation-delay: -0.6s;
-    }
-    
-    .navbar .nav-links a { 
-        font-size: 20px; 
-        width: 100%; 
-        padding: 12px 0; 
-        display: block; 
-        position: relative; 
-        z-index: 2; 
-    }
-    
-    .navbar .nav-links a:hover, .navbar .nav-links a:active { 
-        background-color: rgba(105, 115, 89, 0.15); 
-        color: #697359; 
-    }
-    
-    .mobile-shop-btn { 
-        display: inline-block; 
-        width: 85%; 
-        margin: 10px auto; 
-        padding: 14px 0; 
-        font-family: 'Poppins', sans-serif !important; 
-        font-weight: 700 !important; 
-        font-size: 16px; 
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
-        flex-shrink: 0; 
-        position: relative; 
-        z-index: 2; 
-    }
-    
-    .mobile-socials { 
-        display: flex; 
-        justify-content: center; 
-        gap: 20px; 
-        padding: 15px 0 5px 0; 
-        width: 100%; 
-        border-top: 1px solid #f2f2f2; 
-        margin-top: 15px; 
-        flex-shrink: 0; 
-        position: relative; 
-        z-index: 2; 
-    } 
-    
-    .mobile-socials::before {
-        content: ""; position: absolute; bottom: -15px; left: 20px; width: 38px; height: 38px;
-        background-image: url('../img/cactus.png'); background-size: contain; background-repeat: no-repeat;
-        opacity: 0.7; pointer-events: none; transform-origin: bottom center; animation: cactusBailando 1.2s ease-in-out infinite alternate;
-    }
-
-    .mobile-socials::after {
-        content: ""; position: absolute; bottom: -15px; right: 20px; width: 38px; height: 38px;
-        background-image: url('../img/cactus.png'); background-size: contain; background-repeat: no-repeat;
-        opacity: 0.7; pointer-events: none; transform-origin: bottom center; animation: cactusBailando 1.2s ease-in-out infinite alternate; animation-delay: -0.6s;
-    }
-
-    .mobile-socials .social-circle { 
-        width: 45px; 
-        height: 45px; 
-        border-radius: 50%; 
-        display: flex; 
-        align-items: center; 
-        justify-content: center; 
-        padding: 0; 
-    }
-    
-    .mobile-socials .fb-color svg { 
-        transform: translateX(1px); 
-    }
-}
+        z-index
