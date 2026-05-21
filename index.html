@@ -8,6 +8,7 @@
 </head>
 <body id="home">
 
+    <!-- BARRA DE NAVEGACIÓN -->
     <header class="navbar">
         <div class="logo-container">
             <img src="img/logo-pagina-web.png" alt="Los Norteños del Carbón" class="logo-img">
@@ -59,6 +60,7 @@
         </div>
     </header>
 
+    <!-- HERO SLIDER PRINCIPAL -->
     <section class="hero-slider">
         <div class="slider-wave-mask-top">
             <svg viewBox="0 0 1440 40" fill="none" xmlns="http://w3.org">
@@ -95,6 +97,7 @@
         </div>
     </section>
 
+    <!-- SECCIÓN NOSOTROS -->
     <section id="nosotros" class="section-padding">
         <div class="container">
             <h2>NOSOTROS</h2>
@@ -102,6 +105,7 @@
         </div>
     </section>
 
+    <!-- SECCIÓN TACOS DE ASADA -->
     <section id="tacos" class="section-padding">
         <div class="container">
             <h2>TACOS DE ASADA</h2>
@@ -138,23 +142,24 @@
             </div>
             <div class="menu-completo-stack">
                 <div class="menu-completo-container">
-                    <img src="img/menu1.jpeg" alt="Menú Hoja 1" class="menu-completo-img">
+                    <img src="img/menu1.jpeg" alt="Menú Los Norteños 1" class="menu-completo-img">
                 </div>
                 <div class="menu-completo-container">
-                    <img src="img/menu2.jpeg" alt="Menú Hoja 2" class="menu-completo-img">
+                    <img src="img/menu2.jpeg" alt="Menú Los Norteños 2" class="menu-completo-img">
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- SECCIÓN PAQUETES PARRILLEROS -->
     <section id="paquetes-parrilleros" class="section-padding">
         <div class="container">
             <h2>PAQUETES PARRILLEROS</h2>
-            <p class="section-desc">La opción perfecta para tus reuniones y eventos con el sabor inigualable del carbón norteño.</p>
+            <p class="section-desc">Los mejores paquetes armados con la mayor calidad para disfrutar en grande con toda la familia.</p>
             
             <div class="paquetes-completo-stack">
                 <div class="paquete-card-container">
-                    <img src="img/paquetedelmes.jgpeg" alt="Paquete del Mes" class="paquete-completo-img">
+                    <img src="img/paquetedelmes.jpeg" alt="Paquete del Mes" class="paquete-completo-img">
                 </div>
                 <div class="paquete-card-container">
                     <img src="img/paquete10personas.jpeg" alt="Paquete para 10 Personas" class="paquete-completo-img">
@@ -178,6 +183,7 @@
         </div>
     </section>
 
+    <!-- SECCIÓN CORTES PREMIUM -->
     <section id="cortes" class="section-padding">
         <div class="container">
             <h2>CORTES PREMIUM</h2>
@@ -185,6 +191,7 @@
         </div>
     </section>
 
+    <!-- SECCIÓN OPINIONES -->
     <section id="opiniones" class="section-padding">
         <div class="container">
             <h2>OPINIONES</h2>
@@ -192,33 +199,30 @@
         </div>
     </section>
 
+    <!-- SECCIÓN UBICACIÓN (NUEVA CON MAPA) -->
     <section id="ubicacion" class="section-padding">
         <div class="container">
-            <h2>NUESTRA UBICACIÓN</h2>
-            <p class="section-desc">¡Te esperamos para disfrutar del mejor ambiente parrillero!<br>
-               <strong>Dirección:</strong> Av. Revolución 1008, Bazar Containers, Pachuca de Soto, Hidalgo.
-            </p>
+            <h2>UBICACIÓN</h2>
+            <p class="section-desc">¡Visítanos! Disfruta del verdadero aroma y sabor norteño directamente en nuestra sucursal.</p>
             
-            <!-- CONTENEDOR GOOGLE MAPS -->
             <div class="mapa-wrapper">
-                <iframe 
-                    src="https://google.com" 
-                    width="100%" 
-                    height="450" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+                <div class="mapa-info">
+                    <h3>Nuestra Sucursal</h3>
+                    <p class="mapa-direccion">📍 Av. Revolución 1008, Bazar Containers, Pachuca de Soto, Hidalgo.</p>
+                    <p class="mapa-horario">🕒 Abierto de Lunes a Domingo.</p>
+                    <a href="https://google.com" target="_blank" class="btn-hero">COMO LLEGAR</a>
+                </div>
+                <div class="mapa-frame">
+                    <iframe src="https://google.com" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ==========================================
-         LÓGICA INTERACTIVA (JAVASCRIPT)
-         ========================================== -->
+    <!-- LÓGICA JAVASCRIPT UNIFICADA -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // ---- 1. CONTROL DEL MENÚ MÓVIL ----
             const mobileMenu = document.getElementById('mobile-menu');
             const navLinks = document.querySelector('.nav-links');
 
@@ -230,16 +234,15 @@
 
                 document.querySelectorAll('.nav-links a').forEach(link => {
                     link.addEventListener('click', () => {
-                        if (link.getAttribute('href').startsWith('#')) {
-                            setTimeout(() => {
-                                mobileMenu.classList.remove('active');
-                                navLinks.classList.remove('active');
-                            }, 150); 
-                        }
+                        setTimeout(() => {
+                            mobileMenu.classList.remove('active');
+                            navLinks.classList.remove('active');
+                        }, 150); 
                     });
                 });
             }
 
+            // ---- 2. AUTOMATIZACIÓN DEL HERO SLIDER ----
             const slides = document.querySelectorAll('.slide');
             let currentSlide = 0;
             const slideInterval = 5000;
