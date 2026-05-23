@@ -131,6 +131,11 @@ h2 {
     color: #697359; 
 }
 
+/* Ocultar contenedor de redes sociales móviles en vista de escritorio */
+.mobile-socials {
+    display: none;
+}
+
 /* Acciones y Botones en Escritorio */
 .nav-actions { 
     display: flex; 
@@ -433,7 +438,7 @@ h2 {
    ========================================================================== */
 .map-responsive {
     overflow: hidden;
-    padding-bottom: 450px; /* Determina la altura fija del mapa */
+    padding-bottom: 450px; 
     position: relative;
     height: 0;
     width: 100%;
@@ -517,6 +522,19 @@ h2 {
         pointer-events: all;
     }
     
+    /* Mostrar contenedor de redes móviles activamente */
+    .navbar .nav-links .mobile-socials {
+        display: flex;
+        justify-content: center; 
+        gap: 30px; 
+        padding: 25px 0; 
+        width: 100%; 
+        margin-top: 10px; 
+        flex-shrink: 0; 
+        position: relative; 
+        z-index: 2;
+    }
+    
     /* Cactus de las Esquinas del Menú */
     .navbar .nav-links::before {
         content: ""; position: absolute; top: 20px; left: 20px; width: 38px; height: 38px;
@@ -560,19 +578,6 @@ h2 {
         z-index: 2; 
     }
     
-    /* Redes sociales móviles controladas */
-    .mobile-socials { 
-        display: flex; 
-        justify-content: center; 
-        gap: 30px; 
-        padding: 25px 0; 
-        width: 100%; 
-        margin-top: 10px; 
-        flex-shrink: 0; 
-        position: relative; 
-        z-index: 2; 
-    } 
-
     .mobile-social-link {
         width: 55px !important;
         height: 55px !important;
@@ -595,15 +600,26 @@ h2 {
     }
     
     /* Cactus de adorno en la base */
-    .mobile-socials::before {
+    .navbar .nav-links .mobile-socials::before {
         content: ""; position: absolute; bottom: -5px; left: 20px; width: 38px; height: 38px;
         background-image: url('../img/cactus.png'); background-size: contain; background-repeat: no-repeat;
         opacity: 0.7; pointer-events: none; transform-origin: bottom center; animation: cactusBailando 1.2s ease-in-out infinite alternate;
     }
 
-    .mobile-socials::after {
-        content: ""; position: absolute; bottom: -5px; right: 20px; width: 38px; height: 38px;
-        background-image: url('../img/cactus.png'); background-size: contain; background-repeat: no-repeat;
-        opacity: 0.7; pointer-events: none; transform-origin: bottom center; animation: cactusBailando 1.2s ease-in-out infinite alternate; animation-delay: -0.6s;
+        .navbar .nav-links .mobile-socials::after {
+        content: ""; 
+        position: absolute; 
+        bottom: -5px; 
+        right: 20px; 
+        width: 38px; 
+        height: 38px;
+        background-image: url('../img/cactus.png'); 
+        background-size: contain; 
+        background-repeat: no-repeat;
+        opacity: 0.7; 
+        pointer-events: none; 
+        transform-origin: bottom center; 
+        animation: cactusBailando 1.2s ease-in-out infinite alternate; 
+        animation-delay: -0.6s;
     }
 }
