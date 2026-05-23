@@ -1,609 +1,491 @@
-/* ==========================================================================
-   FUENTES PERSONALIZADAS
-   ========================================================================== */
-
-/* Fuente Principal (Slider) */
-@font-face {
-    font-family: 'Broadway';
-    src: url('fonts/BROADW.TTF') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+/* ==========================================
+   1. VARIABLES Y CONFIGURACIÓN BASE
+   ========================================== */
+:root {
+  --primary-color: #694321;
+  --secondary-color: #a05a2c;
+  --accent-color: #ffc107;
+  --bg-light: #fdfdfc;
+  --text-dark: #333333;
+  --text-light: #ffffff;
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  --transition: all 0.3s ease;
 }
 
-/* Fuente de Cuerpo (Descripciones) */
-@font-face {
-    font-family: 'Poppins';
-    src: url('fonts/Poppins-Regular.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Fuente Secundaria (Títulos de Secciones, Platillos y Menú) */
-@font-face {
-    font-family: 'MotterCorpus';
-    src: url('fonts/motter.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
-/* Fuente Habanero (Guardada en sistema por respaldo) */
-@font-face {
-    font-family: 'Habanero';
-    src: url('fonts/habanero.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.6;
 }
 
-/* ==========================================================================
-   ESTILOS GENERALES Y CONFIGURACIÓN BASE
-   ========================================================================== */
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
+h1, h2, h3 {
+  font-family: "Georgia", serif;
+  color: var(--primary-color);
 }
 
-html { 
-    scroll-behavior: smooth; 
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
 }
 
-body { 
-    font-family: 'Poppins', sans-serif; 
-    overflow-x: hidden; 
-    background-color: #fdfdfc; 
+ul {
+  list-style: none;
 }
 
-/* Previene que la barra fija tape los títulos al deslizarse por la página */
-section {
-    scroll-margin-top: 90px; 
+img {
+  max-width: 100%;
+  display: block;
 }
 
-.section-padding { 
-    padding: 80px 5%; 
-    text-align: center; 
+.section-padding {
+  padding: 80px 5%;
 }
 
-.container { 
-    max-width: 1200px; 
-    margin: 0 auto; 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-h2 { 
-    font-family: 'MotterCorpus', 'Impact', sans-serif !important; 
-    font-size: clamp(28px, 5vw, 42px); 
-    color: #694321; 
-    margin-bottom: 20px; 
-    letter-spacing: 1px;
+/* ==========================================
+   2. NAVBAR (NAVEGACIÓN FIJA)
+   ========================================== */
+.header {
+  background-color: var(--text-light);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.section-desc { 
-    font-size: 16px; 
-    color: #555; 
-    max-width: 800px; 
-    margin: 0 auto 40px auto; 
-    line-height: 1.6; 
-}
-
-/* ==========================================================================
-   BARRA DE NAVEGACIÓN (HEADER ESCRITORIO)
-   ========================================================================== */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 25px 5%;
-    background-color: #ffffff;
-    border-bottom: 1px solid #f2f2f2;
-    position: sticky;
-    top: 0;
-    z-index: 3000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+  padding: 0 5%;
 }
 
-.logo-container { 
-    display: flex; 
-    align-items: center; 
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.logo-img { 
-    height: 145px; 
-    width: auto; 
-    transition: 0.3s; 
+.logo-img {
+  height: 60px;
+  width: auto;
 }
 
-.navbar .nav-links { 
-    display: flex; 
-    align-items: center; 
-    gap: 35px; 
+.logo-text {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--primary-color);
 }
 
-.navbar .nav-links a { 
-    text-decoration: none; 
-    color: #694321; 
-    font-family: 'MotterCorpus', 'Impact', sans-serif !important; 
-    font-weight: normal !important; 
-    font-size: 18px; 
-    letter-spacing: 0.5px; 
-    transition: 0.3s; 
+.nav-menu {
+  display: flex;
+  gap: 30px;
 }
 
-.navbar .nav-links a.active { 
-    color: #697359; 
+.nav-link {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  position: relative;
 }
 
-/* Acciones y Botones en Escritorio */
-.nav-actions { 
-    display: flex; 
-    align-items: center; 
-    gap: 12px; 
+.nav-link:hover,
+.nav-link.active {
+  color: var(--secondary-color);
 }
 
-.social-circle { 
-    width: 40px; 
-    height: 40px; 
-    border-radius: 50%; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    transition: 0.3s; 
-    background-color: #9a6433; 
-    flex-shrink: 0; 
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--secondary-color);
+  transition: var(--transition);
 }
 
-.fb-color { 
-    background-color: #1877F2 !important; 
-}
-
-.fb-color:hover { 
-    background-color: #0d5dd1 !important; 
-}
-
-.ig-color { 
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important; 
-}
-
-.ig-color:hover { 
-    filter: brightness(0.9); 
-}
-
-.btn-shop { 
-    background-color: #697359; 
-    color: #ffffff !important; 
-    padding: 14px 28px; 
-    text-decoration: none; 
-    font-family: 'MotterCorpus', 'Impact', sans-serif !important; 
-    font-weight: normal !important; 
-    font-size: 16px; 
-    border-radius: 10px; 
-    transition: 0.3s; 
-    border: none; 
-    cursor: pointer; 
-    display: inline-block; 
-    text-align: center; 
-}
-
-.btn-shop:hover { 
-    background-color: #555e49; 
-}
-
-.mobile-shop-btn { 
-    display: none; 
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
 }
 
 /* Menú Hamburguesa */
-.menu-toggle { 
-    display: none; 
-    flex-direction: column; 
-    cursor: pointer; 
-    z-index: 3005; 
-    position: relative; 
-    padding: 10px;
+.hamburger {
+  display: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  flex-direction: column;
+  gap: 6px;
+  padding: 5px;
 }
 
-.menu-toggle .bar { 
-    width: 25px; 
-    height: 3px; 
-    background-color: #694321; 
-    margin: 4px 0; 
-    transition: 0.4s; 
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: var(--primary-color);
+  transition: var(--transition);
 }
 
-/* Animaciones de Líneas a Cruz (X) */
-.menu-toggle.active .bar:nth-child(1) { 
-    transform: translateY(11px) rotate(45deg); 
+/* ==========================================
+   3. HERO SECTION (SLIDER ANMADO)
+   ========================================== */
+.hero {
+  position: relative;
+  height: calc(100vh - 90px);
+  overflow: hidden;
 }
 
-.menu-toggle.active .bar:nth-child(2) { 
-    opacity: 0; 
+.hero-slider {
+  height: 100%;
+  width: 100%;
+  position: relative;
 }
 
-.menu-toggle.active .bar:nth-child(3) { 
-    transform: translateY(-11px) rotate(-45deg); 
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* ==========================================================================
-   DISEÑO EN HÉROE / SLIDER PRINCIPAL
-   ========================================================================== */
-.hero-slider { 
-    position: relative; 
-    height: 85vh; 
-    width: 100%; 
-    background-color: #000; 
-    z-index: 1; 
+.slide.active {
+  opacity: 1;
 }
 
-.slider-wave-mask-top, .slider-wave-mask-bottom {
-    position: absolute; 
-    width: 100%; 
-    z-index: 10; 
-    line-height: 0; 
-    pointer-events: none;
+.slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
 }
 
-.slider-wave-mask-top { 
-    top: 0; 
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: var(--text-light);
+  padding: 0 20px;
+  max-width: 800px;
 }
 
-.slider-wave-mask-bottom { 
-    bottom: 0; 
-    transform: rotate(180deg); 
+.hero-content h1 {
+  color: var(--text-light);
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.slider-wave-mask-top svg, .slider-wave-mask-bottom svg { 
-    display: block; 
-    width: 100%; 
-    height: auto; 
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-.slide { 
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%; 
-    background-size: cover; 
-    background-position: center; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    opacity: 0; 
-    transition: opacity 1.5s ease-in-out; 
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
-.slide.active { 
-    opacity: 1; 
-    z-index: 1; 
+.btn-primary {
+  background-color: var(--accent-color);
+  color: var(--text-dark);
 }
 
-.hero-content { 
-    text-align: center; 
-    color: white; 
-    transform: translateY(40px); 
-    opacity: 0; 
-    transition: 1s cubic-bezier(0.2, 1, 0.3, 1) 0.5s; 
-    padding: 0 20px; 
+.btn-primary:hover {
+  background-color: #e0a800;
+  transform: translateY(-2px);
 }
 
-.slide.active .hero-content { 
-    transform: translateY(0); 
-    opacity: 1; 
+/* ==========================================
+   4. NOSOTROS (HISTORIA Y VALORES)
+   ========================================== */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1s 1s;
+  gap: 50px;
+  align-items: center;
 }
 
-.hero-content h1 { 
-    font-family: 'Broadway', 'Impact', sans-serif !important; 
-    font-size: clamp(30px, 8vw, 70px); 
-    font-weight: normal !important; 
-    line-height: 1; 
-    margin-bottom: 15px; 
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
 }
 
-.hero-content h1 span { 
-    color: #d6d8be; 
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: var(--secondary-color);
 }
 
-.hero-content p { 
-    font-size: clamp(12px, 3vw, 18px); 
-    font-weight: 700; 
-    letter-spacing: 1px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+.about-text p {
+  margin-bottom: 20px;
+  color: #555555;
 }
 
-.btn-hero {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 30px;
-    background-color: #697359;
-    color: #ffffff;
-    text-decoration: none;
-    font-family: 'MotterCorpus', sans-serif;
-    font-size: 18px;
-    border-radius: 8px;
-    transition: 0.3s;
+.about-img img {
+  border-radius: 15px;
+  box-shadow: var(--shadow);
 }
 
-.btn-hero:hover {
-    background-color: #555e49;
+/* ==========================================
+   5. MENÚ (PLATILLOS Y TARJETAS)
+   ========================================== */
+.menu-section {
+  background-color: #f9f6f0;
 }
 
-/* ==========================================================================
-   MENÚ DE COMIDA (TACOS Y PLATILLOS CHICOS)
-   ========================================================================== */
-.menu-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 30px; 
-    margin-bottom: 50px; 
+.menu-header {
+  text-align: center;
+  margin-bottom: 50px;
 }
 
-.menu-item { 
-    background: #ffffff; 
-    padding: 20px; 
-    border-radius: 15px; 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
-    transition: 0.3s; 
+.menu-header .section-title::after {
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.menu-item:hover { 
-    transform: translateY(-5px); 
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
 }
 
-.menu-item img { 
-    width: 100%; 
-    height: 220px; 
-    object-fit: cover; 
-    border-radius: 10px; 
-    margin-bottom: 15px; 
+.menu-card {
+  background-color: var(--text-light);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
 }
 
-.menu-item h3 { 
-    font-family: 'MotterCorpus', sans-serif; 
-    color: #694321; 
-    font-size: 20px; 
-    margin-bottom: 10px; 
+.menu-card-img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
 }
 
-.menu-item p { 
-    font-size: 14px; 
-    color: #666; 
-    margin-bottom: 15px; 
+.menu-card-content {
+  padding: 25px;
 }
 
-.price { 
-    font-family: 'Poppins', sans-serif; 
-    font-weight: 700; 
-    color: #697359; 
-    font-size: 18px; 
+.menu-card-title {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
 }
 
-.sub-section-title h3 { 
-    font-family: 'MotterCorpus', sans-serif; 
-    font-size: 26px; 
-    color: #9a6433; 
-    margin: 40px 0 20px 0; 
+.menu-card-desc {
+  color: #666666;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  height: 70px;
+  overflow: hidden;
 }
 
-.full-view-img { 
-    width: 100%; 
-    max-width: 900px; 
-    height: auto; 
-    border-radius: 15px; 
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1); 
+.menu-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #f2f2f2;
+  padding-top: 15px;
 }
 
-/* ==========================================================================
-   CONTENEDORES UNIFICADOS PARA IMÁGENES GRANDES (MENÚ Y PAQUETES)
-   ========================================================================== */
-.menu-completo-stack,
-.paquetes-completo-stack {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    margin-top: 30px;
-    width: 100%;
+.menu-card-price {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--secondary-color);
 }
 
-.menu-completo-container,
-.paquete-card-container {
-    width: 100%;
-    max-width: 750px;       
-    margin: 0 auto;
-    padding: 25px;          
-    background: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-    transition: transform 0.3s ease;
+/* ==========================================
+   6. UBICACIÓN Y MAPA
+   ========================================== */
+.location-grid {
+  display: grid;
+  grid-template-columns: 1s 1s;
+  gap: 40px;
+  align-items: start;
 }
 
-.menu-completo-container:hover,
-.paquete-card-container:hover {
-    transform: translateY(-4px); 
+.location-info h3 {
+  margin: 20px 0 10px 0;
+  font-size: 1.2rem;
 }
 
-.menu-completo-img,
-.paquete-completo-img {
-    width: 100%;
-    height: auto;           
-    display: block;
-    border-radius: 10px;
+.location-info p {
+  color: #555555;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-/* ==========================================================================
-   SECCIÓN DE UBICACIÓN (GOOGLE MAPS RESPONSIVO)
-   ========================================================================== */
 .map-responsive {
-    overflow: hidden;
-    padding-bottom: 450px; /* Determina la altura fija del mapa */
-    position: relative;
-    height: 0;
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    border-radius: 20px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
 }
 
 .map-responsive iframe {
-    left: 0;
-    top: 0;
-    height: 100%;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ==========================================
+   7. FOOTER Y REDES SOCIALES
+   ========================================== */
+.footer {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  padding: 40px 5% 20px 5%;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.social-links {
+  display: flex;
+  gap: 20px;
+}
+
+.social-icon {
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: var(--text-light);
+}
+
+.social-icon:hover {
+  background-color: var(--accent-color);
+  fill: var(--text-dark);
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ==========================================
+   8. MEDIA QUERIES (DISEÑO RESPONSIVO)
+   ========================================== */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 90px;
+    left: -100%;
     width: 100%;
-    position: absolute;
-    border: none;
+    height: calc(100vh - 90px);
+    background-color: var(--text-light);
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0;
+    transition: var(--transition);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+    overflow-y: auto;
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .about-grid,
+  .location-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
-/* ==========================================================================
-   ESTILOS RESPONSIVOS (MÓVILES)
-   ========================================================================== */
-@keyframes cactusBailando {
-    0% { transform: scale(1) rotate(-5deg); }
-    100% { transform: scale(1.05) rotate(5deg); }
+/* Decoraciones Divertidas / Cactus Animados */
+.cactus-decor {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  z-index: 999;
+  pointer-events: none;
+  animation: dance 2s ease-in-out infinite alternate;
 }
 
-@media (max-width: 1100px) {
-    .navbar { 
-        padding: 15px 5%; 
-        height: 90px; 
-    }
-    
-    .menu-toggle { 
-        display: flex; 
-        order: 3; 
-    }
-    
-    .logo-container { 
-        order: 2; 
-        position: absolute; 
-        left: 50%; 
-        transform: translateX(-50%); 
-    }
-    
-    .logo-img { 
-        height: 135px; 
-    }
-    
-    .nav-actions { 
-        display: none; 
-    } 
-
-    /* Estructura del Menú Desplegable Fijo */
-    .navbar .nav-links {
-        position: fixed; 
-        top: 90px; 
-        left: -100%; 
-        flex-direction: column;
-        background-color: #f7f3eb !important; 
-        width: 100%; 
-        padding: 20px 0 40px 0; 
-        gap: 0px;
-        text-align: center; 
-        transition: left 0.4s ease-in-out, opacity 0.4s ease-in-out; 
-        box-shadow: 0 10px 15px rgba(0,0,0,0.1); 
-        z-index: 2500;
-        height: calc(100vh - 90px); 
-        overflow-y: auto; 
-        justify-content: flex-start; 
-        pointer-events: none;
-        opacity: 0;
-        background-image: 
-            linear-gradient(90deg, rgba(105, 67, 33, 0.015) 1px, transparent 1px),
-            linear-gradient(0deg, rgba(105, 67, 33, 0.01) 2px, transparent 2px) !important;
-        background-size: 50px 30px !important;
-    }
-    
-    .navbar .nav-links.active { 
-        left: 0; 
-        opacity: 1;
-        pointer-events: all;
-    }
-    
-    /* Cactus de las Esquinas del Menú */
-    .navbar .nav-links::before {
-        content: ""; position: absolute; top: 20px; left: 20px; width: 38px; height: 38px;
-        background-image: url('../img/cactus.png'); background-size: contain; background-repeat: no-repeat;
-        opacity: 0.7; pointer-events: none; z-index: 1; transform-origin: bottom center;
-        animation: cactusBailando 1.2s ease-in-out infinite alternate;
-    }
-    
-    .navbar .nav-links::after {
-        content: ""; position: absolute; top: 20px; right: 20px; width: 38px; height: 38px;
-        background-image: url('../img/cactus.png'); background-size: contain; background-repeat: no-repeat;
-        opacity: 0.7; pointer-events: none; z-index: 1; transform-origin: bottom center;
-        animation: cactusBailando 1.2s ease-in-out infinite alternate; animation-delay: -0.6s;
-    }
-    
-    .navbar .nav-links a { 
-        font-size: 20px; 
-        width: 100%; 
-        padding: 12px 0; 
-        display: block; 
-        position: relative; 
-        z-index: 2; 
-    }
-    
-    .navbar .nav-links a:hover, .navbar .nav-links a:active { 
-        background-color: rgba(105, 115, 89, 0.15); 
-        color: #697359; 
-    }
-    
-    .mobile-shop-btn { 
-        display: inline-block; 
-        width: 85%; 
-        margin: 15px auto; 
-        padding: 14px 0; 
-        font-family: 'Poppins', sans-serif !important; 
-        font-weight: 700 !important; 
-        font-size: 16px; 
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
-        flex-shrink: 0; 
-        position: relative; 
-        z-index: 2; 
-    }
-    
-    /* Redes sociales móviles controladas */
-    .mobile-socials { 
-        display: flex; 
-        justify-content: center; 
-        gap: 30px; 
-        padding: 25px 0; 
-        width: 100%; 
-        margin-top: 10px; 
-        flex-shrink: 0; 
-        position: relative; 
-        z-index: 2; 
-    } 
-
-    .mobile-social-link {
-        width: 55px !important;
-        height: 55px !important;
-        border-radius: 50% !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        padding: 14px !important;
-        transition: 0.3s;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        overflow: hidden !important;
-    }
-
-    .mobile-social-link svg {
-        width: 100% !important;
-        height: 100% !important;
-        max-width: 27px !important;  
-        max-height: 27px !important;
-        display: block !important;
-    }
-    
-    /* Cactus de adorno en la base */
-    .mobile-socials::before {
-        content: ""; position: absolute; bottom: -5px; left: 20px; width: 38px; height: 38px;
-        background-image: url('../img/cactus.png'); background-size: contain; background-repeat: no-repeat;
-        opacity: 0.7; pointer-events: none; transform-origin: bottom center; animation: cactusBailando 1.2s ease-in-out infinite alternate;
-    }
-
-    .mobile-socials::after {
-        content: ""; position: absolute; bottom: -5px; right: 20px; width: 38px; height: 38px;
-        background-image: url('../img/cactus.png'); background-size: contain; background-repeat: no-repeat;
-        opacity: 0.7; pointer-events: none; transform-origin: bottom center; animation: cactusBailando 1.2s ease-in-out infinite alternate; animation-delay: -0.6s;
-    }
+@keyframes dance {
+  0% { transform: rotate(-5deg); }
+  100% { transform: rotate(5deg); }
 }
