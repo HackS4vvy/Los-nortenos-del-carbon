@@ -1,6 +1,6 @@
-/* ==========================================
+/* ==========================================================================
    1. VARIABLES Y CONFIGURACIÓN BASE
-   ========================================== */
+   ========================================================================== */
 :root {
   --primary-color: #694321;
   --secondary-color: #a05a2c;
@@ -59,9 +59,9 @@ img {
   margin: 0 auto;
 }
 
-/* ==========================================
+/* ==========================================================================
    2. NAVBAR (NAVEGACIÓN FIJA)
-   ========================================== */
+   ========================================================================== */
 .header {
   background-color: var(--text-light);
   box-shadow: var(--shadow);
@@ -146,9 +146,9 @@ img {
   transition: var(--transition);
 }
 
-/* ==========================================
-   3. HERO SECTION (SLIDER ANMADO)
-   ========================================== */
+/* ==========================================================================
+   3. HERO SECTION (SLIDER ANIMADO)
+   ========================================================================== */
 .hero {
   position: relative;
   height: calc(100vh - 90px);
@@ -230,12 +230,12 @@ img {
   transform: translateY(-2px);
 }
 
-/* ==========================================
+/* ==========================================================================
    4. NOSOTROS (HISTORIA Y VALORES)
-   ========================================== */
+   ========================================================================== */
 .about-grid {
   display: grid;
-  grid-template-columns: 1s 1s;
+  grid-template-columns: 1fr 1fr;
   gap: 50px;
   align-items: center;
 }
@@ -267,9 +267,9 @@ img {
   box-shadow: var(--shadow);
 }
 
-/* ==========================================
+/* ==========================================================================
    5. MENÚ (PLATILLOS Y TARJETAS)
-   ========================================== */
+   ========================================================================== */
 .menu-section {
   background-color: #f9f6f0;
 }
@@ -334,12 +334,12 @@ img {
   color: var(--secondary-color);
 }
 
-/* ==========================================
+/* ==========================================================================
    6. UBICACIÓN Y MAPA
-   ========================================== */
+   ========================================================================== */
 .location-grid {
   display: grid;
-  grid-template-columns: 1s 1s;
+  grid-template-columns: 1fr 1fr;
   gap: 40px;
   align-items: start;
 }
@@ -357,24 +357,24 @@ img {
 }
 
 .map-responsive {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-  aspect-ratio: 16 / 9;
   overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
 }
 
 .map-responsive iframe {
-  width: 100%;
+  left: 0;
+  top: 0;
   height: 100%;
-  border: none;
+  width: 100%;
+  position: absolute;
+  border: 0;
 }
 
-/* ==========================================
+/* ==========================================================================
    7. FOOTER Y REDES SOCIALES
-   ========================================== */
+   ========================================================================== */
 .footer {
   background-color: var(--primary-color);
   color: var(--text-light);
@@ -420,9 +420,9 @@ img {
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* ==========================================
+/* ==========================================================================
    8. MEDIA QUERIES (DISEÑO RESPONSIVO)
-   ========================================== */
+   ========================================================================== */
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
@@ -489,3 +489,107 @@ img {
   0% { transform: rotate(-5deg); }
   100% { transform: rotate(5deg); }
 }
+
+/* ==========================================================================
+   9. SELECTORES DE ANIMACIÓN Y ESTILOS EXTRA DE LA VERSIÓN ORIGINAL
+   ========================================================================== */
+.slide:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.slide:nth-child(2) {
+  animation-delay: 5s;
+}
+
+.slide:nth-child(3) {
+  animation-delay: 10s;
+}
+
+.menu-card:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.menu-card:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.menu-card:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.menu-card:nth-child(4) {
+  transition-delay: 0.4s;
+}
+
+.menu-card:nth-child(5) {
+  transition-delay: 0.5s;
+}
+
+.menu-card:nth-child(6) {
+  transition-delay: 0.6s;
+}
+
+.menu-card-img:hover {
+  transform: scale(1.05);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+.nav-link:focus {
+  outline: 2px solid var(--secondary-color);
+  outline-offset: 4px;
+}
+
+.social-icon:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 4px;
+}
+
+.map-responsive iframe:focus {
+  outline: 3px solid var(--secondary-color);
+}
+
+.footer-content p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.logo-text:hover {
+  color: var(--secondary-color);
+}
+
+.bar:nth-child(1) {
+  transform-origin: top left;
+}
+
+.bar:nth-child(3) {
+  transform-origin: bottom left;
+}
+
+.hero-content p::selection {
+  background-color: var(--accent-color);
+  color: var(--text-dark);
+}
+
+.hero-content h1::selection {
+  background-color: var(--secondary-color);
+  color: var(--text-light);
+}
+
+.about-text p::selection {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+}
+
+.menu-card-title::selection {
+  background-color: var(--accent-color);
+  color: var(--text-dark);
+}
+
+.menu-card-price::selection {
+  background-color: var(--secondary-color);
+  color: var(--text-light);
+}
+
