@@ -84,6 +84,15 @@ h2 {
     line-height: 1.6; 
 }
 
+/* Incrementa la descripción de cada sección solo en pantallas de escritorio */
+@media (min-width: 1101px) {
+    .section-desc {
+        font-size: 20px; /* Sube de 16px a 20px para mejor lectura */
+        line-height: 1.7; /* Da un poco más de espacio entre líneas */
+    }
+}
+
+
 /* ==========================================================================
    BARRA DE NAVEGACIÓN (HEADER ESCRITORIO)
    ========================================================================== */
