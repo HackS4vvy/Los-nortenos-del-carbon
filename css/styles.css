@@ -87,11 +87,10 @@ h2 {
 /* Incrementa la descripción de cada sección solo en pantallas de escritorio */
 @media (min-width: 1101px) {
     .section-desc {
-        font-size: 20px; /* Sube de 16px a 20px para mejor lectura */
-        line-height: 1.7; /* Da un poco más de espacio entre líneas */
+        font-size: 20px; 
+        line-height: 1.7; 
     }
 }
-
 
 /* ==========================================================================
    BARRA DE NAVEGACIÓN (HEADER ESCRITORIO)
@@ -394,6 +393,34 @@ h2 {
     .menu-item p { 
         font-size: 18px; 
         line-height: 1.6;
+    }
+}
+
+/* --- CONFIGURACIÓN PARA CRUNCHWRAPS (Mantiene tu diseño actual en móviles) --- */
+.crunchwrap-card {
+    padding: 20px;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.crunchwrap-card .img-crunchwrap {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: contain;
+    padding: 10px;
+}
+
+/* --- AJUSTE EXCLUSIVO DE CRUNCHWRAPS PARA COMPUTADORAS DE ESCRITORIO --- */
+@media (min-width: 1101px) {
+    .crunchwrap-card {
+        max-width: 600px; 
+        padding: 30px;    
+    }
+    .crunchwrap-card .img-crunchwrap {
+        max-height: 480px; 
+        padding: 0px;      
+        object-fit: cover; 
     }
 }
 
