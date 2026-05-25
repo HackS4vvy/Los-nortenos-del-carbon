@@ -87,7 +87,7 @@ h2 {
 /* Incrementa el texto explicativo de las secciones en escritorio */
 @media (min-width: 1101px) {
     .section-desc {
-        font-size: 20px; 
+        font-size: 24px; 
         line-height: 1.7; 
     }
 }
@@ -389,11 +389,31 @@ h2 {
     font-size: 18px; 
 }
 
-/* Incrementa la descripción de los platillos SOLO en pantallas de escritorio (Aumentado) */
+/* Incrementa la descripción de los platillos SOLO en pantallas de escritorio */
 @media (min-width: 1101px) {
     .menu-item p { 
         font-size: 22px; 
         line-height: 1.6;
+    }
+}
+
+/* ==========================================================================
+   OPTIMIZACIÓN DE TAMAÑO PARA IMÁGENES DE CORTES PREMIUM
+   ========================================================================== */
+#cortes .menu-item {
+    padding: 15px;
+}
+
+#cortes .menu-item img {
+    height: 220px;
+    object-fit: contain;
+}
+
+/* Incrementa el tamaño físico de los cortes sólo en pantallas de escritorio */
+@media (min-width: 1101px) {
+    #cortes .menu-item img {
+        height: 320px; 
+        margin-bottom: 0px; 
     }
 }
 
@@ -476,12 +496,12 @@ h2 {
 }
 
 /* ==========================================================================
-   SECCIÓN DE UBICACIÓN (GOOGLE MAPS RESPONSIVO - CORREGIDO)
+   SECCIÓN DE UBICACIÓN (GOOGLE MAPS RESPONSIVO)
    ========================================================================== */
 .map-responsive {
     overflow: hidden;
-    position: relative;     /* Asegura que el iframe absoluto se posicione correctamente */
-    height: 450px;          /* Define una altura fija real para que el mapa deje de estar en 0 */
+    position: relative;
+    height: 450px !important; 
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
@@ -492,12 +512,11 @@ h2 {
 .map-responsive iframe {
     left: 0;
     top: 0;
-    height: 100%;
-    width: 100%;
+    height: 100% !important;
+    width: 100% !important;
     position: absolute;
     border: none;
 }
-
 
 /* Incrementa el texto de dirección y horario solo en pantallas de escritorio */
 @media (min-width: 1101px) {
