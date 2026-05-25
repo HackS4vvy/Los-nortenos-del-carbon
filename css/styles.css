@@ -58,9 +58,11 @@ section {
     scroll-margin-top: 90px; 
 }
 
+/* Configura las secciones al tono suave #f9f9f6 */
 .section-padding { 
     padding: 80px 5%; 
     text-align: center; 
+    background-color: #f9f9f6; 
 }
 
 .container { 
@@ -402,7 +404,7 @@ h2 {
    ========================================================================== */
 #cortes .menu-item {
     padding: 15px;
-    margin: 0 auto; /* Centra las tarjetas al apilarse */
+    margin: 0 auto; 
 }
 
 #cortes .menu-item img {
@@ -414,21 +416,44 @@ h2 {
 @media (min-width: 1101px) {
     #cortes .menu-grid {
         display: flex;
-        flex-direction: column; /* Apila las tarjetas verticalmente */
-        gap: 40px; /* Separación elegante entre los cortes gigantes */
+        flex-direction: column; 
+        gap: 40px; 
         align-items: center;
     }
 
     #cortes .menu-item {
         width: 100%;
-        max-width: 800px; /* Tarjeta ancha y limpia para la imagen */
+        max-width: 800px; 
         padding: 25px;
     }
 
     #cortes .menu-item img {
-        height: 550px; /* Altura imponente y masiva para el corte */
+        height: 550px; 
         margin-bottom: 0px; 
     }
+}
+
+/* ==========================================================================
+   CONFIGURACIÓN VERDE EXCLUSIVA PARA PAQUETES PARRILLEROS
+   ========================================================================== */
+#paquetes-parrilleros {
+    background-color: #697359 !important; /* El color verde de tu botón */
+}
+
+/* Forza los títulos a blanco dentro de la sección verde */
+#paquetes-parrilleros h2 {
+    color: #ffffff !important;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Forza las descripciones generales a blanco dentro de la sección verde */
+#paquetes-parrilleros .section-desc {
+    color: #ffffff !important;
+}
+
+/* Mantiene el fondo blanco y lectura de las tarjetas de paquetes individuales */
+#paquetes-parrilleros .paquete-card-container {
+    background-color: #ffffff;
 }
 
 /* --- CONFIGURACIÓN PARA CRUNCHWRAPS (Mantiene tu diseño actual en móviles) --- */
