@@ -1,8 +1,6 @@
 /* ==========================================================================
    FUENTES PERSONALIZADAS
    ========================================================================== */
-
-/* Fuente Principal (Slider) */
 @font-face {
     font-family: 'Broadway';
     src: url('fonts/BROADW.TTF') format('truetype');
@@ -10,7 +8,6 @@
     font-style: normal;
 }
 
-/* Fuente de Cuerpo (Descripciones) */
 @font-face {
     font-family: 'Poppins';
     src: url('fonts/Poppins-Regular.ttf') format('truetype');
@@ -18,7 +15,6 @@
     font-style: normal;
 }
 
-/* Fuente Secundaria (Títulos de Secciones, Platillos y Menú) */
 @font-face {
     font-family: 'MotterCorpus';
     src: url('fonts/motter.ttf') format('truetype');
@@ -26,7 +22,6 @@
     font-style: normal;
 }
 
-/* Fuente Habanero (Guardada en sistema por respaldo) */
 @font-face {
     font-family: 'Habanero';
     src: url('fonts/habanero.ttf') format('truetype');
@@ -53,16 +48,14 @@ body {
     background-color: #fdfdfc; 
 }
 
-/* Previene que la barra fija tape los títulos al deslizarse por la página */
 section {
     scroll-margin-top: 90px; 
 }
 
-/* Configura las secciones al tono café arena cálido #bcb09c solicitado */
 .section-padding { 
     padding: 80px 5%; 
     text-align: center; 
-    background-color: #e8e0d1; 
+    background-color: #bcb09c; /* Fondo Café Arena solicitado */
 }
 
 .container { 
@@ -70,16 +63,14 @@ section {
     margin: 0 auto; 
 }
 
-/* Títulos principales oscuros para contraste perfecto sobre el fondo arena */
 h2 { 
     font-family: 'MotterCorpus', 'Impact', sans-serif !important; 
     font-size: clamp(28px, 5vw, 42px); 
-    color: #4a2e16; /* Tono café ligeramente más oscuro para mejorar la legibilidad */
+    color: #4a2e16; 
     margin-bottom: 20px; 
     letter-spacing: 1px;
 }
 
-/* Descripciones de sección más oscuras para asegurar excelente lectura */
 .section-desc { 
     font-size: 16px; 
     color: #2b1a0c; 
@@ -88,7 +79,6 @@ h2 {
     line-height: 1.6; 
 }
 
-/* Incrementa el texto explicativo de las secciones en escritorio */
 @media (min-width: 1101px) {
     .section-desc {
         font-size: 24px; 
@@ -143,12 +133,10 @@ h2 {
     color: #697359; 
 }
 
-/* Ocultar contenedor de redes sociales móviles en vista de escritorio */
 .mobile-socials {
     display: none;
 }
 
-/* Acciones y Botones en Escritorio */
 .nav-actions { 
     display: flex; 
     align-items: center; 
@@ -207,7 +195,6 @@ h2 {
     display: none; 
 }
 
-/* Menú Hamburguesa */
 .menu-toggle { 
     display: none; 
     flex-direction: column; 
@@ -225,7 +212,6 @@ h2 {
     transition: 0.4s; 
 }
 
-/* Animaciones de Líneas a Cruz (X) */
 .menu-toggle.active .bar:nth-child(1) { 
     transform: translateY(11px) rotate(45deg); 
 }
@@ -393,7 +379,6 @@ h2 {
     font-size: 18px; 
 }
 
-/* Incrementa la descripción de los platillos SOLO en pantallas de escritorio */
 @media (min-width: 1101px) {
     .menu-item p { 
         font-size: 22px; 
@@ -414,7 +399,6 @@ h2 {
     object-fit: contain;
 }
 
-/* Forzar una sola columna y escala gigante en pantallas de escritorio */
 @media (min-width: 1101px) {
     #cortes .menu-grid {
         display: flex;
@@ -439,23 +423,44 @@ h2 {
    CONFIGURACIÓN VERDE EXCLUSIVA PARA PAQUETES PARRILLEROS
    ========================================================================== */
 #paquetes-parrilleros {
-    background-color: #697359 !important; /* Verde de tu botón */
+    background-color: #697359 !important; 
 }
 
-/* Forza los títulos a blanco dentro de la sección verde */
 #paquetes-parrilleros h2 {
     color: #ffffff !important;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
 }
 
-/* Forza las descripciones generales a blanco dentro de la sección verde */
 #paquetes-parrilleros .section-desc {
     color: #ffffff !important;
 }
 
-/* Mantiene el fondo blanco de las tarjetas individuales */
 #paquetes-parrilleros .paquete-card-container {
     background-color: #ffffff;
+}
+
+/* ==========================================================================
+   ESTILOS PARA DIVISIONES DE ONDAS INTER-SECCIONALES
+   ========================================================================== */
+.wave-container-divider {
+    width: 100%;
+    line-height: 0;
+    background-color: #bcb09c; /* Base del color café arena */
+}
+
+.wave-container-divider svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.text-verde-fill svg path {
+    fill: #697359 !important;
+}
+
+.rotate-wave {
+    background-color: #697359; 
+    transform: rotate(180deg);
 }
 
 /* --- CONFIGURACIÓN PARA CRUNCHWRAPS (Mantiene tu diseño actual en móviles) --- */
@@ -559,7 +564,6 @@ h2 {
     border: none;
 }
 
-/* Incrementa el texto de dirección y horario solo en pantallas de escritorio */
 @media (min-width: 1101px) {
     .info-ubicacion {
         font-size: 20px !important; 
@@ -569,7 +573,7 @@ h2 {
 }
 
 /* ==========================================================================
-   ESTILOS RESPONSIVOS (MÓVILES)
+   ESTILOS RESPONSIVOS (MÓVILES COMPLETOS)
    ========================================================================== */
 @keyframes cactusBailando {
     0% { transform: scale(1) rotate(-5deg); }
@@ -722,3 +726,4 @@ h2 {
         animation-delay: -0.6s;
     }
 }
+
