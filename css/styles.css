@@ -84,7 +84,7 @@ h2 {
     line-height: 1.6; 
 }
 
-/* Incrementa la descripción de cada sección solo en pantallas de escritorio */
+/* Incrementa el texto explicativo de las secciones en escritorio */
 @media (min-width: 1101px) {
     .section-desc {
         font-size: 20px; 
@@ -496,6 +496,15 @@ h2 {
     width: 100%;
     position: absolute;
     border: none;
+}
+
+/* Incrementa el texto de dirección y horario solo en pantallas de escritorio */
+@media (min-width: 1101px) {
+    .info-ubicacion {
+        font-size: 20px !important; 
+        line-height: 1.8 !important; 
+        margin-bottom: 40px !important; 
+    }
 }
 
 /* ==========================================================================
