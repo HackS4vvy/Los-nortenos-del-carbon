@@ -476,13 +476,12 @@ h2 {
 }
 
 /* ==========================================================================
-   SECCIÓN DE UBICACIÓN (GOOGLE MAPS RESPONSIVO)
+   SECCIÓN DE UBICACIÓN (GOOGLE MAPS RESPONSIVO - CORREGIDO)
    ========================================================================== */
 .map-responsive {
     overflow: hidden;
-    padding-bottom: 450px; 
-    position: relative;
-    height: 0;
+    position: relative;     /* Asegura que el iframe absoluto se posicione correctamente */
+    height: 450px;          /* Define una altura fija real para que el mapa deje de estar en 0 */
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
@@ -498,6 +497,7 @@ h2 {
     position: absolute;
     border: none;
 }
+
 
 /* Incrementa el texto de dirección y horario solo en pantallas de escritorio */
 @media (min-width: 1101px) {
