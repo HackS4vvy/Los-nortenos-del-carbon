@@ -58,11 +58,11 @@ section {
     scroll-margin-top: 90px; 
 }
 
-/* Configura las secciones al tono suave #f9f9f6 */
+/* Configura las secciones al tono café arena cálido #bcb09c solicitado */
 .section-padding { 
     padding: 80px 5%; 
     text-align: center; 
-    background-color: #f9f9f6; 
+    background-color: #bcb09c; 
 }
 
 .container { 
@@ -70,17 +70,19 @@ section {
     margin: 0 auto; 
 }
 
+/* Títulos principales oscuros para contraste perfecto sobre el fondo arena */
 h2 { 
     font-family: 'MotterCorpus', 'Impact', sans-serif !important; 
     font-size: clamp(28px, 5vw, 42px); 
-    color: #694321; 
+    color: #4a2e16; /* Tono café ligeramente más oscuro para mejorar la legibilidad */
     margin-bottom: 20px; 
     letter-spacing: 1px;
 }
 
+/* Descripciones de sección más oscuras para asegurar excelente lectura */
 .section-desc { 
     font-size: 16px; 
-    color: #555; 
+    color: #2b1a0c; 
     max-width: 800px; 
     margin: 0 auto 40px auto; 
     line-height: 1.6; 
@@ -437,7 +439,7 @@ h2 {
    CONFIGURACIÓN VERDE EXCLUSIVA PARA PAQUETES PARRILLEROS
    ========================================================================== */
 #paquetes-parrilleros {
-    background-color: #697359 !important; /* El color verde de tu botón */
+    background-color: #697359 !important; /* Verde de tu botón */
 }
 
 /* Forza los títulos a blanco dentro de la sección verde */
@@ -451,7 +453,7 @@ h2 {
     color: #ffffff !important;
 }
 
-/* Mantiene el fondo blanco y lectura de las tarjetas de paquetes individuales */
+/* Mantiene el fondo blanco de las tarjetas individuales */
 #paquetes-parrilleros .paquete-card-container {
     background-color: #ffffff;
 }
