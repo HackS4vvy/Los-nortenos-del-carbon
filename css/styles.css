@@ -398,10 +398,11 @@ h2 {
 }
 
 /* ==========================================================================
-   OPTIMIZACIÓN DE TAMAÑO PARA IMÁGENES DE CORTES PREMIUM
+   OPTIMIZACIÓN GIGANTE EN COLUMNA PARA CORTES PREMIUM
    ========================================================================== */
 #cortes .menu-item {
     padding: 15px;
+    margin: 0 auto; /* Centra las tarjetas al apilarse */
 }
 
 #cortes .menu-item img {
@@ -409,10 +410,23 @@ h2 {
     object-fit: contain;
 }
 
-/* Incrementa el tamaño físico de los cortes sólo en pantallas de escritorio */
+/* Forzar una sola columna y escala gigante en pantallas de escritorio */
 @media (min-width: 1101px) {
+    #cortes .menu-grid {
+        display: flex;
+        flex-direction: column; /* Apila las tarjetas verticalmente */
+        gap: 40px; /* Separación elegante entre los cortes gigantes */
+        align-items: center;
+    }
+
+    #cortes .menu-item {
+        width: 100%;
+        max-width: 800px; /* Tarjeta ancha y limpia para la imagen */
+        padding: 25px;
+    }
+
     #cortes .menu-item img {
-        height: 320px; 
+        height: 550px; /* Altura imponente y masiva para el corte */
         margin-bottom: 0px; 
     }
 }
@@ -553,15 +567,6 @@ h2 {
         transform: translateX(-50%); 
     }
     
-    .logo-img { 
-        height: 135px; 
-    }
-    
-    .nav-actions { 
-        display: none; 
-    } 
-
-    /* Estructura del Menú Desplegable Fijo */
     .navbar .nav-links {
         position: fixed; 
         top: 90px; 
@@ -592,7 +597,6 @@ h2 {
         pointer-events: all;
     }
     
-    /* Mostrar contenedor de redes sociales móviles activamente */
     .navbar .nav-links .mobile-socials {
         display: flex;
         justify-content: center; 
@@ -605,7 +609,6 @@ h2 {
         z-index: 2;
     }
     
-    /* Cactus de las Esquinas del Menú */
     .navbar .nav-links::before {
         content: ""; position: absolute; top: 20px; left: 20px; width: 38px; height: 38px;
         background-image: url('../img/cactus.png'); background-size: contain; background-repeat: no-repeat;
@@ -669,7 +672,6 @@ h2 {
         display: block !important;
     }
     
-    /* Cactus de adorno en la base */
     .navbar .nav-links .mobile-socials::before {
         content: ""; position: absolute; bottom: -5px; left: 20px; width: 38px; height: 38px;
         background-image: url('../img/cactus.png'); background-size: contain; background-repeat: no-repeat;
