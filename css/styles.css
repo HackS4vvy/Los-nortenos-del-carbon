@@ -402,7 +402,7 @@ h2 {
    ========================================================================== */
 #cortes .menu-item {
     padding: 15px;
-    margin: 0 auto; /* Centra las tarjetas al apilarse */
+    margin: 0 auto; 
 }
 
 #cortes .menu-item img {
@@ -414,21 +414,53 @@ h2 {
 @media (min-width: 1101px) {
     #cortes .menu-grid {
         display: flex;
-        flex-direction: column; /* Apila las tarjetas verticalmente */
-        gap: 40px; /* Separación elegante entre los cortes gigantes */
+        flex-direction: column; 
+        gap: 40px; 
         align-items: center;
     }
 
     #cortes .menu-item {
         width: 100%;
-        max-width: 800px; /* Tarjeta ancha y limpia para la imagen */
+        max-width: 800px; 
         padding: 25px;
     }
 
     #cortes .menu-item img {
-        height: 550px; /* Altura imponente y masiva para el corte */
+        height: 550px; 
         margin-bottom: 0px; 
     }
+}
+
+/* ==========================================================================
+   ESTILOS PARA SECCIONES VERDES CON PATRÓN DE PARRILLA
+   ========================================================================== */
+.section-verde {
+    background-color: #697359; 
+    background-image: url('../img/parrilla.png');
+    background-repeat: repeat;
+    background-size: 80px 80px; 
+    background-blend-mode: soft-light;
+    position: relative;
+}
+
+/* Fuerza el contraste cambiando los títulos a blanco dentro del fondo verde */
+.section-verde h2 {
+    color: #ffffff !important;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Cambia las descripciones generales de sección a color blanco */
+.section-verde .section-desc {
+    color: #ffffff !important;
+}
+
+/* Evita que los textos de las tarjetas se pongan blancos (mantiene la lectura) */
+.section-verde .menu-item h3 {
+    color: #694321 !important;
+}
+
+.section-verde .menu-item p {
+    color: #666666 !important;
 }
 
 /* --- CONFIGURACIÓN PARA CRUNCHWRAPS (Mantiene tu diseño actual en móviles) --- */
