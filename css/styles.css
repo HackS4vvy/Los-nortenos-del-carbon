@@ -488,10 +488,13 @@ h2 {
 
 .sub-section-title h3 { 
     font-family: 'MotterCorpus', sans-serif; 
-    font-size: 26px; 
-    color: #9a6433; 
+    font-size: clamp(32px, 6vw, 48px); /* Letra más grande y adaptable a cualquier pantalla */
+    color: #ffffff; /* Color cambiado a blanco absoluto */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* Sombra suave para que resalte del fondo arena */
     margin: 40px 0 20px 0; 
+    text-align: center; /* Asegura el centrado en la página */
 }
+
 
 .full-view-img { 
     width: 100%; 
