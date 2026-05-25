@@ -380,12 +380,11 @@ h2 {
     font-size: 18px; 
 }
 
-/* Incrementa el precio de los tacos solo en pantallas de escritorio */
+/* Incrementa la descripción de los platillos solo en pantallas de escritorio */
 @media (min-width: 1101px) {
-    .menu-item .price { 
-        font-size: 26px; 
-        display: block; 
-        margin-top: 10px;
+    .menu-item p { 
+        font-size: 18px; 
+        line-height: 1.6;
     }
 }
 
@@ -528,7 +527,7 @@ h2 {
         pointer-events: all;
     }
     
-    /* Mostrar contenedor de redes móviles activamente */
+    /* Mostrar contenedor de redes sociales móviles activamente */
     .navbar .nav-links .mobile-socials {
         display: flex;
         justify-content: center; 
