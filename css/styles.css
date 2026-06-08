@@ -731,7 +731,7 @@ h2 {
 }
 
 /* ==========================================================================
-   RESPONSIVO PARA CELULARES (Pegar al final de tu archivo CSS)
+   RESPONSIVO PARA CELULARES
    ========================================================================== */
 @media (max-width: 991px) {
     .navbar {
