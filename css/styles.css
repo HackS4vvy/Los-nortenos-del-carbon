@@ -724,3 +724,9 @@ h2 {
         animation-delay: -0.6s;
     }
 }
+
+/* Cambiar el color del título Paquete del Mes */
+.sub-section-title h3 {
+    color: #694321; /* Reemplaza este código por tu color preferido */
+}
+
