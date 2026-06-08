@@ -730,3 +730,90 @@ h2 {
     color: #694321; /* Reemplaza este código por tu color preferido */
 }
 
+/* ==========================================================================
+   RESPONSIVO PARA CELULARES (Pegar al final de tu archivo CSS)
+   ========================================================================== */
+@media (max-width: 991px) {
+    .navbar {
+        padding: 15px 5%;
+        justify-content: space-between;
+    }
+
+    /* 1. Reducir tamaño del logo en celular para ganar espacio */
+    .logo-img { 
+        height: 85px; /* Evita que el logo y sombrero se encimen con los lados */
+    }
+
+    /* 2. Ocultar los botones de escritorio arriba */
+    .navbar .nav-actions { 
+        display: none !important; 
+    }
+
+    /* 3. Mostrar el botón de hamburguesa con tus líneas originales */
+    .menu-toggle { 
+        display: flex; 
+    }
+
+    /* 4. Convertir el menú horizontal en un panel vertical desplegable */
+    .navbar .nav-links { 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center;
+        justify-content: flex-start;
+        position: fixed; /* Cubre la pantalla correctamente */
+        top: 116px; /* Ajusta este número si tu header mide más o menos de alto */
+        left: -100%; /* Oculto inicialmente a la izquierda */
+        width: 100%; 
+        height: calc(100vh - 116px); 
+        background-color: #ffffff; /* Fondo blanco para hacer match con tu estilo */
+        transition: 0.4s ease; 
+        padding: 40px 20px; 
+        gap: 25px; 
+        box-sizing: border-box;
+        overflow-y: auto;
+    }
+
+    /* Clase activa que dispara tu JavaScript al presionar la hamburguesa */
+    .navbar .nav-links.active { 
+        left: 0; 
+    }
+
+    /* Ajuste de enlaces en móvil */
+    .navbar .nav-links a {
+        font-size: 22px; /* Un poco más grandes para que sean fáciles de tocar */
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    /* 5. Activar el botón verde "ORDENA AQUÍ" solo dentro del menú desplegable */
+    .mobile-shop-btn { 
+        display: inline-block !important; 
+        width: 85%; /* Se adapta estéticamente al ancho del celular */
+        margin-top: 10px;
+    }
+
+    /* 6. Activar y centrar las redes sociales al fondo del menú móvil */
+    .mobile-socials {
+        display: flex !important;
+        justify-content: center;
+        gap: 20px;
+        margin-top: auto; /* Las empuja de forma limpia hasta abajo */
+        padding-top: 20px;
+        width: 100%;
+    }
+
+    /* Copia tus círculos exactos pero optimizados para menú móvil */
+    .mobile-social-link {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .mobile-social-link svg {
+        width: 20px;
+        height: 20px;
+    }
+}
