@@ -817,3 +817,41 @@ h2 {
         height: 20px;
     }
 }
+
+/* ==========================================================================
+   CARTEL QR DE OPINIONES
+   ========================================================================== */
+.qr-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 45px; /* Separa el cartel del carrusel de opiniones de arriba */
+    width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.qr-banner-img {
+    max-width: 450px; /* Tamaño ideal y legible en computadoras */
+    width: 100%;
+    height: auto;
+    border-radius: 15px; /* Redondea sutilmente las esquinas del cartel */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); /* Le da un sombreado elegante para que resalte */
+    transition: transform 0.3s ease;
+}
+
+/* Efecto visual cuando pasas el mouse por encima en computadora */
+.qr-banner-img:hover {
+    transform: scale(1.02);
+}
+
+/* Ajuste responsivo para celulares */
+@media (max-width: 480px) {
+    .qr-container {
+        margin-top: 30px;
+    }
+    .qr-banner-img {
+        max-width: 100%; /* Permite que abarque el ancho del celular de forma cómoda */
+    }
+}
+
