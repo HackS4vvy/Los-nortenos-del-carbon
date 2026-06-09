@@ -400,11 +400,10 @@ h2 {
 .slider img, 
 .carousel-item img {
     width: 100% !important;
-    height: 100vh !important; /* Ajusta a 600px o el alto que tenga tu banner si no cubre toda la pantalla */
-    object-fit: cover !important; /* Evita que la carne se estire o aplaste */
-    object-position: center !important; /* Mantiene el centro de la foto enfocado */
+    height: 70vh !important; /* 👈 Baja de 100vh a 70vh (o pon un tamaño fijo como 500px) */
+    object-fit: cover !important;
+    object-position: center !important;
 }
-
 
 /* Incrementa la descripción de los platillos SOLO en pantallas de escritorio */
 @media (min-width: 1101px) {
