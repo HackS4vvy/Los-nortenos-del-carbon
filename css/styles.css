@@ -393,17 +393,6 @@ h2 {
     font-size: 18px; 
 }
 
-/* ==========================================================================
-   OPTIMIZACIÓN DE IMÁGENES DEL SLIDER PRINCIPAL
-   ========================================================================== */
-.hero img, 
-.slider img, 
-.carousel-item img {
-    width: 100% !important;
-    height: 70vh !important; /* 👈 Baja de 100vh a 70vh (o pon un tamaño fijo como 500px) */
-    object-fit: cover !important;
-    object-position: center !important;
-}
 
 /* Incrementa la descripción de los platillos SOLO en pantallas de escritorio */
 @media (min-width: 1101px) {
