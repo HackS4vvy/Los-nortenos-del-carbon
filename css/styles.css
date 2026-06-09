@@ -393,6 +393,19 @@ h2 {
     font-size: 18px; 
 }
 
+/* ==========================================================================
+   OPTIMIZACIÓN DE IMÁGENES DEL SLIDER PRINCIPAL
+   ========================================================================== */
+.hero img, 
+.slider img, 
+.carousel-item img {
+    width: 100% !important;
+    height: 100vh !important; /* Ajusta a 600px o el alto que tenga tu banner si no cubre toda la pantalla */
+    object-fit: cover !important; /* Evita que la carne se estire o aplaste */
+    object-position: center !important; /* Mantiene el centro de la foto enfocado */
+}
+
+
 /* Incrementa la descripción de los platillos SOLO en pantallas de escritorio */
 @media (min-width: 1101px) {
     .menu-item p { 
