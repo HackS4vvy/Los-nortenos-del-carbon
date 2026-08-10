@@ -304,12 +304,13 @@
             <script>
             async function renderizarOpiniones() {
               try {
-                // Consulta directa y en vivo a la API global de Apify saltando el error 404 del local
+                // Conexión directa y limpia a la API pública de Apify
                 const tokenApify = 'apify_api_yd2ccCHneL0DywQEOPEI6uYDAYyvOK462V6j';
                 const datasetId = 'Y6QBBIHWtvfzTWf1j';
-                const urlApi = `https://apify.com{datasetId}/items?token=${tokenApify}`;
-                
+                const urlApi = 'https://apify.com' + datasetId + '/items?token=' + tokenApify;
+  
                 const peticion = await fetch(urlApi);
+
                 if (!peticion.ok) throw new Error('No se pudo establecer la conexión con la nube de Apify.');
                 
                 const listadoReviews = await peticion.json();
