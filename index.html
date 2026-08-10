@@ -293,20 +293,129 @@
     <!-- ==========================================================================
      SECCIÓN DE OPINIONES
      ========================================================================== -->
+<!-- ==========================================================================
+     SECCIÓN DE OPINIONES
+     ========================================================================== -->
 <section id="opiniones" class="reviews-section">
     <div class="container">
         <!-- Tu título personalizado con la fuente tipográfica del negocio -->
         <h2 class="section-title">Lo que dicen nuestros clientes...</h2>
         
-        <!-- Código único de Trustindex -->
-        <script defer async src='https://cdn.trustindex.io/loader.js?3c1fa8d73fed7573c83633e8cff'></script>
+        <!-- ================================================================== -->
+        <!-- NUEVO CONTENEDOR INTEGRADO Y FILTRADO (REEMPLAZO DE TRUSTINDEX) -->
+        <!-- ================================================================== -->
+        <div id="google-reviews-box" class="reviews-container-grid">
+            <p class="loading-text">Cargando las opiniones de nuestros clientes...</p>
+        </div>
+
+        <script>
+        async function renderizarOpiniones() {
+          try {
+            // Consumimos el archivo JSON generado automáticamente en tu repositorio
+            const peticion = await fetch('./reviews.json');
+            if (!peticion.ok) throw new Error('No se pudo encontrar el archivo de reseñas.');
+            
+            const listadoReviews = await peticion.json();
+            const cajaContenedora = document.getElementById('google-reviews-box');
+            cajaContenedora.innerHTML = ''; // Limpiamos el mensaje de carga preliminar
+
+            // FILTRO DE SEGURIDAD: Mostramos únicamente opiniones de 4 y 5 estrellas
+            const reviewsFiltradas = listadoReviews.filter(resena => resena.stars >= 4);
+
+            if (reviewsFiltradas.length === 0) {
+              cajaContenedora.innerHTML = '<p>Por el momento no hay opiniones destacadas para mostrar.</p>';
+              return;
+            }
+
+            // Iteramos sobre el listado filtrado y creamos las tarjetas
+            reviewsFiltradas.forEach(resena => {
+              const tarjetaIndividual = document.createElement('div');
+              tarjetaIndividual.className = 'tarjeta-review';
+              
+              const textoDeOpinion = resena.text ? `"${resena.text}"` : 'Calificó nuestro servicio de manera excelente.';
+              const estrellasAmarillas = '★'.repeat(resena.stars) + '☆'.repeat(5 - resena.stars);
+
+              tarjetaIndividual.innerHTML = `
+                <div class="encabezado-review">
+                  <strong class="nombre-usuario">${resena.name || 'Cliente Satisfecho'}</strong>
+                  <span class="estrellas-score">${estrellasAmarillas}</span>
+                </div>
+                <p class="cuerpo-texto">${textoDeOpinion}</p>
+                <small class="fecha-publicacion">${resena.publishAt || 'Reciente'}</small>
+              `;
+              cajaContenedora.appendChild(tarjetaIndividual);
+            });
+          } catch (error) {
+            console.error('Error al pintar los datos:', error);
+            document.getElementById('google-reviews-box').innerHTML = '<p>Error temporal al cargar las reseñas de Google.</p>';
+          }
+        }
+
+        // Ejecutamos la función de lectura inmediatamente al cargar la página
+        window.addEventListener('DOMContentLoaded', renderizarOpiniones);
+        </script>
+
+        <!-- ESTILOS VISUALES INTERNOS (Hacen juego con el formato adaptable de cuadrícula) -->
+        <style>
+        .reviews-container-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 25px;
+          padding: 30px 0;
+          font-family: inherit; /* Utiliza la misma tipografía de tu negocio */
+        }
+        .tarjeta-review {
+          border: 1px solid #eaeaea;
+          border-radius: 16px;
+          padding: 24px;
+          background-color: #ffffff;
+          box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+          transition: transform 0.2s ease;
+        }
+        .tarjeta-review:hover {
+          transform: translateY(-5px);
+        }
+        .encabezado-review {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 12px;
+        }
+        .nombre-usuario {
+          color: #2c3e50;
+          font-size: 1.05em;
+          font-weight: 600;
+        }
+        .estrellas-score {
+          color: #ffc107;
+          font-size: 1.2em;
+        }
+        .cuerpo-texto {
+          font-style: italic;
+          color: #5a6c7d;
+          line-height: 1.5;
+          margin: 0 0 12px 0;
+        }
+        .fecha-publicacion {
+          color: #b5bfc9;
+          display: block;
+          font-size: 0.85em;
+        }
+        .loading-text {
+          text-align: center;
+          color: #7f8c8d;
+          font-style: italic;
+        }
+        </style>
+        <!-- ================================================================== -->
     </div>
 
-        <!-- Cartel del Código QR de Reseñas -->
-        <div class="qr-container">
-            <img src="img/reseña.jpeg" alt="Escanea el QR para dejarnos tu reseña" class="qr-banner-img">
-        </div>
+    <!-- Cartel del Código QR de Reseñas -->
+    <div class="qr-container">
+        <img src="img/reseña.jpeg" alt="Escanea el QR para dejarnos tu reseña" class="qr-banner-img">
+    </div>
 </section>
+
 
     <!-- ==========================================
          SECCIÓN UBICACIÓN
