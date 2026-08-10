@@ -169,7 +169,7 @@
                 <div class="menu-item crunchwrap-card">
                     <img src="img/crunchwraps.jpeg" alt="Especial Crunchwrap" class="img-crunchwrap">
                     <h3>Crunchwraps</h3>
-                    <p>Burrito hexagonal sellado a la plancha relleno de 4 quesos, arrachera y pimientos caramelizados al estilo texano. 🤠</p>
+                    <p>Burrito hexagonal sellado a la plancha relleno de 2 quesos, arrachera y pimientos caramelizados al estilo texano. 🤠</p>
                     <span class="price">$149.00</span>
                 </div>
             </div>
@@ -301,70 +301,114 @@
                 <p class="loading-text">Cargando las opiniones de nuestros clientes...</p>
             </div>
 
-            <script>
-            async function renderizarOpiniones() {
-              try {
-                // Dirección directa corregida con la barra diagonal correspondiente después del .com
-                const tokenApify = 'apify_api_yd2ccCHneL0DywQEOPEI6uYDAYyvOK462V6j';
-                const datasetId = 'Y6QBBIHWtvfzTWf1j';
-                const urlApi = 'https://apify.com' + datasetId + '/items?token=' + tokenApify;
-  
-                // El "+ '&v=' + new Date().getTime()" obliga al navegador a descargar los datos frescos sin usar la caché
-                const peticion = await fetch(urlApi + '&v=' + new Date().getTime());
+                <!-- ==========================================
+         LÓGICA INTERACTIVA GENERAL Y APIS
+         ========================================== -->
+    <script>
+        // ---- 1. CONSULTA DIRECTA A LA API DE OPINIONES ----
+        async function renderizarOpiniones() {
+          try {
+            // Dirección URL robusta y perfectamente formateada con sus diagonales correspondientes
+            const tokenApify = 'apify_api_yd2ccCHneL0DywQEOPEI6uYDAYyvOK462V6j';
+            const datasetId = 'Y6QBBIHWtvfzTWf1j';
+            const urlApi = 'https://apify.com' + datasetId + '/items?token=' + tokenApify;
+            
+            // Forzamos al navegador a ignorar la caché con un parámetro de tiempo
+            const peticion = await fetch(urlApi + '&v=' + new Date().getTime());
+            if (!peticion.ok) throw new Error('No se pudo establecer la conexión con la nube de Apify.');
+            
+            const listadoReviews = await peticion.json();
+            const cajaContenedora = document.getElementById('google-reviews-box');
+            if (!cajaContenedora) return;
+            cajaContenedora.innerHTML = ''; 
 
-
-
-                if (!peticion.ok) throw new Error('No se pudo establecer la conexión con la nube de Apify.');
-                
-                const listadoReviews = await peticion.json();
-                const cajaContenedora = document.getElementById('google-reviews-box');
-                cajaContenedora.innerHTML = ''; 
-
-                if (!Array.isArray(listadoReviews) || listadoReviews.length === 0) {
-                  cajaContenedora.innerHTML = '<p>Por el momento no hay opiniones disponibles.</p>';
-                  return;
-                }
-
-                // Normalización de llaves e inyección del filtro estricto de 4 y 5 estrellas
-                const reviewsFiltradas = listadoReviews.filter(resena => {
-                  const calificacion = resena.stars ?? resena.score ?? resena.rating ?? 5;
-                  return calificacion >= 4;
-                });
-
-                if (reviewsFiltradas.length === 0) {
-                  cajaContenedora.innerHTML = '<p>Por el momento no hay opiniones destacadas para mostrar.</p>';
-                  return;
-                }
-
-                reviewsFiltradas.forEach(resena => {
-                  const tarjetaIndividual = document.createElement('div');
-                  tarjetaIndividual.className = 'tarjeta-review';
-                  
-                  const nombreUsuario = resena.name ?? resena.authorName ?? resena.reviewerName ?? 'Cliente Satisfecho';
-                  const textoDeOpinion = resena.text ?? resena.reviewText ?? resena.comment ?? 'Calificó nuestro servicio de manera excelente.';
-                  const numEstrellas = resena.stars ?? resena.score ?? resena.rating ?? 5;
-                  
-                  const estrellasAmarillas = '★'.repeat(numEstrellas) + '☆'.repeat(5 - numEstrellas);
-                  const fecha = resena.publishAt ?? resena.publishedAtDate ?? 'Reciente';
-
-                  tarjetaIndividual.innerHTML = `
-                    <div class="encabezado-review">
-                      <strong class="nombre-usuario">${nombreUsuario}</strong>
-                      <span class="estrellas-score">${estrellasAmarillas}</span>
-                    </div>
-                    <p class="cuerpo-texto">"${textoDeOpinion}"</p>
-                    <small class="fecha-publicacion">${fecha}</small>
-                  `;
-                  cajaContenedora.appendChild(tarjetaIndividual);
-                });
-              } catch (error) {
-                console.error('Error al procesar la API de reseñas:', error);
-                document.getElementById('google-reviews-box').innerHTML = '<p>Error temporal al cargar las reseñas de Google.</p>';
-              }
+            if (!Array.isArray(listadoReviews) || listadoReviews.length === 0) {
+              cajaContenedora.innerHTML = '<p>Por el momento no hay opiniones disponibles.</p>';
+              return;
             }
 
-            window.addEventListener('DOMContentLoaded', renderizarOpiniones);
-            </script>
+            // Filtro estricto de seguridad para mostrar únicamente 4 y 5 estrellas
+            const reviewsFiltradas = listadoReviews.filter(resena => {
+              const calificacion = resena.stars ?? resena.score ?? resena.rating ?? 5;
+              return calificacion >= 4;
+            });
+
+            if (reviewsFiltradas.length === 0) {
+              cajaContenedora.innerHTML = '<p>Por el momento no hay opiniones destacadas para mostrar.</p>';
+              return;
+            }
+
+            reviewsFiltradas.forEach(resena => {
+              const tarjetaIndividual = document.createElement('div');
+              tarjetaIndividual.className = 'tarjeta-review';
+              
+              const nombreUsuario = resena.name ?? resena.authorName ?? resena.reviewerName ?? 'Cliente Satisfecho';
+              const textoDeOpinion = resena.text ?? resena.reviewText ?? resena.comment ?? 'Calificó nuestro servicio de manera excelente.';
+              const numEstrellas = resena.stars ?? resena.score ?? resena.rating ?? 5;
+              
+              const estrellasAmarillas = '★'.repeat(numEstrellas) + '☆'.repeat(5 - numEstrellas);
+              const fecha = resena.publishAt ?? resena.publishedAtDate ?? 'Reciente';
+
+              tarjetaIndividual.innerHTML = `
+                <div class="encabezado-review">
+                  <strong class="nombre-usuario">${nombreUsuario}</strong>
+                  <span class="estrellas-score">${estrellasAmarillas}</span>
+                </div>
+                <p class="cuerpo-texto">"${textoDeOpinion}"</p>
+                <small class="fecha-publicacion">${fecha}</small>
+              `;
+              cajaContenedora.appendChild(tarjetaIndividual);
+            });
+          } catch (error) {
+            console.error('Error al procesar la API de reseñas:', error);
+            const caja = document.getElementById('google-reviews-box');
+            if (caja) caja.innerHTML = '<p>Error temporal al cargar las reseñas de Google.</p>';
+          }
+        }
+
+        // ---- 2. DISPARADORES AL CARGAR LA PÁGINA ----
+        document.addEventListener('DOMContentLoaded', () => {
+            // Arrancamos la carga de opiniones inmediatamente
+            renderizarOpiniones();
+
+            // CONTROL DEL MENÚ MÓVIL
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (mobileMenu && navLinks) {
+                mobileMenu.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (link.getAttribute('href').startsWith('#')) {
+                            setTimeout(() => {
+                                mobileMenu.classList.remove('active');
+                                navLinks.classList.remove('active');
+                            }, 150); 
+                        }
+                    });
+                });
+            }
+
+            // AUTOMATIZACIÓN DEL HERO SLIDER
+            const slides = document.querySelectorAll('.slide');
+            let currentSlide = 0;
+            const slideInterval = 5000;
+
+            if (slides.length > 0) {
+                function nextSlide() {
+                    slides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.add('active');
+                }
+                setInterval(nextSlide, slideInterval);
+            }
+        });
+    </script>
+
 
             <style>
             .reviews-container-grid {
