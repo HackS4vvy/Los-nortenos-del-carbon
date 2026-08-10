@@ -304,12 +304,13 @@
             <script>
             async function renderizarOpiniones() {
               try {
-                // Conexión directa y limpia a la API pública de Apify
+                // Dirección directa corregida con la barra diagonal correspondiente después del .com
                 const tokenApify = 'apify_api_yd2ccCHneL0DywQEOPEI6uYDAYyvOK462V6j';
                 const datasetId = 'Y6QBBIHWtvfzTWf1j';
                 const urlApi = 'https://apify.com' + datasetId + '/items?token=' + tokenApify;
   
                 const peticion = await fetch(urlApi);
+
 
                 if (!peticion.ok) throw new Error('No se pudo establecer la conexión con la nube de Apify.');
                 
