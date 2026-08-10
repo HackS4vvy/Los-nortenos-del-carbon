@@ -14,7 +14,8 @@ jobs:
 
       - name: Consultar API de Apify y guardar JSON
         run: |
-          curl -L "https://apify.com{{ secrets.APIFY_TOKEN }}&format=json" -o opiniones.json
+          curl -L 'https://apify.com{{ secrets.APIFY_TOKEN }}&format=json' -o opiniones.json
+
 
       - name: Subir cambios al repositorio de GitHub
         run: |
