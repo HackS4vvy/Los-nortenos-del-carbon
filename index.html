@@ -455,60 +455,6 @@
         });
     </script>
 
-
-            <style>
-            .reviews-container-grid {
-              display: grid;
-              grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-              gap: 25px;
-              padding: 30px 0;
-              font-family: inherit;
-            }
-            .tarjeta-review {
-              border: 1px solid #eaeaea;
-              border-radius: 16px;
-              padding: 24px;
-              background-color: #ffffff;
-              box-shadow: 0 10px 20px rgba(0,0,0,0.03);
-              transition: transform 0.2s ease;
-            }
-            .tarjeta-review:hover {
-              transform: translateY(-5px);
-            }
-            .encabezado-review {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              margin-bottom: 12px;
-            }
-            .nombre-usuario {
-              color: #2c3e50;
-              font-size: 1.05em;
-              font-weight: 600;
-            }
-            .estrellas-score {
-              color: #ffc107;
-              font-size: 1.2em;
-            }
-            .cuerpo-texto {
-              font-style: italic;
-              color: #5a6c7d;
-              line-height: 1.5;
-              margin: 0 0 12px 0;
-            }
-            .fecha-publicacion {
-              color: #b5bfc9;
-              display: block;
-              font-size: 0.85em;
-            }
-            .loading-text {
-              text-align: center;
-              color: #7f8c8d;
-              font-style: italic;
-            }
-            </style>
-        </div>
-
         <!-- Cartel del Código QR de Reseñas -->
         <div class="qr-container">
             <img src="img/reseña.jpeg" alt="Escanea el QR para dejarnos tu` + ` reseña" class="qr-banner-img">
@@ -542,48 +488,5 @@
             </div>
         </div>
     </section>
-
-    <!-- ==========================================
-         LÓGICA INTERACTIVA (JAVASCRIPT)
-         ========================================== -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // ---- 1. CONTROL DEL MENÚ MÓVIL ----
-            const mobileMenu = document.getElementById('mobile-menu');
-            const navLinks = document.querySelector('.nav-links');
-
-            if (mobileMenu && navLinks) {
-                mobileMenu.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('active');
-                    navLinks.classList.toggle('active');
-                });
-
-                document.querySelectorAll('.nav-links a').forEach(link => {
-                    link.addEventListener('click', (e) => {
-                        if (link.getAttribute('href').startsWith('#')) {
-                            setTimeout(() => {
-                                mobileMenu.classList.remove('active');
-                                navLinks.classList.remove('active');
-                            }, 150); 
-                        }
-                    });
-                });
-            }
-
-            // ---- 2. AUTOMATIZACIÓN DEL HERO SLIDER ----
-            const slides = document.querySelectorAll('.slide');
-            let currentSlide = 0;
-            const slideInterval = 5000;
-
-            if (slides.length > 0) {
-                function nextSlide() {
-                    slides[currentSlide].classList.remove('active');
-                    currentSlide = (currentSlide + 1) % slides.length;
-                    slides[currentSlide].classList.add('active');
-                }
-                setInterval(nextSlide, slideInterval);
-            }
-        });
-    </script>
 </body>
 </html>
