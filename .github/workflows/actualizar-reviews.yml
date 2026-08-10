@@ -1,34 +1,26 @@
-name: Actualizar Reseñas de Google Maps
+name: Actualizar Opiniones de Google
 
 on:
   schedule:
-    - cron: '0 0 * * *'
-  workflow_dispatch:
+    - cron: '0 0 * * *' # Se ejecuta una vez al día automáticamente
+  workflow_dispatch: # Permite ejecutarlo manualmente desde la pestaña Actions
 
 jobs:
-  build:
+  update-reviews:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Clonar el repositorio
-      uses: actions/checkout@v4
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
 
-    - name: Consultar API de Apify y guardar JSON
-      run: |
-        # 1. Forzamos a ejecutar el scraper en vivo usando tu API Token y guardamos el ID del proceso
-        curl -s -X POST "https://apify.com{{ secrets.APIFY_TOKEN }}&sync=1" \
-          -H "Content-Type: application/json" \
-          -d '{"startUrls": [{"url": "https://google.com"}], "maxReviews": 10, "language": "es"}' > run_result.json
-        
-        # 2. Extraemos de forma automática el ID del nuevo dataset que se acaba de crear
-        DATASET_ID=$(jq -r '.data.defaultDatasetId' run_result.json)
-        
-        # 3. Descargamos las reseñas nuevas y frescas directo a tu archivo reviews.json
-        curl -s "https://apify.com{{ secrets.APIFY_TOKEN }}" > reviews.json
+      - name: Descargar Dataset de Apify
+        run: |
+          # Descargamos el JSON usando la URL oficial de la API de Apify de forma segura
+          curl -L "https://apify.com{{ secrets.APIFY_TOKEN }}&format=json" > opiniones.json
 
-    - name: Subir cambios al repositorio de GitHub
-      run: |
-        git config --global user.name 'GitHub Action Bot'
-        git config --global user.email 'action@github.com'
-        git add reviews.json
-        git diff --quiet && git diff --staged --quiet || (git commit -m "Bot: Opiniones actualizadas automáticamente en vivo" && git push)
+      - name: Hacer Commit y Push del archivo JSON
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@://github.com'
+          git add opiniones.json
+          git commit -m "Automatización: Actualización de opiniones de Google" || exit 0
+          git push
