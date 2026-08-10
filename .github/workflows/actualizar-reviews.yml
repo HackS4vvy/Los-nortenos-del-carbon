@@ -2,8 +2,8 @@ name: Actualizar Reseñas de Google Maps
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Se ejecuta solo todas las noches a la medianoche
-  workflow_dispatch: # Permite que lo actives tú manualmente cuando quieras
+    - cron: '0 0 * * *'
+  workflow_dispatch:
 
 jobs:
   build:
@@ -15,7 +15,6 @@ jobs:
 
     - name: Consultar API de Apify y guardar JSON
       run: |
-        # Descarga tus datos directamente usando el ID de tu primera imagen
         curl -s "https://apify.com{{ secrets.APIFY_TOKEN }}" > reviews.json
 
     - name: Subir cambios al repositorio de GitHub
