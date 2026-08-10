@@ -1,0 +1,26 @@
+name: Actualizar Reseñas de Google Maps
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Se ejecuta solo todas las noches a la medianoche
+  workflow_dispatch: # Permite que lo actives tú manualmente cuando quieras
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Clonar el repositorio
+      uses: actions/checkout@v4
+
+    - name: Consultar API de Apify y guardar JSON
+      run: |
+        # Descarga tus datos directamente usando el ID de tu primera imagen
+        curl -s "https://apify.com{{ secrets.APIFY_TOKEN }}" > reviews.json
+
+    - name: Subir cambios al repositorio de GitHub
+      run: |
+        git config --global user.name 'GitHub Action Bot'
+        git config --global user.email 'action@github.com'
+        git add reviews.json
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Bot: Opiniones actualizadas automáticamente" && git push)
