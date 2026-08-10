@@ -14,11 +14,21 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Consultar API de Apify y guardar JSON
-      run: curl -s 'https://apify.com{{ secrets.APIFY_TOKEN }}' > reviews.json
+      run: |
+        # 1. Forzamos a ejecutar el scraper en vivo usando tu API Token y guardamos el ID del proceso
+        curl -s -X POST "https://apify.com{{ secrets.APIFY_TOKEN }}&sync=1" \
+          -H "Content-Type: application/json" \
+          -d '{"startUrls": [{"url": "https://google.com"}], "maxReviews": 10, "language": "es"}' > run_result.json
+        
+        # 2. Extraemos de forma automática el ID del nuevo dataset que se acaba de crear
+        DATASET_ID=$(jq -r '.data.defaultDatasetId' run_result.json)
+        
+        # 3. Descargamos las reseñas nuevas y frescas directo a tu archivo reviews.json
+        curl -s "https://apify.com{{ secrets.APIFY_TOKEN }}" > reviews.json
 
     - name: Subir cambios al repositorio de GitHub
       run: |
         git config --global user.name 'GitHub Action Bot'
         git config --global user.email 'action@github.com'
         git add reviews.json
-        git diff --quiet && git diff --staged --quiet || (git commit -m "Bot: Opiniones actualizadas automáticamente" && git push)
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Bot: Opiniones actualizadas automáticamente en vivo" && git push)
