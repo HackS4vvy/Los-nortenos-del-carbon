@@ -329,7 +329,7 @@
         </div>
     </section>
 
-    <!-- ==========================================================================
+   <!-- ==========================================================================
          SECCIÓN DE OPINIONES
          ========================================================================== -->
     <section id="opiniones" class="reviews-section">
@@ -340,22 +340,20 @@
             <div id="google-reviews-box" class="reviews-container-grid">
                 <p class="loading-text">Cargando las opiniones de nuestros clientes...</p>
             </div>
+        </div>
+    </section>
 
-                <!-- ==========================================
+    <!-- ==========================================
          LÓGICA INTERACTIVA GENERAL Y APIS
          ========================================== -->
     <script>
-        // ---- 1. CONSULTA DIRECTA A LA API DE OPINIONES ----
+        // ---- 1. CONSULTA DE OPINIONES DESDE EL ARCHIVO LOCAL SEGURO ----
         async function renderizarOpiniones() {
           try {
-            // Dirección URL robusta y perfectamente formateada con sus diagonales correspondientes
-            const tokenApify = 'apify_api_yd2ccCHneL0DywQEOPEI6uYDAYyvOK462V6j';
-            const datasetId = 'Y6QBBIHWtvfzTWf1j';
-            const urlApi = 'https://apify.com' + datasetId + '/items?token=' + tokenApify;
-            
+            // Consumimos el JSON local generado automáticamente por GitHub Actions
             // Forzamos al navegador a ignorar la caché con un parámetro de tiempo
-            const peticion = await fetch(urlApi + '&v=' + new Date().getTime());
-            if (!peticion.ok) throw new Error('No se pudo establecer la conexión con la nube de Apify.');
+            const peticion = await fetch('./opiniones.json?v=' + new Date().getTime());
+            if (!peticion.ok) throw new Error('No se pudo establecer la conexión con el archivo de opiniones.');
             
             const listadoReviews = await peticion.json();
             const cajaContenedora = document.getElementById('google-reviews-box');
@@ -384,10 +382,16 @@
               
               const nombreUsuario = resena.name ?? resena.authorName ?? resena.reviewerName ?? 'Cliente Satisfecho';
               const textoDeOpinion = resena.text ?? resena.reviewText ?? resena.comment ?? 'Calificó nuestro servicio de manera excelente.';
-              const numEstrellas = resena.stars ?? resena.score ?? resena.rating ?? 5;
               
+              // Nos aseguramos de parsear el número de estrellas correctamente
+              const numEstrellas = Math.min(5, Math.max(0, parseInt(resena.stars ?? resena.score ?? resena.rating ?? 5)));
               const estrellasAmarillas = '★'.repeat(numEstrellas) + '☆'.repeat(5 - numEstrellas);
-              const fecha = resena.publishAt ?? resena.publishedAtDate ?? 'Reciente';
+              
+              // Formatear fecha si viene en un formato largo de Apify o texto amigable
+              let fecha = resena.publishAt ?? resena.publishedAtDate ?? 'Reciente';
+              if (fecha.includes('T')) { 
+                fecha = fecha.split('T')[0]; // Extrae solo YYYY-MM-DD si es una fecha ISO
+              }
 
               tarjetaIndividual.innerHTML = `
                 <div class="encabezado-review">
@@ -400,7 +404,7 @@
               cajaContenedora.appendChild(tarjetaIndividual);
             });
           } catch (error) {
-            console.error('Error al procesar la API de reseñas:', error);
+            console.error('Error al procesar las reseñas:', error);
             const caja = document.getElementById('google-reviews-box');
             if (caja) caja.innerHTML = '<p>Error temporal al cargar las reseñas de Google.</p>';
           }
