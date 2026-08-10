@@ -309,7 +309,9 @@
                 const datasetId = 'Y6QBBIHWtvfzTWf1j';
                 const urlApi = 'https://apify.com' + datasetId + '/items?token=' + tokenApify;
   
-                const peticion = await fetch(urlApi);
+                // El "+ '&v=' + new Date().getTime()" obliga al navegador a descargar los datos frescos sin usar la caché
+                const peticion = await fetch(urlApi + '&v=' + new Date().getTime());
+
 
 
                 if (!peticion.ok) throw new Error('No se pudo establecer la conexión con la nube de Apify.');
