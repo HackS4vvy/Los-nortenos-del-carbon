@@ -856,3 +856,132 @@ h2 {
     }
 }
 
+/* ==========================================================================
+   SECCIÓN DE OPINIONES
+   ========================================================================== */
+.reviews-section {
+  background-color: #e8e0d1; /* mismo tono arena que .section-padding */
+  padding: 80px 5%;
+  overflow: hidden;
+}
+
+.reviews-section .reviews-eyebrow {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #697359;
+  margin-bottom: 8px;
+}
+
+.reviews-section .section-title {
+  margin-bottom: 45px;
+}
+
+.reviews-ticker-wrap {
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+.reviews-ticker-track {
+  display: flex;
+  gap: 25px;
+  width: max-content;
+  animation: reviews-scroll linear infinite;
+  animation-duration: var(--ticker-duration, 40s);
+}
+
+.reviews-ticker-wrap:hover .reviews-ticker-track {
+  animation-play-state: paused;
+}
+
+@keyframes reviews-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.tarjeta-review {
+  flex: 0 0 300px;
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 22px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.3s ease;
+  text-align: left;
+}
+
+.tarjeta-review:hover {
+  transform: translateY(-5px);
+}
+
+.encabezado-review {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed rgba(105, 67, 33, 0.2);
+}
+
+.nombre-usuario {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: #4a2e16;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.estrellas-score {
+  color: #c9a04e;
+  font-size: 15px;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+}
+
+.cuerpo-texto {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #4a3826;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.fecha-publicacion {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(105, 67, 33, 0.2);
+  color: #9c8467;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.loading-text {
+  font-family: 'Poppins', sans-serif;
+  color: #9c8467;
+  text-align: center;
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .reviews-section { padding: 50px 5%; }
+  .tarjeta-review { flex-basis: 260px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reviews-ticker-track { animation: none; }
+  .reviews-ticker-wrap { overflow-x: auto; }
+  .tarjeta-review { transition: none; }
+}
