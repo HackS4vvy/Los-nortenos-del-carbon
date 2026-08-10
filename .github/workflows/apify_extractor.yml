@@ -1,10 +1,8 @@
 name: Extractor de Resenas Apify
-
 on:
   schedule:
     - cron: '0 0 * * *'
   workflow_dispatch:
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,15 +10,17 @@ jobs:
       - name: Clonar el repositorio
         uses: actions/checkout@v4
 
-      - name: Consultar API de Apify y guardar JSON
+      - name: Descargar desde Apify
+        env:
+          MY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          DATASET_ID: "og4WtcfeceKblJDtL"
         run: |
-          curl -L 'https://apify.com{{ secrets.APIFY_TOKEN }}&format=json' -o opiniones.json
-
+          curl -L "https://api.apify.com/v2/datasets/${DATASET_ID}/items?token=${MY_TOKEN}&format=json" -o opiniones.json
 
       - name: Subir cambios al repositorio de GitHub
         run: |
           git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@://github.com'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add opiniones.json
           git commit -m "Automatización: Actualización de opiniones de Google" || exit 0
-          git push
+          git push origin main
