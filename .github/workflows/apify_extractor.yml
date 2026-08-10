@@ -1,4 +1,4 @@
-name: Actualizar Opiniones de Google
+name: Extractor de Resenas Apify
 
 on:
   schedule:
