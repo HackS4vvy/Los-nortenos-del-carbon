@@ -307,7 +307,7 @@
 <script>
 async function renderizarOpiniones() {
   try {
-    const peticion = await fetch('https://losnortenosdelcarbon.com');
+    const peticion = await fetch('https://github.io');
     if (!peticion.ok) throw new Error('No se pudo encontrar el archivo de reseñas.');
     
     const listadoReviews = await peticion.json();
