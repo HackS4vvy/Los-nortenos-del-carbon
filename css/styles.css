@@ -882,12 +882,22 @@ h2 {
 }
 
 .tarjeta-review {
-  background: #f7f1e6; /* crema cálido, distinto del fondo arena de la sección */
-  border: 1px solid rgba(105, 67, 33, 0.15);
-  box-shadow: 0 10px 25px rgba(74, 46, 22, 0.15);
+  flex: 0 0 300px;
+  background: #ffffff;
+  border: 1px solid transparent;
+  border-radius: 15px;
+  padding: 22px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .tarjeta-review:hover {
+  transform: translateY(-5px);
+  border-color: rgba(105, 67, 33, 0.25);
   box-shadow: 0 14px 30px rgba(74, 46, 22, 0.22);
 }
 
