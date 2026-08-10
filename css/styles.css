@@ -859,66 +859,36 @@ h2 {
 /* ==========================================================================
    SECCIÓN DE OPINIONES
    ========================================================================== */
-.reviews-section {
-  background-color: #e8e0d1; /* mismo tono arena que .section-padding */
-  padding: 80px 5%;
-  overflow: hidden;
-}
-
 .reviews-section .reviews-eyebrow {
-  text-align: center;
+  display: inline-block;
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  font-size: 14px;
-  letter-spacing: 2px;
+  font-size: 12px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: #697359;
-  margin-bottom: 8px;
+  color: #ffffff;
+  background-color: #697359;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+
+.reviews-section .container {
+  text-align: center;
 }
 
 .reviews-section .section-title {
-  margin-bottom: 45px;
-}
-
-.reviews-ticker-wrap {
-  position: relative;
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
-}
-
-.reviews-ticker-track {
-  display: flex;
-  gap: 25px;
-  width: max-content;
-  animation: reviews-scroll linear infinite;
-  animation-duration: var(--ticker-duration, 40s);
-}
-
-.reviews-ticker-wrap:hover .reviews-ticker-track {
-  animation-play-state: paused;
-}
-
-@keyframes reviews-scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  text-align: center;
 }
 
 .tarjeta-review {
-  flex: 0 0 300px;
-  background: #ffffff;
-  border-radius: 15px;
-  padding: 22px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  transition: transform 0.3s ease;
-  text-align: left;
+  background: #f7f1e6; /* crema cálido, distinto del fondo arena de la sección */
+  border: 1px solid rgba(105, 67, 33, 0.15);
+  box-shadow: 0 10px 25px rgba(74, 46, 22, 0.15);
 }
 
 .tarjeta-review:hover {
-  transform: translateY(-5px);
+  box-shadow: 0 14px 30px rgba(74, 46, 22, 0.22);
 }
 
 .encabezado-review {
