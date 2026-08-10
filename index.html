@@ -304,52 +304,64 @@
             <p class="loading-text">Cargando las opiniones de nuestros clientes...</p>
         </div>
 
-        <script>
-        async function renderizarOpiniones() {
-          try {
-            // Consumimos el archivo JSON generado automáticamente en tu repositorio
-            const peticion = await fetch('./reviews.json');
-            if (!peticion.ok) throw new Error('No se pudo encontrar el archivo de reseñas.');
-            
-            const listadoReviews = await peticion.json();
-            const cajaContenedora = document.getElementById('google-reviews-box');
-            cajaContenedora.innerHTML = ''; // Limpiamos el mensaje de carga preliminar
+<script>
+async function renderizarOpiniones() {
+  try {
+    const peticion = await fetch('./reviews.json');
+    if (!peticion.ok) throw new Error('No se pudo encontrar el archivo de reseñas.');
+    
+    const listadoReviews = await peticion.json();
+    const cajaContenedora = document.getElementById('google-reviews-box');
+    cajaContenedora.innerHTML = ''; 
 
-            // FILTRO DE SEGURIDAD: Mostramos únicamente opiniones de 4 y 5 estrellas
-            const reviewsFiltradas = listadoReviews.filter(resena => resena.stars >= 4);
+    // Validamos que los datos sean realmente una lista/arreglo válido
+    if (!Array.isArray(listadoReviews) || listadoReviews.length === 0) {
+      cajaContenedora.innerHTML = '<p>Por el momento no hay opiniones disponibles.</p>';
+      return;
+    }
 
-            if (reviewsFiltradas.length === 0) {
-              cajaContenedora.innerHTML = '<p>Por el momento no hay opiniones destacadas para mostrar.</p>';
-              return;
-            }
+    // Filtramos con flexibilidad buscando "stars", "score" o dándolas por buenas si no vienen definidas
+    const reviewsFiltradas = listadoReviews.filter(resena => {
+      const calificacion = resena.stars ?? resena.score ?? resena.rating ?? 5;
+      return calificacion >= 4;
+    });
 
-            // Iteramos sobre el listado filtrado y creamos las tarjetas
-            reviewsFiltradas.forEach(resena => {
-              const tarjetaIndividual = document.createElement('div');
-              tarjetaIndividual.className = 'tarjeta-review';
-              
-              const textoDeOpinion = resena.text ? `"${resena.text}"` : 'Calificó nuestro servicio de manera excelente.';
-              const estrellasAmarillas = '★'.repeat(resena.stars) + '☆'.repeat(5 - resena.stars);
+    if (reviewsFiltradas.length === 0) {
+      cajaContenedora.innerHTML = '<p>Por el momento no hay opiniones destacadas para mostrar.</p>';
+      return;
+    }
 
-              tarjetaIndividual.innerHTML = `
-                <div class="encabezado-review">
-                  <strong class="nombre-usuario">${resena.name || 'Cliente Satisfecho'}</strong>
-                  <span class="estrellas-score">${estrellasAmarillas}</span>
-                </div>
-                <p class="cuerpo-texto">${textoDeOpinion}</p>
-                <small class="fecha-publicacion">${resena.publishAt || 'Reciente'}</small>
-              `;
-              cajaContenedora.appendChild(tarjetaIndividual);
-            });
-          } catch (error) {
-            console.error('Error al pintar los datos:', error);
-            document.getElementById('google-reviews-box').innerHTML = '<p>Error temporal al cargar las reseñas de Google.</p>';
-          }
-        }
+    reviewsFiltradas.forEach(resena => {
+      const tarjetaIndividual = document.createElement('div');
+      tarjetaIndividual.className = 'tarjeta-review';
+      
+      // Mapeamos de forma segura los nombres y textos del JSON de Apify
+      const nombreUsuario = resena.name ?? resena.authorName ?? resena.reviewerName ?? 'Cliente Satisfecho';
+      const textoDeOpinion = resena.text ?? resena.reviewText ?? resena.comment ?? 'Calificó nuestro servicio de manera excelente.';
+      const numEstrellas = resena.stars ?? resena.score ?? resena.rating ?? 5;
+      
+      const estrellasAmarillas = '★'.repeat(numEstrellas) + '☆'.repeat(5 - numEstrellas);
+      const fecha = resena.publishAt ?? resena.publishedAtDate ?? resena.date ?? 'Reciente';
 
-        // Ejecutamos la función de lectura inmediatamente al cargar la página
-        window.addEventListener('DOMContentLoaded', renderizarOpiniones);
-        </script>
+      tarjetaIndividual.innerHTML = `
+        <div class="encabezado-review">
+          <strong class="nombre-usuario">${nombreUsuario}</strong>
+          <span class="estrellas-score">${estrellasAmarillas}</span>
+        </div>
+        <p class="cuerpo-texto">"${textoDeOpinion}"</p>
+        <small class="fecha-publicacion">${fecha}</small>
+      `;
+      cajaContenedora.appendChild(tarjetaIndividual);
+    });
+  } catch (error) {
+    console.error('Error al pintar los datos:', error);
+    document.getElementById('google-reviews-box').innerHTML = '<p>Error temporal al cargar las reseñas de Google.</p>';
+  }
+}
+
+window.addEventListener('DOMContentLoaded', renderizarOpiniones);
+</script>
+
 
         <!-- ESTILOS VISUALES INTERNOS (Hacen juego con el formato adaptable de cuadrícula) -->
         <style>
